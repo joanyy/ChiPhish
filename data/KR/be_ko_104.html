@@ -1,0 +1,961 @@
+
+<!DOCTYPE HTML>
+
+<html lang="ko-KR">
+<head>
+<meta charset="utf-8"/>
+<meta content="No-cache" http-equiv="Cache-control">
+<meta content="No-cache" http-equiv="Pragma"/>
+<meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+<script>
+			(function (d,s){var f = d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+			j.src="https://montelena.auction.co.kr/montelena.js?path="+location.href; f.parentNode.insertBefore(j, f);})(document, "script");
+		</script>
+<title>옥션 - 로그인</title>
+<link href="https://script.auction.co.kr/pc/style/css/member_login.css" rel="stylesheet" type="text/css"/>
+<script src="https://script.auction.co.kr/common/jquery.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/common/help.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/style/js/common.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/pc/style/js/application/login/app.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/MembersApp/Membership/Signup/MemberSignup.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/common/kdfense_object.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/MembersApp/Authenticate/popup.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/MembersApp/Authenticate/BotDetectScript.js" type="text/javascript"></script>
+<script src="https://memberssl.auction.co.kr/Authenticate/js/jquery.placeholder.min.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/ad/arche.ad.enumtypes.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/ad/log.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/Logging/errorLogging.js" type="text/javascript"></script>
+<script src="https://script.auction.co.kr/Logging/MemberErrorLogging.js" type="text/javascript"></script>
+<script defer="" src="//developers.kakao.com/sdk/js/kakao.js?v=221017"></script>
+<!-- 인터리젠 ATO Face Engine -->
+<!-- <script type="text/javascript" src="@Url.Content("/Common/Script/ATO/face.config.js")"></script>순서 중요-->
+<script>
+			var faceConfig = {
+				packetVersion: 3,
+				logLevel: "error",
+				siteId: "",
+				url:'https://trust.auction.co.kr?timeout=1000',
+				dataStore: {
+					cookie: {
+						use: true,
+						cookieExpire: 365,
+						sameSite: "lax"
+					},
+					localStorage: {
+						use: true
+					},
+					indexedDB: {
+						use: true,
+						database: "faceDatabase",
+						tableName: "faceTable"
+					}
+				},
+				keyName: "73976c5b790b466791bd62b66cd9982b",
+				keyMetaName: "34d589d9f4bf462292977a19f9e21781" // 수집서버 응답실패 시, 신규 키 생성 옵션
+			};
+		</script>
+<script src="/Common/Script/ATO/polyfill.min.js" type="text/javascript"></script>
+<script src="/Common/Script/ATO/face-compatible.min.js?v=20220926" type="text/javascript"></script>
+<script type="text/javascript">
+
+			var _FACE_ID_INFO = {};
+			/*
+			* 인터리젠 ATO 시스템을 위한 faceId 생성
+			*/
+			function generateATOFaceId() {
+				FaceJS.load(1000).then(function (res) {
+					// 결과 값 처리
+					_FACE_ID_INFO = res;
+					//let result = JSON.stringify(res, null, 4);
+					//console.log(res);
+					// 인터리젠 ATO 식별값을 faceData, uniqueKey 값으로 모든 form의 hidden에 넣어준다.
+					if (res && res.data && $("#faceData")) {
+						$("#faceData").val(res.data);
+					}
+
+					if (res && res.uuidKey && $("#uniqueKey")) {
+						$("#uniqueKey").val(res.uuidKey);
+					}
+
+				});
+			}
+			// genereate ato faceid at onload
+			generateATOFaceId();
+
+		</script>
+<!-- // 인터리젠 ATO Face Engine -->
+<script>
+			$(function () {
+				$('input, textarea').placeholder();
+			});
+			document.addEventListener("click", function (e) { console.log(e.target); });
+		</script>
+<script type="text/javascript"> 
+		<!--
+		window.onerror = Logger.ErrorHandler;
+		
+		function FORBIDDEN_BACK_BUTTON()
+		{			
+			document.onkeydown=function() {				
+				if(event.srcElement.type != "text" && event.srcElement.type != "password") {					
+					if(event.keyCode==8) {						
+						return false;
+					}
+				}		
+			}			
+		}
+		
+		function popuploginheight(width)
+		{
+			var reWidth = parseInt(width);
+			
+			if( reWidth != (reWidth || reWidth < 500 || reWidth > 770) )
+				reWidth = 500;
+			else
+				reWidth = parseInt(width);
+			if(reWidth > 500)
+				document.body.leftMargin = document.body.leftMargin + (reWidth - 500) / 2;
+				window.resizeTo(reWidth,700,true);
+		}
+		
+			
+		//<!-- Size 420_533 -->
+		function onSubmit()
+		{      
+		    var form = document.form;
+
+		    if (form.socialSessionId.value.length > 0) {
+		        document.form.action = "https://signin.auction.co.kr/Authenticate/loginSocial.aspx" + "?popup=" + document.form.auctionHelp.value;
+			    return (true);
+		    }
+			
+ 			len = form.elements.length;
+			for (i = 0; i < len; i++)
+			{
+				if ( form.elements[i].type == "password" )
+				{
+					value = GetPwdValue_K(form, form.elements[i],"KingsE2E", "", "");
+					form.elements[i].value  = value;
+				}
+			}
+                
+			// Checking for id
+			if (form.id.value.length == 0) {
+				alert("회원ID를 입력해 주세요.");
+				form.id.focus();
+				return (false);
+			}
+			// Checking for password validity
+			if (form.password.value.length == 0) {
+			    alert("비밀번호를 입력해 주세요.");
+			    form.password.focus();
+			    return (false);
+			}
+
+		            
+            
+			document.form.action = "https://signin.auction.co.kr/Authenticate/login.aspx";
+			return (true);
+		}
+      	
+		function MoveScroll()
+		{
+			//Help 페이지 테이블 중앙
+			window.scrollTo(0,0);
+		}
+		
+		function focusid()
+		{
+			FORBIDDEN_BACK_BUTTON();
+		 
+			if(document.getElementById("id").value.length>0){
+				var passObj = document.getElementById("password");
+				if(passObj != null) 
+				{
+					passObj.focus();
+				}
+			}else{
+				
+					var idObj = document.getElementById("id");
+					if(idObj != null) 
+					{
+						idObj.focus();
+					}
+				
+			}
+
+			//해상도 체크를 위해서			
+			try{
+				document.getElementById("screen_height").value=screen.height;
+				document.getElementById("screen_width").value=screen.width;
+			}catch(err){}
+		}
+		
+		function phishingCheck()
+		{
+			return;
+			// 미사용 폐기.  			
+		}		 
+		
+		function install()
+		{	
+			//버전체크해서 인스톨 파일의 종류를 선택하게끔한다.
+			window.open('http://download.auction.co.kr/KeySecurity/installkdf8.exe','download','width=0,scrollbars=0,height=0,toolbar=0,location=0,directories=0,status=0,menuBar=0,screenX=-50,sc reenY=-50,left=-100,top=-100');
+			installLocal();
+		}
+		
+		function SubmitCheck(flag)
+		{
+		
+			var form = document.form;			
+			document.form.action = "https://memberssl.auction.co.kr/Authenticate/LoginNonMember.aspx";
+			
+ 
+			if(flag == "buy")
+			{			
+					var ipayObj = document.getElementById("isIpay");
+					
+					if(ipayObj != null && ipayObj != 'undefined')
+					{
+						ipayObj.value = "T";	  
+					}
+					
+					document.form.submit();		 			 
+			}
+			else if(flag == "nonmember")	// 비회원
+			{
+				document.form.action = "https://memberssl.auction.co.kr/Authenticate/NonMemberPaymentList.aspx";
+				var txtPass, txtName, txtTel;				
+				txtPass = document.getElementById("txtPass");
+				txtName = document.getElementById("txtName");
+				txtTel = document.getElementById("txtTel");
+
+				txtPass.value = GetPwdValue_K(form, txtPass,"KingsE2E", "", "");
+
+				if (txtName.value.length == 0) {
+					alert("주문자명을 입력해 주세요.");
+					txtName.focus();
+					return (false);
+				}
+
+				if (txtTel.value.length == 0) {
+					alert("핸드폰번호를 입력해 주세요.");
+					txtTel.focus();
+					return (false);
+				}
+				// Checking for password validity
+				if (txtPass.value.length == 0) {
+					alert("주문비밀번호를 입력해 주세요.");
+					txtPass.focus();
+					return (false);
+				}
+
+        //팝업처리? - 뭘 확인하려고 했는지 모르겠다..
+				if (opener != null && !opener.closed) {
+				  //alert("test3");
+				}
+				
+        document.form.onsubmit="return true";
+        document.form.submit();
+
+	
+			}
+		}
+		
+		function onFocusCaptcha()
+		{
+			if (form.txtCaptcha.value == "하단 문자를 입력해주세요.")
+			{
+				form.txtCaptcha.value = "";
+			}
+		}
+
+		function LoginErrHelpPop(){					
+		    var url = "http://member.auction.co.kr/help/Content.aspx?Code=M0103001";
+		    var NextUrl = 'http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C44&next=';
+			NextUrl += url;
+
+			window.open(NextUrl, 'help', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=yes,resizable=Yes,copyhistory=0,width=543,height=544, left=120,top=150').focus();
+		}
+
+    function ChangePageToVerifyIdentity()
+    {
+      var nextUrl = document.getElementById("url").value;
+      var changeUrl = "https://memberssl.auction.co.kr/Common/VerifyIdentity.aspx?ctype=J&next=" + nextUrl;
+      window.document.location.href = changeUrl;
+      //window.open(popupUrl,'verifyPop','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=no,resizable=Yes,copyhistory=0,width=500,height=461,left=120,top=160').focus();
+    }
+		 
+		//-->
+
+    function DeactivateKDefenseInstallerLink()
+    {
+      if(navigator.userAgent.toLowerCase().indexOf('msie') <= 0)
+        $(".install_link").attr("style", "display:none");
+
+    }
+
+    function CheckAndPopIEVersionGuide()
+    {
+      var rv = -1;
+      if (navigator.appName == 'Microsoft Internet Explorer') {
+          var ua = navigator.userAgent;
+          var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+          if (re.exec(ua) != null)
+              rv = parseFloat(RegExp.$1);
+      }
+      
+      if(rv < 7 && rv > -1)
+      {
+        window.open('http://www.auction.co.kr/popup/iePopUp.html', 'popup','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, width=604px, height=484');
+
+      }
+    }
+
+    function isNumberKey(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode < 48 || charCode > 57)
+        return false;
+      return true;
+    }
+
+	
+		</script>
+<link href="https://script.auction.co.kr/pc/style/css/common.css" rel="stylesheet" type="text/css"/>
+<link href="https://script.auction.co.kr/pc/style/css/common/ui/common.css" rel="stylesheet" type="text/css"/>
+<link href="https://script.auction.co.kr/pc/style/css/application/login/app.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+		  document.domain = "auction.co.kr";
+		  regFormEle_K("form.password", "none");
+		</script>
+<script type="text/javascript">
+		    // 페이지 로딩과 함께 FB 인스턴스 초기화
+		    var authorizeCode = '';
+		    var authorizeState = '';
+		    var loginType = 0;
+            var socialType = '1';
+		    var isNotIE = navigator.userAgent.indexOf('AppleWebKit') > 0 ? true : false;
+
+		    $(document).ready(function () {
+		        var authGateMode = isKakaoAuthGateMode();
+
+		        if (!authGateMode) {
+		            $('#btn_kakao').bind('click', function (e) {
+                        Kakao.init('6eb3161de2ca9b1d5446c2cc9b4f592c');
+		                loginWithKakao();
+		            });
+                    $('#btn_toss').bind('click', function (e) {
+                        loginWithToss();
+		            });
+		        } else {
+		            $('#btn_kakao').bind('click', function (e) {
+		                e.preventDefault();
+		            });
+		            $('#btn_toss').bind('click', function (e) {
+		                e.preventDefault();
+		            });
+		        }
+
+		        if (authorizeCode && authorizeState && authorizeCode.length > 0 && authorizeState.length > 0) {
+		            var state = JSON.parse(decodeURIComponent(authorizeState));
+		            if (state.query.length > 0) {
+		                window.location.replace(decodeURIComponent(state.uri) + decodeURIComponent(state.query) + '&code=' + authorizeCode);
+		            } else {
+		                window.location.replace(decodeURIComponent(state.uri) + '?code=' + authorizeCode);
+		            }
+		        } else if (authorizeCode && authorizeCode.length > 0) {
+		            openSocialSession(signInMethod, authorizeCode).done(function (res) {
+		                if (res === null || res.d === null || res.d.Id === null) {
+		                    alert('일시적인 문제로 로그인에 실패하였습니다. 다시 시도해주세요.');
+		                    history.back();
+		                    return;
+		                }
+		                var socialSessionId = res.d.Id;
+		                document.form.socialType.value = signInMethod;
+		                document.form.socialSessionId.value = socialSessionId;
+		                onSubmit();
+		                document.form.submit();
+		            });
+		        }
+
+		        var membersAppUrl = 'https://memberssl.auction.co.kr';
+		        var imageUrl = 'http://pics.auction.co.kr';
+		        var nextUrl = 'http%3a%2f%2fwww.auction.co.kr';
+		        var certifyType = 'D';
+		        var return_value = 0;
+		        var inc_bool_over19 = false;
+		        document.form.auctionHelp.value = 0;
+		        var loginTabType = 'member';
+		        var internalIp = '147.162.22.188';
+
+		        $('#internalIp').text(internalIp);
+
+		        if (!(loginType == 10 || loginType == 20 || loginType == 30)) {
+		            $('#login_tab').css('display', 'block');
+                }
+
+		        if (loginTabType === 'member') {
+		            $('#login_tab_member').trigger('click');
+		        } else if (loginTabType === 'nonmember') {
+		            $('#login_tab_non_member').trigger('click');
+                }
+
+		        if (return_value < 0 && return_value != -4 && return_value != -11 && return_value != -12 && return_value != -13 && return_value != -51) {
+		            $("#error_msg").css("display", "block");
+		        }
+
+		        if (return_value === -4) {
+		            $("#error_msg_box").css("display", "block");
+                    $("#login_error_4").css("display", "block");
+		        }
+
+		        if (return_value === -11 || return_value === -12 || return_value === -13) {
+		            $("#error_msg_box").css("display", "block");
+                    $("#login_error_11_12_13").css("display", "block");
+                }
+                
+                if (inc_bool_over19 && (return_value == 0 || return_value == -51)) {
+                    $('#login_tab').css('display', 'none');
+		            $("#login_adult").css("display", "block");
+                }
+
+                $('#password').keyup(function (e) {
+                    if (isNotIE && e.keyCode == 13) {
+                        onSubmit();
+		                document.form.submit();
+                    } else {
+                        keycheck(e);
+                    }
+                });
+                
+				function facebookReady() {
+					FB.init({
+						appId: '786571551437199',
+						cookie: true,  // 쿠키가 세션을 참조할 수 있도록 허용
+						xfbml: true,  // 소셜 플러그인이 있으면 처리
+						version: 'v2.1' // 버전 2.1 사용
+					});
+
+					// FB.getLoginStatus(function (response) {
+					//     statusChangeCallback(response);
+					// });
+				}
+
+				if (window.FB) {
+					facebookReady();
+				} else {
+					window.fbAsyncInit = facebookReady;
+				}
+		    });
+
+		    function isKakaoAuthGateMode() {
+		        return authorizeCode && authorizeCode.length > 0 ? true : false;
+		    }
+			
+			// SDK를 비동기적으로 호출
+      (function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      } (document, 'script', 'facebook-jssdk'));
+
+      // APP_ID 와 결과를 전달받을 경로를 파라메터로 주어 권한 요청
+      function requestAccessPermission(app_id, currentPage) {
+        document.location.href = "https://www.facebook.com/dialog/oauth?client_id=" + app_id + "&redirect_uri=" + currentPage + "&scope=email,public_profile&response_type=code";
+      }
+
+      function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+          statusChangeCallback(response);
+        });
+      }
+
+			//옥션 로그인페이지에서 facebook login 버튼 클릭시 호출
+      function checkFBStatus() {
+      	var status;
+      	FB.getLoginStatus(function (response) {
+      		status = response.status;
+      		if (status == "connected") {
+      			$("#accessToken").val(response.authResponse.accessToken);
+      			LoginByFacebook();
+      		}
+      		else {
+      			FB.login(function (response) {
+      				if (response.status === 'connected') {
+      					$("#accessToken").val(response.authResponse.accessToken);
+      					LoginByFacebook();
+      				}
+      				else {
+      				}
+      			});
+      		}
+      	});
+      }
+
+      function statusChangeCallback(response) {
+      	if (response.status === 'connected') {
+      		$("#accessToken").val(response.authResponse.accessToken);
+      		LoginByFacebook();
+      	}
+      	else {
+      	}
+      }
+
+      //try Login
+      function LoginByFacebook() {
+      	$("#siteType").val("F");
+      	var form = document.getElementById("snsForm");
+      	form.submit();
+      }
+
+      //test for logout
+      function testAPI() {
+      	FB.logout(function (response) {
+      		// Person is now logged out
+      	});
+      }
+
+      function setLoginTabType(type) {
+          if (type === 'member') {
+              $('#loginTabType').val('member');
+          } else if (type === 'nonmember') {
+              $('#loginTabType').val('nonmember');
+          }
+      }
+      </script>
+<!-- DA광고 노출 FRONT 작업 -->
+<script src="https://script.auction.co.kr/common/ats_iac.js" type="text/javascript"></script>
+<script type="text/javascript">
+		    // 광고노출
+		    function adDisp() {
+		        var isShowImp = true;
+		        var imageUrl = 'https://ad-img.gmarket.com/ADS/Contents_/2023_03_06_01_46_08/55493ff4f1814f77.PNG';
+		        var imageDescription = '휴대폰 번호로 간편로그인 휴대폰번호 010-';
+		        var imageWidth = 440;
+		        var imageHeight = 720;
+		        var landingUrl = 'https://safeconnect.co.kr/sfconn/um/auction01_csc_pc?ptrSvcSn=psn102&et=auction01_csc_pc';
+		        var clickSecureUrl = 'https://ats.auction.co.kr/da/click?requestId=5081b5d4-2577-4737-bac2-ab7c6c77c1f6&adImpId=40d303fca9be46cb8f50323409121f30';
+		        var impSecureUrl = 'https://ats.auction.co.kr/da/vimp?requestId=5081b5d4-2577-4737-bac2-ab7c6c77c1f6&adImpId=40d303fca9be46cb8f50323409121f30';
+
+		        if (isShowImp) {
+		            //$('#ad2').css('width', imageWidth);
+		            //$('#ad2').css('height', imageHeight);
+		            $('#ad2').attr('src', imageUrl); // img tag
+		            $('#ad2').attr('alt', imageDescription);
+		            $('#ad2').parent().attr('href', landingUrl); // a tag
+		            $('#ad2').css('display', 'block');
+		            $('#ad2').parent().bind('click', function () {
+		                $.ajax({
+		                    type: 'GET',
+		                    url: clickSecureUrl
+		                })
+		            });
+		            $.ajax({
+		                type: 'GET',
+		                url: impSecureUrl + '&pageType=7'
+		            })
+		        } else {
+		            $('#ad2').attr('src', 'http://image.auction.co.kr/DA/base/alogin_44_720440.jpg');
+		            $('#ad2').parent().bind('click', function (e) {
+		                e.preventDefault();
+		            });
+		            $('#ad2').css('cursor', 'default');
+		            $('#ad2').css('display', 'block');
+		        }
+		    }
+		</script>
+<!--// DA광고 노출 FRONT 작업 -->
+<script type="text/javascript">
+        	//Kakao.init('6eb3161de2ca9b1d5446c2cc9b4f592c');
+            var signInMethod = socialType;
+
+            function loginWithKakao() {
+                var queryString = socialStateQueryStr(1);
+                
+                var authorizeState = encodeURIComponent(JSON.stringify({uri: encodeURIComponent(window.location.origin + window.location.pathname), query: encodeURIComponent(queryString)}));
+                if (!Kakao.isInitialized()) {
+                    Kakao.init('6eb3161de2ca9b1d5446c2cc9b4f592c');
+                }
+
+                Kakao.Auth.authorize({
+                	serviceTerms: "iac_buyer_terms_policy,iac_finance_terms_policy,iac_personal_information_required,iac_term_summary_notice,iac_personal_information_optional,iac_receive_marketing_info,iac_over_14years_old",
+                	redirectUri: "https://signin.auction.co.kr/social/authorizegateway.aspx",
+                    state: authorizeState
+                });
+                //Kakao.Auth.login({
+                //	serviceTerms: "iac_buyer_terms_policy,iac_finance_terms_policy,iac_personal_information_required,iac_personal_information_thirdparty,iac_personal_information_optional,iac_location_terms_policy,iac_receive_shopping_sms,iac_receive_shopping_email,iac_over_14years_old",
+                //    success: function(authObj) {
+                //        var socialSession = getSocialSession(signInMethod, authObj);
+                //        socialSession.then(function (res) {
+                //            if (res === null || res.d === null || res.Id === null) {
+                //                alert('일시적인 문제로 로그인에 실패하였습니다. 다시 시도해주세요.');
+                //                return;
+                //            }
+                //            var socialSessionId = res.d.Id;
+                //            document.form.socialType.value = signInMethod;
+                //            document.form.socialSessionId.value = socialSessionId;
+                //            onSubmit();
+                //            document.form.submit();
+                //        })
+                //    },
+                //    fail: function(err) {
+                //        alert(JSON.stringify(err));
+                //    }
+                //});
+            }
+            
+            function socialStateQueryStr(loginSocialType){  //카카오 1, 애플 3, 토스 4
+                var queryString = "";
+                if(window.location.search != null && window.location.search != '' && window.location.search != undefined){
+                    queryString = window.location.search;
+                    if(queryString.indexOf("?") == 0){
+                        queryString = "?socialType=" + loginSocialType + "&" + window.location.search.substr(1);
+                    }
+                    else{
+                        queryString = "?socialType=" + loginSocialType + "&" + window.location.search;
+                    }
+                }
+                return queryString;
+            }
+
+            function getSocialSession(signInMethod, authObj) {
+                var req = {
+                    SocialType: signInMethod,
+                    TokenType: authObj.token_type,
+                    AccessToken: authObj.access_token,
+                    RefreshToken: authObj.refresh_token,
+                    ExpiresIn: authObj.expires_in
+                };
+
+                return $.ajax({
+                    type: 'POST',
+                    url: 'Default.aspx/AddSocialSession',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(req)
+                })
+                    .done(function (res) {
+                        return new Promise(function (resolve, reject) {
+                            resolve(res);
+                    });
+                });
+            }
+
+            function openSocialSession(signInMethod, authorizeCode) {
+                var redirectUri = "https://signin.auction.co.kr/social/authorizegateway.aspx";
+
+                var req = {
+                    SocialType: signInMethod,
+                    AuthorizeCode: authorizeCode,
+                    RedirectUri: redirectUri
+                };
+
+                return $.ajax({
+                    type: 'POST',
+                    url: 'Default.aspx/OpenSocialSession',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(req)
+                })
+                    .done(function (res) {
+                        return $.Deferred().resolve(res);
+                    });
+            }
+            
+            function goToAuth() {
+                var membersUrl = 'https://memberssl.auction.co.kr';
+                var nextUrl = 'http%3a%2f%2fwww.auction.co.kr';
+                var returnValue = 0;
+                
+                if (returnValue === -11) {
+                    var certType = 'D';
+                    window.open(membersUrl + '/Membership/IDPW/CertifyMember.aspx?ctype=' + certType + '&next=' + nextUrl,'AuctionLoginInfoWarning','width=470,height=450,top=100,left=100').focus();
+                } else if (returnValue === -12) {
+                    window.open(membersUrl + '/Membership/IDPW/CertifyMemberStep1.aspx?Type=M&next_url=' + nextUrl,'AuctionLoginInfoWarning','width=470,height=480,top=100,left=100').focus();
+                } else if (returnValue ===  -13) {
+                    var certType = 'B';
+                    window.open(membersUrl + '/Membership/IDPW/CertifyMember.aspx?ctype=' + certType + '&next=' + nextUrl,'AuctionLoginInfoWarning','width=470,height=450,top=100,left=100').focus();
+                }
+            }
+
+            var userHost = '127.0.0.1';
+        </script>
+</meta></head>
+<body class="service__login page__login" onload="focusid(); phishingCheck(); DeactivateKDefenseInstallerLink(); CheckAndPopIEVersionGuide();">
+<script type="text/javascript">
+			
+			var headerType = "";
+		var wingType = "H";
+		
+	</script>
+<script src="https://script.auction.co.kr/common/header.js" type="text/javascript"></script>
+<form id="Form4" method="post" name="form" onsubmit="JavaScript:return(onSubmit());">
+<input id="url" name="url" type="hidden" value="http%3a%2f%2fwww.auction.co.kr"/>
+<input name="seller" type="hidden" value=""/>
+<input name="seqno" type="hidden" value=""/>
+<input name="pageType" type="hidden" value="PW"/>
+<hr/>
+<!-- container -->
+<div id="container">
+<div id="login-app">
+<div class="box__login">
+<p class="text__header-title">로그인</p>
+<ul class="list__tab" id="login_tab" style="display: none">
+<li class="list-item__tab list-item__tab--active"><button class="button__tab" id="login_tab_member" onclick="setLoginTabType('member');">회원</button></li>
+<li class="list-item__tab"><button class="button__tab" id="login_tab_non_member" onclick="setLoginTabType('nonmember');">비회원 주문조회</button></li>
+</ul>
+<div class="box__tab-contents box__login-member box__tab-contents--active">
+<fieldset class="form__login-member">
+<legend class="for-a11y">회원 로그인</legend>
+<!-- to.dev : submint 후 validate-warning 메세지 노출될 경우 tabindex="0" attribute 추가 해 주세요. -->
+<p class="text__message-error" id="error_msg" style="display: none;"></p>
+<div class="box__message-error" id="error_msg_box" style="display: none;">
+<p class="text__message-error" id="error_msg_in_box"></p>
+<p class="text__message-error" id="login_error_4" style="display: none"><a class="link__underline" href="javascript:newHelpPop('E03009');">로그인 제한 사유 문의하기</a></p>
+<p class="text__message-error" id="login_error_11_12_13" style="display: none"><a class="link__underline" href="javascript:goToAuth();">본인인증 하러가기</a></p>
+</div>
+<p class="text__message-audlt sprite__login--before" id="login_adult" style="display: none;">청소년 유해매체물로서 19세 이상만 접근 가능합니다.<br/>나이 확인을 위해 로그인해 주세요.</p>
+<ul class="list__form-input">
+<li class="list-item__form-input" data-index="2">
+<!-- to.dev : validate check 메세지 노출 시 list-item__form-input--validate 클래스를 추가 해 주세요.-->
+<label class="for-a11y" for="id">아이디</label>
+<input class="form__input-text" id="id" maxlength="20" name="id" onkeydown="return keycheck2(this.event);" placeholder="아이디" tabindex="1" type="text" value=""/>
+<button class="button__input-delete sprite__login">삭제</button>
+<p class="text__validate-warning" style="display: none;">아이디를 입력해주세요.</p>
+</li>
+<li class="list-item__form-input" data-index="3">
+<label class="for-a11y" for="pwd">비밀번호</label>
+<input class="form__input-text" id="password" name="password" onkeydown="return keycheck(this.event);" placeholder="비밀번호" tabindex="2" type="password"/>
+<button class="button__input-delete sprite__login">삭제</button>
+<p class="text__validate-warning" style="display: none;">비밀번호를 입력해주세요.</p>
+</li>
+</ul>
+<button class="button__submit" type="submit">로그인</button>
+<div class="box__login-action">
+<div class="box__login-save">
+<input class="form__checkbox" id="checkboxKIDBase" name="checkboxKIDBase" type="checkbox">
+<label class="text__label sprite__login--before" for="checkboxKIDBase">아이디 저장</label>
+</input></div>
+<div class="box__login-link">
+<a class="link__login" href="http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C42&amp;next=https%3a%2f%2fmemberssl.auction.co.kr%2fmembership%2fIDPW%2fFindID.aspx%3furl%3dhttp%253a%252f%252fwww.auction.co.kr" target="_blank">아이디 찾기</a>
+<a class="link__login" href="http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C43&amp;next=https%3a%2f%2fmemberssl.auction.co.kr%2fmembership%2fIDPW%2fResetPassword.aspx%3furl%3dhttp%253a%252f%252fwww.auction.co.kr" target="_blank">비밀번호 찾기</a>
+<a class="link__login" href="http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C41&amp;next=https%3a%2f%2fmemberssl.auction.co.kr%2fmembership%2fsignup%2fChoiceMemberType.aspx%3fafterregisturl%3dhttp%253a%252f%252fwww.auction.co.kr" target="_blank">회원가입</a>
+</div>
+</div>
+<div class="box__social-links">
+<button class="button__submit button__kakao sprite__login--before" id="btn_kakao" tabindex="5" type="button">카카오로 시작하기</button>
+</div>
+<p class="text" id="internalIp" style="color : white"></p>
+<input id="socialType" name="socialType" type="hidden" value="">
+<input id="socialSessionId" name="socialSessionId" type="hidden" value=""/>
+<input id="auctionHelp" name="auctionHelp" type="hidden" value=""/>
+<input id="faceData" name="faceData" type="hidden" value=""/>
+<input id="uniqueKey" name="uniqueKey" type="hidden" value=""/>
+<input id="captcha" name="captcha" type="hidden" value=""/>
+<button class="button__submit button__nomember" style="display: none;" type="button">비회원으로 구매하기</button>
+</input></fieldset>
+</div>
+<div class="box__tab-contents box__login-nomember">
+<fieldset class="form__login-nomember">
+<legend class="for-a11y">비회원 주문조회</legend>
+<ul class="list__form-input">
+<li class="list-item__form-input" data-index="4">
+<label class="for-a11y" for="nuserId">주문자명</label>
+<input class="form__input-text" id="txtName" name="nonMembName" placeholder="주문자명" type="text"/>
+<button class="button__input-delete sprite__login">삭제</button>
+<p class="text__validate-warning" style="display: none;">이름을 입력해주세요.</p>
+</li>
+<li class="list-item__form-input" data-index="5">
+<label class="for-a11y" for="nuserPn">휴대폰 번호</label>
+<input autocomplete="off" class="form__input-text" id="txtTel" maxlength="15" name="nonMembTelNumber" onkeypress="return isNumberKey(event);" placeholder="휴대폰 번호 ('-'없이 입력)" type="text"/>
+<button class="button__input-delete sprite__login">삭제</button>
+<p class="text__validate-warning" style="display: none;">휴대폰 번호를 입력해주세요.</p>
+</li>
+<li class="list-item__form-input" data-index="6">
+<label class="for-a11y" for="nuserPw">주문비밀번호</label>
+<input autocomplete="off" class="form__input-text" id="txtPass" name="payPassword" onkeydown="if(event.keyCode==13){return SubmitCheck('nonmember');}" placeholder="주문비밀번호" type="password"/>
+<button class="button__input-delete sprite__login">삭제</button>
+<p class="text__validate-warning" style="display: none;">주문비밀번호를 입력해주세요.</p>
+</li>
+</ul>
+<input id="loginTabType" name="loginTabType" type="hidden" value="member">
+<button class="button__submit" href="javascript:void(0);" onclick="SubmitCheck('nonmember');" type="button">주문내역 조회하기</button>
+<div class="box__login-action">
+<div class="box__login-link">
+<a class="link__login" href="javascript:void(0);" onclick="popUp2('http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C46&amp;next=https%3a%2f%2fmemberssl.auction.co.kr%2fMembership%2fIDPW%2fFindNoneMemberPassword.aspx','455','325');">주문 비밀번호 찾기</a>
+<a class="link__login" href="http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C43&amp;next=https%3a%2f%2fmemberssl.auction.co.kr%2fmembership%2fIDPW%2fResetPassword.aspx%3furl%3dhttp%253a%252f%252fwww.auction.co.kr" target="_blank">비밀번호 찾기</a>
+<a class="link__login" href="http://through.auction.co.kr/Common/SafeRedirect.aspx?cc=0C41&amp;next=https%3a%2f%2fmemberssl.auction.co.kr%2fmembership%2fsignup%2fChoiceMemberType.aspx%3fafterregisturl%3dhttp%253a%252f%252fwww.auction.co.kr" target="_blank">회원가입</a>
+</div>
+</div>
+</input></fieldset>
+</div>
+<div class="box__login-ad sprite__login--after" id="BAC_AD_ZONE20">
+<a class="link__login-ad" href="#" oncontextmenu="javascript:return false;" target="_blank">
+<img alt="광고배너" class="image__login-ad" id="ad2" src="" style="display:none; width: 360px; height: 220px;"/>
+</a>
+<script type="text/javascript">
+		    adDisp();
+		</script>
+</div>
+</div>
+</div>
+</div>
+<!-- footer //-->
+<!-- screen height and width //-->
+<input id="screen_height" name="screen_height" type="hidden" value="">
+<input id="screen_width" name="screen_width" type="hidden" value="">
+<input id="isIpay" name="isIpay" type="hidden" value=""/>
+<hr/>
+<!-- fb login-->
+<form action="https://signin.auction.co.kr/authenticate/login.aspx" id="snsForm" method="post" name="snsForm">
+<input id="siteType" name="siteType" type="hidden" value=""/>
+<input id="accessToken" name="accessToken" type="hidden" value=""/>
+<input id="pageType" name="pageType" type="hidden" value="P"/>
+</form>
+<script src="https://script.auction.co.kr/common/footer.js" type="text/javascript"></script>
+</input></input></form></body>
+<script>
+    //captcha관련 스크립트 start
+    function getCaptcha (){
+        $.ajax({
+            type: 'POST',
+            url: 'Default.aspx/GetCaptcha',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: {},
+            success: function (response) {
+                if (response.d.token) {
+                    $("#captcha").val(response.d.token);
+                    captchaImageCreate(response.d.image);
+                } else {
+                    alert("오류가 발생하였습니다. 계속 오류 발생 시 고객센터로 문의바랍니다.");
+                }
+            },
+            error: function (response) {
+                alert("오류가 발생하였습니다. 계속 오류 발생 시 고객센터로 문의바랍니다.");
+            }
+        });
+    }
+
+    function captchaImageCreate (captchaImage){
+
+        $("#captcha-image1").attr("src", "data:image/gif;base64," + captchaImage);
+        $("#captcha-image2").attr("src", "data:image/gif;base64," + captchaImage);
+        $("#captcha-image3").attr("src", "data:image/gif;base64," + captchaImage);
+    }
+
+    function createCaptchaSound (){
+
+        $.ajax({
+            type: 'POST',
+            url: 'Default.aspx/MakeCaptchaSound',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({
+                "captchaToken": $("#captcha").val()
+            }),
+            dataType: "json",
+            success: function (response) {
+                if (response) {
+                    //Controller에서 통신해 받아온 값을 base64인코딩을 해제한다.
+                    var data = decodeBase64CaptchaSound(response.d.base64SoundData);
+
+                    //base64인코딩을 해제한 바이너리data를 변수에 담는다.
+                    var uInt8Array = new Uint8Array(data);
+
+                    // Blob Object 를 생성한다.
+                    var blob = new Blob([uInt8Array], {type: 'audio/mp3'});
+
+                    //blob으로 만든 객체를 재생시키기 위해 url로 주소를 만들어 객체에 담는다.
+                    var url = URL.createObjectURL(blob);
+
+                    //해당 주소를 audio객체를 만들어 소스에 넣고 플레이시킨다.
+                    var audio = new Audio();
+                    audio.src = url;
+                    audio.play();
+                } else {
+                    alert("오류가 발생하였습니다. 계속 오류 발생 시 고객센터로 문의바랍니다.aa");
+                }
+            },
+            error: function (response) {
+                alert("오류가 발생하였습니다. 계속 오류 발생 시 고객센터로 문의바랍니다.");
+            }
+        });
+    }
+
+    //base64 인코딩을 해제하기 위한 함수
+    function decodeBase64CaptchaSound (base64){
+        if(base64 == null || base64 == "" || base64 == undefined){
+            return null;
+        }
+
+        //인코딩 해제해 바이너리 스트링으로 받기
+        var binary_string = window.atob(base64);
+        //해당 길이가 필요해 변수에 적재
+        var len = binary_string.length;
+        //??이부분 ~ 밑에 루프가 이해가 잘 되지 않는다.
+        var bytes = new Uint8Array(len);
+
+        for (var i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+
+        return bytes.buffer;
+    }
+
+    function reloadCaptchaCode () {
+        $("#captchaCode1").val("");  //captcha 입력값 초기화
+        $("#captchaCode2").val("");  //captcha 입력값 초기화
+        $("#captchaCode3").val("");  //captcha 입력값 초기화
+        getCaptcha();
+    }
+	
+    function checkCaptchaRegEx (obj, max_size, e) {
+        var BACKSPACE = 8;
+        var TAB = 9;
+        var eventObject = e || window.event;
+        var regEx = /^[0-9a-zA-Z]+$/;
+
+        if (eventObject.keyCode == BACKSPACE || eventObject.keyCode == TAB) {
+            return true;
+        }
+
+        var value = $(obj).val();
+        var fixValue = "";
+
+        for(var i = 0; i < value.length; i++){
+            var validVal = value.substring(i, i+1);
+            if(regEx.test(validVal))
+                fixValue = fixValue + validVal;
+        }
+
+        fixValue = fixValue.toUpperCase();
+
+        if (fixValue.length >= max_size) {
+            $(obj).val(fixValue.substring(0, max_size));
+            return true;
+        }
+
+        $(obj).val(fixValue);
+
+        return true;
+    }
+
+            
+		    //captcha관련 스크립트 end
+</script>
+</html>

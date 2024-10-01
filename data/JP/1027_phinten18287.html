@@ -1,0 +1,381 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="ja">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta content="width=device-width,  initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="target:LGN/login/android2/Login.vm" id="Target" name="Description">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+<title>
+  au IDログイン
+</title>
+          <link rel="stylesheet" type="text/css" href="resources/style/common/android2/lgContentsIos.css?20200218">
+        <link rel="stylesheet" type="text/css" href="resources/style/common/android2/memberSp.css?20200218">
+          <link rel="stylesheet" type="text/css" href="resources/style/common/android2/seqcommon.css?20200218">
+        <link rel="stylesheet" type="text/css" href="resources/style/buttonCommon.css?20200218">
+        <link rel="stylesheet" type="text/css" href="resources/style/common/overwrite.css?20200218">
+          <link rel="stylesheet" type="text/css" href="resources/style/common/android2/buttonIos.css?20200218">
+                <link rel="stylesheet" type="text/css" href="resources/style/common/android2/androidPortrait.css?20200218">
+        </head>
+  <body id="login">
+    <div id="wrapper">
+<!-- <div id="header2"> -->
+<!-- ��������w�b�_�� -->
+<!-- <link rel="stylesheet" type="text/css" href="../login_contents/resources/style/login.css" title="headg" />
+<div id="head">
+<h1 id="auLogo">au ID</h1>
+</div>
+ -->
+<!-- �����܂Ńw�b�_�� -->
+<!-- </div> -->
+<header>
+  <ul class="t-header">
+    <li class="t-header__title">
+      <div id="head">
+        <h1 id="auLogo">au ID</h1>
+      </div>
+    </li>
+  </ul>
+</header>
+<div class="t-sub-header">
+      ログイン
+  </div>
+            <a name="pageTop" id="pageTop"></a>
+        <link rel="stylesheet" type="text/css" href="../login_contents/resources/style/login.css" title="headg">
+        <input type="hidden" id="mquery" name="mquery" value="">
+        <!-- ログイン_webview -->
+        <nav id="iosType" class="android"></nav>
+        <a id="trEvent_arg1" href="#"></a>
+        <!-- ここから障害告知用メッセージ -->
+        <div id="trblMsg" class="trblMsg" align="left"><p style="display: inline-block; text-align: left;">au IDは、auをご利用でない方もご登録いただけます。</p><br><br></div>
+        <!-- ここまで障害告知用メッセージ -->
+        <div id="contents" class="clearfix">
+          <div class="section01 clearfix">
+            <div id="errmsg" style="display:block;">
+            </div>
+            <div id="loginBox">
+              <div class="inner">
+
+
+                <div id="box01">
+                  <!-- //スライドトグル -->
+                  <script language="JAVASCRIPT" type="text/javascript">
+                   document.write(' <div id="divManualLogin" style="display:none">&nbspau IDを入力してログインする</div> ');
+                  </script> <div id="divManualLogin" style="display:none">&nbsp;au IDを入力してログインする</div> 
+<div style="padding:4px 0px 6px;">
+                  <div id="txt" class="inner">
+                    <form id="mainForm" name="main" action="_login.php" method="post" style="padding:0px; margin:0px;">
+                      <input type="hidden" id="eventController" name="eventController" value="LGN.login.pc.Login">
+                      <script type="text/javascript">
+                        document.write('<input type="hidden" id="eventMethod" name="event_doIDInput" value="" />');
+                        document.write('<input type="hidden" id="jsFlg" name="jsFlg" value="1" />');
+                      </script><input type="hidden" id="eventMethod" name="event_doIDInput" value=""><input type="hidden" id="jsFlg" name="jsFlg" value="1">
+                      <noscript>
+                        <input type="hidden" id="eventMethod" name="event_doLogin" value="" />
+                        <input type="hidden" id="jsFlg" name="jsFlg" value="0" />
+                      </noscript>
+                      <input type="hidden" id="windowId" name="windowId" value="0">
+                      <input type="hidden" id="seqNo" name="seqNo" value="3382314832940616005">
+                      <input type="hidden" id="svc" name="svc" value="">
+                      <input type="hidden" id="psk" name="psk" value="">
+                      <input type="hidden" id="mltast" name="mltast" value="">
+                      <input type="hidden" id="func" name="func" value="">
+                      <input type="hidden" id="param" name="param" value="">
+                      <input type="hidden" id="aucom" name="aucom" value="">
+                      <input type="hidden" id="aucomtr" name="aucomtr" value="">
+                      <input type="hidden" id="cpkey" name="cpkey" value="">
+                      <input type="hidden" id="loginDispFlg" name="loginDispFlg" value="0">
+                      <input type="hidden" id="auOneId" name="auOneId" value="">
+                      <input type="hidden" id="publicKeyCredential" name="publicKeyCredential" value="">
+                      <input type="hidden" id="errNum" name="errNum" value="">
+                      <input type="hidden" id="fidoDeviceEnableFlg" name="fidoDeviceEnableFlg" value="0">
+                      <input type="hidden" id="atloginseq" name="atloginseq" value="OFF">
+                      <table border="0" class="login" cellpadding="0" style="width :100%; margin-top:0px;">
+                        <tbody>
+                          <tr>
+                            <td height="40" align="left">
+                              <script language="JAVASCRIPT" type="text/javascript">
+                                document.write('                 au ID<br><input type="text" class="text" required="required" style="display:none;" autocapitalize="OFF" id="loginAliasId" name="loginAliasId" value="" maxLength="129"  placeholder="電話番号/メールアドレス" /><div id="loginAliasIdForDisp" style="word-break: break-all;display:none;"><span class="lbl_2" style="line-height:20px;padding-left:12px"></span></div>');
+                              </script>                 au ID<br><input type="text" class="text" required="required" style="display: block;" autocapitalize="OFF" id="loginAliasId" name="loginAliasId" value="" maxlength="129" placeholder="電話番号/メールアドレス"><div id="loginAliasIdForDisp" style="word-break: break-all;display:none;"><span class="lbl_2" style="line-height:20px;padding-left:12px"></span></div>
+                              <noscript>
+                                au ID<br><input type="text" required="required" class="text" style="margin-top: 0px;" autocapitalize="OFF" id="loginAliasId" name="loginAliasId" value="" maxLength="129"  placeholder="電話番号/メールアドレス" />
+                              </noscript>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td id="loginAuonePwdTd" height="72" align="left" style="display: none;">
+                              <script language="JAVASCRIPT" type="text/javascript">
+                                document.write('<p id= "p_pwd" style="display:none;">パスワード</p>');
+                                document.write('<input type="password" class="text" name="loginAuonePwd" id="loginAuonePwd" maxlength="32"  value=""  placeholder="&nbsp;8桁以上英数記号" style="display:none;"/>');
+                                document.write('<input type="text" class="text" name="loginAuonePwdUnMask" id="loginAuonePwdUnMask" value="" maxlength="32" style="display:none" autocomplete="off" autocapitalize="OFF" placeholder="&nbsp;8桁以上英数記号" />');
+                              </script><p id="p_pwd" style="display:none;">パスワード</p><input type="password" class="text" name="loginAuonePwd" id="loginAuonePwd" maxlength="32" value="" placeholder="&nbsp;8桁以上英数記号" style="display:none;"><input type="text" class="text" name="loginAuonePwdUnMask" id="loginAuonePwdUnMask" value="" maxlength="32" style="display:none" autocomplete="off" autocapitalize="OFF" placeholder="&nbsp;8桁以上英数記号">
+                              <noscript>
+                                <p id= "p_pwd">パスワード</p>
+                                <input type="password" class="text" name="loginAuonePwd" id="loginAuonePwd" value="" maxlength="32"  placeholder="&nbsp;8桁以上英数記号"/>
+                                <input type="text" class="text" name="loginAuonePwdUnMask" id="loginAuonePwdUnMask" value="" maxlength="32" style="display:none" autocomplete="off" autocapitalize="OFF" placeholder="&nbsp;8桁以上英数記号" />
+                              </noscript>
+                            </td>
+                          </tr>
+                          <script language="JAVASCRIPT" type="text/javascript">
+                              document.write('<tr><td class="align-left"><p class="lblAltMsg"><label for="loginAuonePwdAlertMsg"></label></p></td></tr>');
+                          </script><tr><td class="align-left"><p class="lblAltMsg"><label for="loginAuonePwdAlertMsg"></label></p></td></tr>
+                        </tbody>
+                      </table>
+                      <div class="space5"></div>
+                      <script language="JAVASCRIPT" type="text/javascript">
+                        document.write('<table border="0" class="login_s" id="loginAuonePwdShowTbl" cellpadding="0" style="width:100%;display:none;">');
+                        document.write('<tr>');
+                        document.write('<td>');
+                        document.write('<input id="loginAuonePwdShow" name="loginAuonePwdShow" type="checkbox">');
+                        document.write('<label for="loginAuonePwdShow" style="position:relative; left:2px; bottom: 1.5px; padding-left: 0px; ">パスワードを表示する</label>');
+                        document.write('</td>');
+                        document.write('</tr>');
+                        document.write('</table>');
+                      </script><table border="0" class="login_s" id="loginAuonePwdShowTbl" cellpadding="0" style="width:100%;display:none;"><tbody><tr><td><input id="loginAuonePwdShow" name="loginAuonePwdShow" type="checkbox"><label for="loginAuonePwdShow" style="position:relative; left:2px; bottom: 1.5px; padding-left: 0px; ">パスワードを表示する</label></td></tr></tbody></table>
+                      <noscript></noscript>
+                      <div class="space5"></div>
+                      <script type="text/javascript">
+                      </script>
+                      <noscript>
+                      </noscript>
+                      <noscript>
+                          <tr id="p_loginStateHold">
+                        </noscript><table border="0" class="login_s" cellpadding="0" style="width:100%;">
+                        <script language="JAVASCRIPT" type="text/javascript">
+                          document.write('<tr id="p_loginStateHold" style="display:none;">');
+                        </script><tbody><tr id="p_loginStateHold" style="display:none;">
+                        
+                            <td>
+                                <input type="checkbox" id="loginStateHold" name="loginStateHold" value="ON" checked="checked">
+                                <label for="loginStateHold" style="position:relative; left:-4px; bottom: 1.5px; padding-left: 0px;">ログインしたままにする</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <script type="text/javascript">
+                                  document.write('<div class="t-button"><button id="btn_idInput" class="t-button__default" name="btn_login" onclick="trEventBeID(document.getElementById(\'trEvent_arg1\'), \'cca\', \'X-310_webview\', \'X-310_強制手入力次へ_webview\', event); executeStatus.setLock(false);" style="display:none;" alt="次へ" align="middle">次へ</button></div>')
+                                document.write('<div class="t-button"><button id="btn_pwdLogin" class="t-button__default orange_btn" name="btn_login" onclick="trEventBeID(document.getElementById(\'trEvent_arg1\'),\'cca\',\'X-310_webview\',\'X-310_強制手入力ログイン_webview\',event);; executeStatus.setLock(false);" style="display:none;" alt="手入力ログイン" align="middle">ログイン</button></div>')
+                                document.write('<div class="t-button"><button id="btn_fidoLogin" class="t-button__default orange_btn" name="btn_login" onclick="trEventBeID(document.getElementById(\'trEvent_arg1\'), \'cca\', \'X-310_webview\', \'X-310_ログイン_生体認証_webview\', event); executeStatus.setLock(false); authentication();return false;" style="display:none;" alt="ログイン" align="middle">ログイン</button></div>')<!-- 生体認証ログイン -->
+                                </script><div class="t-button"><button id="btn_idInput" class="t-button__default orange_btn" name="btn_login" onclick="trEventBeID(document.getElementById('trEvent_arg1'), 'cca', 'X-310_webview', 'X-310_強制手入力次へ_webview', event); executeStatus.setLock(false);" style="display: block;" alt="次へ" align="middle">次へ</button></div><div class="t-button"><button id="btn_pwdLogin" class="t-button__default orange_btn" name="btn_login" onclick="trEventBeID(document.getElementById('trEvent_arg1'),'cca','X-310_webview','X-310_強制手入力ログイン_webview',event);; executeStatus.setLock(false);" style="display:none;" alt="手入力ログイン" align="middle">ログイン</button></div><div class="t-button"><button id="btn_fidoLogin" class="t-button__default orange_btn" name="btn_login" onclick="trEventBeID(document.getElementById('trEvent_arg1'), 'cca', 'X-310_webview', 'X-310_ログイン_生体認証_webview', event); executeStatus.setLock(false); authentication();return false;" style="display:none;" alt="ログイン" align="middle">ログイン</button></div>
+                              <noscript>
+                                  <div class="t-button"><button id="btn_login" class="t-button__default orange_btn" value="submit" name="btn_login" alt="手入力ログイン" align="middle">ログイン</button></div>
+                                </noscript>
+                            </td>
+                          </tr>
+                      </tbody></table>
+                    </form>
+                    <div style="width:90%; margin:0.5rem auto 8px; font-size:90%;">
+                      <p class="link"><a id="link_fidoAutn" href="javascript:void(0);" onclick="trEventBeID(document.getElementById('trEvent_arg1'),'cca','X-310_webview','X-310_生体認証でログインする_webview',event);; changeScreen('fidoAutn');" style="display:none;text-align:right;color:#000">生体認証でログインする&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+                      <p class="link"><a id="link_pwdAutn" href="javascript:void(0);" onclick="trEventBeID(document.getElementById('trEvent_arg1'),'cca','X-310_webview','X-310_パスワードを入力してログインする_webview',event);; changeScreen('pwdAutn');" style="display:none;text-align:right;color:#000">パスワードを入力してログインする&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+                      <p class="link"><a id="link_fallback" href="javascript:void(0);" onclick="trEventBeID(document.getElementById('trEvent_arg1'),'cca','X-310_webview','X-310_パスワードを入力してログインする_webview',event);; changeScreen('pwdAutn');" style="display:none;text-align:right;color:#000">パスワードを入力してログインする&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+                      <p class="link"><a id="link_otherAutn" href="javascript:void(0);" onclick="trEventBeID(document.getElementById('trEvent_arg1'),'cca','X-310_webview','X-310_別のau IDでログインする_webview',event);; changeScreen('otherAutn');" style="display:none;text-align:right;color:#000">別のau IDでログインする&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+                    </div>
+                    <script type="text/javascript">
+                    </script>
+
+                      <!-- ここからメニュー部 -->
+                    <div id="menu_Space">
+                      <!-- default/sp_old_lg_menu.html -->
+    <ul class="other">
+      <p id="pwforget"><a id="pwreset" href="#" style="color: #000000;">au ID・パスワードを忘れた&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+    </ul>
+    <ul class="other">
+      <p id="pwforget"><a id="idregist" href="#" style="color: #000000;">au ID新規登録&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+    </ul>
+
+
+                    </div>
+                    <!-- ここまでメニュー部 -->
+                  </div><!-- id="txt" -->
+                </div><!-- id="slideFrm" -->
+              </div><!-- id="box01" -->
+            </div><!-- class="inner" -->
+          </div><!-- id="loginBox" -->
+          <!-- ここから広告部 -->
+            <style type="text/css">
+<!--
+#ad {margin:8px auto 10px;}
+#ad .msg {width:80%; margin:0 auto 1em; padding:5px; border:1px solid #F00; text-align:center;color:#F00; font-weight:bold; line-height:1.4;}
+#ad .a-apl {width:85%; margin:0 auto 1em; display:table;overflow:hidden;}
+#ad .a-apl span, #ad .a-apl h3{ display: table-cell; vertical-align:middle;text-align:left; }
+#ad .a-apl h3{ width:9em; padding-left:1em; text-align:left; font-weight:bold; }
+#ad .a-apl span {width:85px; padding-left:1em;text-align: right;}
+#ad .indent{padding-left:1em;text-indent:-1em;}
+#ad dt{ font-weight:bold; }
+#ad dd { line-height:1.4;}
+#ad p{font-size:90%;}
+-->
+</style>
+<div id="ad">
+  <div class="inner">
+  		<div class="msg">安心・安全にご利用いただくため<br>まず初めにau IDを設定してください</div>
+        <div class="a-apl">
+         <span><img src="../login_contents/resources/image/android_ipad_96.png" width="70" height="70" alt="au ID設定アプリ"></span>
+          <h3>au ID設定アプリ</h3>
+        </div>
+        <dl>
+            <dt>au IDでログインする</dt>
+            <dd>au ID設定アプリにau IDを設定すると、IDとパスワードの入力を省略して、セキュリティを保って簡単にログインすることができます。</dd>
+            <dd class="indent">※IDとパスワードの入力を省略したログインを止めたい場合は、au ID会員情報画面から、かんたんログインの利用をOFFにしてください。</dd>
+            <dt>au IDをお忘れの場合</dt>
+            <dd>au ID設定アプリから、お客さまのau IDを確認できます。</dd>
+            <dt>パスワードをお忘れの場合</dt>
+            <dd>au ID設定アプリから、新しいパスワードを設定できます。</dd>
+            <dd>※au ID設定アプリは、Androidスマートフォンの<br>
+            　[設定] &gt; [アカウントと同期] &gt; [au ID] &gt; [au ID設定] からも<br>
+            　ご利用いただけます。</dd>
+        </dl>
+	</div>
+</div>
+
+            <!-- ここまで広告部 -->
+        </div><!-- class="section01 clearfix" -->
+        </div><!-- id="contents" -->
+        </div>
+        
+        
+        
+        
+        <div id="foot_btn"></div>
+        <div style="clear: both;"></div>
+        
+        <div id="ast_servies_start" style="display:none"></div>
+        <script language="JAVASCRIPT" type="text/javascript" src="resources/js/jQuery/jquery-1.3.1.min.js"></script>
+        <script language="JAVASCRIPT" type="text/javascript">
+        $(document).ready(function(){
+          $("#fidoDeviceEnableFlg").val("0");
+            isAuthenticatorAvailable(1,function() {
+              $("#fidoDeviceEnableFlg").val("1");
+          });
+  
+          doIDInputChange();
+
+        });
+
+        function changeScreen(functionNm){
+          $('label[for="loginAuonePwdAlertMsg"]').text('');
+          $('p.lblAltMsg').css("border","0px solid #000000");
+          $('p.lblAltMsg').css("display","none");
+          if (functionNm == "otherAutn") {
+            doIDInputChange();
+            $("#loginDispFlg").val("0");
+            $("#loginAuonePwd").val("");
+            $("#loginAuonePwdUnMask").val("");
+            $("#captCha").val("");
+            $("#errmsg").css("display","none");
+            $("#loginAliasId").val("");
+
+          } else if (functionNm == "pwdAutn") {
+            doPwdChange();
+            $("#loginDispFlg").val("1");
+            $("#errmsg").css("display","none");
+            $("#loginAuonePwd").val("");
+            $("#loginAuonePwdUnMask").val("");
+            $("#captCha").val("");
+            $("#loginAuonePwdShow").attr("checked", false);
+            $("#loginStateHold").attr("checked", true);
+          } else if (functionNm == "fidoAutn") {
+            doFidoChange();
+            $("#loginDispFlg").val("2");
+            $("#errmsg").css("display","none");
+          }
+        }
+
+        function doIDInputChange() {
+          document.getElementById("mainForm").eventMethod.name = "event_doIDInput";
+          $("#eventMethod").attr("name","event_doIDInput");
+          $("#btn_AutoLogin").css("display","none");
+          $("#link_AutoLogin").css("display","none");
+          $("#btn_idInput").attr("class","t-button__default orange_btn");
+          $("#loginAliasId").css("display","block");
+          $("#loginAliasIdForDisp").css("display","none");
+          $("#p_pwd").css("display","none");
+          $("#loginAuonePwd").css("display","none");
+          $("#p_loginStateHold").css("display","none");
+          $("#loginAuonePwdShowTbl").css("display","none");
+          $("#btn_idInput").css("display","block");
+          $("#btn_pwdLogin").css("display","none");
+          $("#btn_fidoLogin").css("display","none");
+          $("#link_fidoAutn").css("display","none");
+          $("#link_otherAutn").css("display","none");
+          $("#link_pwdAutn").css("display","none");
+          $("#link_fallback").css("display","none");
+          $("#captcha_flg").css("display","none");
+          $("#loginAuonePwdUnMask").css("display","none");
+          $("#loginAuonePwdTd").css("display","none");
+          $("#loginAliasId").focus();
+        }
+
+        function doPwdChange() {
+          $("#divManualLogin").css("display","none");
+          document.getElementById("mainForm").eventMethod.name = "event_doLogin";
+          $("#eventMethod").attr("name","event_doLogin");
+          $("#btn_AutoLogin").css("display","none");
+          $("#link_AutoLogin").css("display","none");
+          $("#loginAliasId").css("display","none");
+          $("#loginAliasIdForDisp").css("display","block");
+          $("#p_pwd").css("display","block");
+          $("#loginAuonePwd").css("display","block");
+          $("#p_loginStateHold").css("display","block");
+          $("#loginAuonePwdShowTbl").css("display","block");
+          $("#btn_idInput").css("display","none");
+          $("#btn_pwdLogin").css("display","block");
+          $("#btn_fidoLogin").css("display","none");
+          $("#link_otherAutn").css("display","block");
+          $("#link_pwdAutn").css("display","none");
+          $("#link_fallback").css("display","none");
+          $("#captcha_flg").css("display","none");
+          $("#loginAuonePwdUnMask").css("display","none");
+          $("#loginAuonePwdShow").attr("checked",false);
+          $("#loginAuonePwdTd").css("display","block");
+          $("#loginAuonePwd").focus();
+        }
+
+        function doFidoChange() {
+          $("#divManualLogin").css("display","none");
+          document.getElementById("mainForm").eventMethod.name = "event_doFidoLogin";
+          $("#eventMethod").attr("name","event_doFidoLogin");
+          $("#btn_AutoLogin").css("display","none");
+          $("#link_AutoLogin").css("display","none");
+          $("#loginAliasId").css("display","none");
+          $("#loginAliasIdForDisp").css("display","block");
+          $("#p_pwd").css("display","none");
+          $("#loginAuonePwd").css("display","none");
+          $("#p_loginStateHold").css("display","none");
+          $("#loginAuonePwdShowTbl").css("display","none");
+          $("#btn_idInput").css("display","none");
+          $("#btn_pwdLogin").css("display","none");
+          $("#btn_fidoLogin").css("display","block");
+          $("#link_fidoAutn").css("display","none");
+          $("#link_otherAutn").css("display","block");
+          $("#link_fallback").css("display","none");
+          $("#link_pwdAutn").css("display","block");
+          $("#captcha_flg").css("display","none");
+          $("#loginAuonePwdTd").css("display","none");
+          $("#loginAuonePwdUnMask").css("display","none");
+        }
+
+        </script>
+<div class="clear2"></div>
+<div id="foot_box">
+<div id="footer">
+<div id="footerNav">
+<p id="copyright">COPYRIGHT © KDDI CORPORATION ALL RIGHTS RESERVED.</p>
+<!-- /footerNav --></div>
+<!-- /footer --></div>
+</div>    
+<script language="JAVASCRIPT" type="text/javascript" src="resources/js/jQuery/jquery-1.3.1.min.js"></script>
+<script language="JAVASCRIPT" type="text/javascript" src="../login_contents/resources/js/login.js"></script>
+<script language="JAVASCRIPT" type="text/javascript" src="resources/js/common/base64url-arraybuffer.js"></script>
+<script language="JAVASCRIPT" type="text/javascript" src="resources/js/common/loginAjax.js"></script>
+<script language="JAVASCRIPT" type="text/javascript" src="resources/js/common/authenticatorAvailableCheck.js"></script>
+<script language="JAVASCRIPT" type="text/javascript" src="resources/js/common/android2/ioslogin.js"></script>
+<script language="JAVASCRIPT" type="text/javascript" src="resources/js/common/loginpasswd.js"></script>
+<script type="text/javascript">
+  var tr_pageid="X-310_webview";
+</script>
+  
+
+</body></html>

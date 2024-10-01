@@ -1,0 +1,73 @@
+<html lang="ja"><head><meta charset="utf-8"/>
+<meta content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" name="viewport"/>
+<link href="icon.png" rel="shortcut icon" type="image/png"/>
+<link href="icon.png" rel="apple-touch-icon" type="image/png"/>
+<title>【超便利】無料のショートURL・短縮URL・QRコード作成 | ぱっぷす</title>
+<meta content="QR生成,QRコード作成,短縮URL,ShortURL,URL共有,Url Shortener" name="keywords"/>
+<meta content="短縮url生成『goo.gl』,『bit.ly』の代替サイト。日本語で使いやすい。より安心して使いたい人におすすめ。Facebook、Twitter、Youtube、Instagramでの短縮URLの業界標準。イベント・チラシの広報啓発に便利。" name="description"/>
+<script src="js/jquery.js" type="text/javascript"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-183799171-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-183799171-1');
+</script>
+<style>
+body{margin:auto;font-family: arial,sans-serif;}.container{margin:auto;text-align:center;}.container img{margin:auto;}.message{color:red;}form#new{width:400px;margin:100px auto;}#new .title{margin-top:20px;}form#post{width:600px;margin:10px auto;}#post{text-align:center;}#post .logo{position:absolute;left:20px;top:25px;}#post .title{position:absolute;left:90px;top:20px;font-size:10pt;color:#555;}#post input[name=url]{position:absolute;left:80px;top:40px;}#post input[name=gen]{position:absolute;left:480px;top:35px;}#post #shorturl-title{position:absolute;left:90px;top:100px;font-size:10pt;color:#555;}#post #shorturl-value{position:absolute;left:80px;top:120px;}#post #copy{position:absolute;left:480px;top:115px;}#post #urlqr-title{position:absolute;left:90px;top:175px;font-size:10pt;color:#555;}#post #urlqr-image{position:absolute;left:85px;top:195px;}#post [name=urlqr-download]{position:absolute;left:85px;top:340px;font-size:10pt;color:#555;}#post #keyqr-title{position:absolute;left:295px;top:175px;font-size:10pt;color:#555;}#post [name=keyqr-download]{position:absolute;left:290px;top:340px;font-size:10pt;color:#555;}#post #keyqr-image{position:absolute;left:290px;top:195px;}#post #ads{position:absolute;left:90px;top:400px;}#post #ads2{position:absolute;left:90px;top:500px;}#adfront{}input[type=text] {    top: 0px;    left: 3px;    height: 45px;    width: 400px;    border-radius: 30px;    font-size: 14pt;    padding: 5px 15px;    border: 4px solid #fff;    background-color: #eee;}input[type=submit],input[type=button] {    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);    background-color: #f2f2f2;    border: 1px solid #f2f2f2;    border-radius: 4px;    color: #5F6368;    font-family: arial,sans-serif;    font-size: 14px;    margin: 11px 4px;    padding: 0 16px;    line-height: 27px;    height: 36px;    min-width: 54px;    text-align: center;    cursor: pointer;    user-select: none}#footer-container{position:fixed;bottom:0px;width:100%;}#footer{margin: 5px auto;text-align: center;height:20px;}#copyright{font-size:10pt;color: #555;}</style>
+<script>
+$(function() {
+	$("#copy").click(function(){
+	        var clipboard = $('input[name=shorturl-value]');
+	        clipboard.select();
+	        document.execCommand('copy');
+	});
+
+});
+
+</script>
+</head>
+<body>
+<form id="new" method="post" name="create">
+<div class="container logo"><a href="https://qr.paps.jp"><img src="logo.png" style="width:80px;height:75px;"/></a></div>
+<div class="container title">短縮URL QRコード生成<br/>Short URL QR code generator</div>
+<input name="url" placeholder="URLを入れてください" type="text" value=""/>
+<div class="container"><input name="gen" type="submit" value="作成"/></div>
+<br/><br/>
+<div id="adfront" style="width:400px;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- UP3 -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-1579307532693112" data-ad-slot="3453639638" style="display:inline-block;width:400px;height:90px"></ins>
+<script>
+	     (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+<div class="container title" style="border:1px solid #eee;padding:5px;font-size:9pt;color:#777;">このアプリでは、アダルト関連などの性的なコンテンツや暴力表現・フィッシング詐欺など、不適切な表現が含まれているページには利用できません。<br/>過負荷防止の観点からHTMLに埋め込むための画像URLの短縮化は使用できません<br/>
+This app cannot be used on pages that contain inappropriate expressions such as phishing scams, sexually explicit content like pornography, and violent expressions. Image URLs for embedding in HTML can not allowed.<br/>不適切なページを発見した場合は、<a href="abuse.php">Abuse report</a>に通報してください。
+<br/>If you find an inappropriate page, please report to <a href="abuse.php"> Abuse Report </a>.</div>
+</form>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeLcMYUAAAAACEvcQX_OEfrY3LJY_5nni1bRimk"></script>
+<script>
+	grecaptcha.ready(function() {
+	grecaptcha.execute('6LeLcMYUAAAAACEvcQX_OEfrY3LJY_5nni1bRimk', {action: 'create'}).then(function(token) {
+	var rcpt = document.createElement('input');
+	rcpt.type = 'hidden';
+	rcpt.name = 'token';
+	rcpt.value = token;
+	document.create.appendChild(rcpt);
+	});
+	});
+
+
+
+</script>
+<div id="footer">
+<div id="footer-container">
+<span id="copyright">© <a href="https://paps.jp">ぱっぷす</a>(Organization for pornography and sexual exploitation survivors.)  <a href="abuse.php">Abuse report is here.</a>
+  <a href="https://up.paps.jp">セキュファイル便</a>はこちら</span></div>
+</div>
+</body>
+</html>

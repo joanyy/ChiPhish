@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>酷狗音乐 - 开放平台</title>
+<meta content="为各行业提供丰富的音乐资源，完善的技术接入支持。现已支持酷狗小程序、酷狗曲库组件等接入" data-n-head="true" name="description"/>
+<meta content="酷狗开放平台，开发者平台，入驻酷狗，酷狗小程序，酷狗曲库组件，酷狗播放器，嵌套酷狗，酷狗音乐sdk，音乐开放sdk，音乐播放器sdk，音乐插件" data-n-head="true" name="keywords"/>
+<!-- <script src="https://staticssl.kugou.com/common/js/min/login/qrcode.min.js"></script> -->
+<script src="https://staticssl.kugou.com/common/js/min/login/kguser.v2.min.js?appid=3287"></script>
+<script src="https://staticssl.kugou.com/common/js/min/infSign.min.js"></script>
+<link href="https://www.kugou.com/root/favicon.ico" rel="shortcut icon"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<!-- <script src="https://staticssl.kugou.com/common/js/inf_public.js"></script> -->
+<link href="/umi.css" rel="stylesheet"/>
+<script>
+      window.routerBase = "/";
+    </script>
+<script>
+      //! umi version: 3.5.14
+    </script>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://staticssl.kugou.com/common/js/min/npm/getBaseInfo.min.js"></script>
+<script src="https://staticssl.kugou.com/collect/common/dist/js/collect-2400.js"></script>
+<script>
+      WebCollectConfig.appid = 1000;
+      WebCollectConfig.appkey = "abcdefg";
+      if (location.href.indexOf("http:") != -1) {
+        location.href = location.href.replace("http:", "https:");
+      }
+      var ckKugooID = "",
+        ckMid = "";
+      document.cookie.split("; ").forEach(function (it, idx) {
+        if (it.indexOf("KuGoo=") != -1) {
+          var ckList = it.split("KuGoo=")[1];
+          ckList = ckList.split("&");
+          ckList.forEach(function (it2, idx2) {
+            if (it2.indexOf("KugooID=") != -1) {
+              ckKugooID = it2.split("=")[1];
+            }
+            if (/^t/.test(it2)) {
+              ckMid = it2.split("=")[1];
+            }
+          });
+        }
+      });
+
+      getBaseInfo("3287", function (res) {
+        newLogCount(30050, {
+          a: "24069",
+          b: "曝光", //功能名称
+          ft: "开放平台曝光",
+          r: "小程序",
+          userid: res.userid || "",
+          mid: res.mid || "",
+        });
+      });
+    </script>
+<script src="/umi.js"></script>
+</body>
+</html>

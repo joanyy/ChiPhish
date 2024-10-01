@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta charset="utf-8"/>
+<meta content="https://100.daum.net/WEB-INF/tiles/layout.jsp" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="" property="og:title"/>
+<meta content="https://t1.daumcdn.net/encyclop/common/og_default.png" property="og:image"/>
+<meta content="다음 백과" property="og:site_name"/>
+<meta content="production" name="tiara:deployment">
+<meta content="100.daum.net" name="tiara:svcdomain">
+<meta content="error" name="tiara:page">
+<meta content="encyclopedia" name="tiara:section">
+<title>Daum 백과</title>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="//t1.daumcdn.net/cssjs/jquery/jquery-1.11.1.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="//t1.daumcdn.net/cssjs/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<!--<![endif]-->
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/lib/jquery.cookie.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/lib/jquery.validate.min.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/encyclopedia.common.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/lib/jquery.lazyload.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/encyclopedia.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/encyclopedia.multimedia.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/lib/suggest.pc.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/lib/moment.min.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/cssjs/pcsocialshare/pcSocialshare-1.5.3.min.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/lib/word-break-keep-all.min.js" type="text/javascript"></script>
+<script src="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/js/tiara.js" type="text/javascript"></script>
+<script type="text/javascript">
+	document.domain = "daum.net";
+	var contextRoot = '';
+	var dev = false;
+	var device = 'PC';
+	var serviceTitle = "Daum 백과사전";
+
+	jQuery(document).ready(function() {
+		enc.init();
+
+		// 메뉴 펼침 처리
+		jQuery('a.btn_menu').click(function() {
+			jQuery('#daumWrap').toggleClass('open_menu');
+		});
+	});
+
+
+/*
+	var _tiq = 'undefined' !== typeof _tiq ? _tiq : []; // Global Variables
+	_tiq.push(['__setParam', 'svcdomain', '100.daum.net']);
+
+	_tiq.push(['__setConfig', { enableButton: true }]);
+	_tiq.push(['__setSection', 'error']);
+	_tiq.push(['__setPageName', 'error']);
+	_tiq.push(['__clickOn']);
+
+*/
+
+</script>
+<link href="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/css/common.css" rel="stylesheet" type="text/css"/>
+<link href="//t1.daumcdn.net/encyclop/cssjs/4e1cc72/css/top.css" rel="stylesheet" type="text/css"/>
+</meta></meta></meta></meta></head>
+<body>
+<div id="daumIndex">
+<a href="#daumContent">본문 바로가기</a>
+<a href="#daumGnb">메뉴 바로가기</a>
+</div>
+<div class="dic_type1" id="daumWrap">
+<div id="daumHead" role="banner">
+<div class="inner_head" style="position:relative">
+<div class="wrap_head">
+<h1>
+<a href="https://www.daum.net/?nil_src=daum" id="daumLogo" target="_top">
+<img alt="Daum" class="img_thumb" height="23" src="https://t1.daumcdn.net/encyclop/logo/20200605.png" width="55"/>
+</a>
+<a href="/" id="daumServiceLogo"><span class="ir_wa">백과사전</span></a>
+</h1>
+<h2 class="screen_out">검색</h2>
+<form action="/search" id="daumSearch" name="daumSearch">
+<fieldset class="fld_inside">
+<legend class="screen_out">검색어 입력폼</legend>
+<div class="box_searchbar" id="box_searchbar"><!-- 입력창 선택시 search_on 추가  -->
+<input autocomplete="off" class="tf_keyword" id="qTop" name="q" spellcheck="false" title="검색어 입력" type="text" value=""/>
+<input name="section" type="hidden" value=""/>
+<button class="btn_gnb btn_search" id="daumBtnSearch" type="submit"><span class="ir_wa">검색</span></button>
+</div>
+</fieldset>
+</form>
+</div>
+<div id="daumGnb" role="navigation">
+<h2 class="screen_out">백과사전 메인메뉴</h2>
+<ul class="gnb_dic100" id="gnbMenu">
+<li data-tiara-action-name="태그 보기">
+<span class="link_gnb link_gnb1"><span class="ir_wa">카테고리</span></span>
+<div class="gnb_sub gnb_theme">
+<div class="theme_sub theme_sub1">
+<em class="subtit_dic100 tit_theme">라이프</em>
+<ul class="list_sub">
+<li><a class="link_sub" data-tag_group_id="30" href="/group/30">생활/여가</a></li>
+<li><a class="link_sub" data-tag_group_id="10" href="/group/10">건강/의학</a></li>
+<li><a class="link_sub" data-tag_group_id="27" href="/group/27">음식/요리</a></li>
+<li><a class="link_sub" data-tag_group_id="31" href="/group/31">스포츠</a></li>
+<li><a class="link_sub" data-tag_group_id="29" href="/group/29">여행</a></li>
+</ul>
+</div>
+<div class="theme_sub theme_sub2">
+<em class="subtit_dic100 tit_theme">사회</em>
+<ul class="list_sub">
+<li><a class="link_sub" data-tag_group_id="15" href="/group/15">사회일반</a></li>
+<li><a class="link_sub" data-tag_group_id="36" href="/group/36">사회제도</a></li>
+<li><a class="link_sub" data-tag_group_id="14" href="/group/14">정치</a></li>
+<li><a class="link_sub" data-tag_group_id="17" href="/group/17">경제</a></li>
+<li><a class="link_sub" data-tag_group_id="11" href="/group/11">법/법률</a></li>
+<li><a class="link_sub" data-tag_group_id="18" href="/group/18">언론</a></li>
+<li><a class="link_sub" data-tag_group_id="32" href="/group/32">지형/지리</a></li>
+<li><a class="link_sub" data-tag_group_id="28" href="/group/28">기관/단체</a></li>
+<li><a class="link_sub" data-tag_group_id="16" href="/group/16">국제/외교</a></li>
+<li><a class="link_sub" data-tag_group_id="7" href="/group/7">국내지역</a></li>
+<li><a class="link_sub" data-tag_group_id="8" href="/group/8">해외지역</a></li>
+</ul>
+</div>
+<div class="theme_sub theme_sub3">
+<em class="subtit_dic100 tit_theme">인문</em>
+<ul class="list_sub">
+<li><a class="link_sub" data-tag_group_id="13" href="/group/13">인문 일반</a></li>
+<li><a class="link_sub" data-tag_group_id="5" href="/group/5">역사</a></li>
+<li><a class="link_sub" data-tag_group_id="6" href="/group/6">철학/심리</a></li>
+<li><a class="link_sub" data-tag_group_id="26" href="/group/26">종교</a></li>
+<li><a class="link_sub" data-tag_group_id="38" href="/group/38">언어</a></li>
+<li><a class="link_sub" data-tag_group_id="19" href="/group/19">문학</a></li>
+</ul>
+</div>
+<div class="theme_sub theme_sub4">
+<em class="subtit_dic100 tit_theme">과학</em>
+<ul class="list_sub">
+<li><a class="link_sub" data-tag_group_id="24" href="/group/24">과학 일반</a></li>
+<li><a class="link_sub" data-tag_group_id="51" href="/group/51">자연과학</a></li>
+<li><a class="link_sub" data-tag_group_id="52" href="/group/52">공학/기술</a></li>
+<li><a class="link_sub" data-tag_group_id="2" href="/group/2">동물</a></li>
+<li><a class="link_sub" data-tag_group_id="3" href="/group/3">식물</a></li>
+</ul>
+</div>
+<div class="theme_sub theme_sub5">
+<em class="subtit_dic100 tit_theme">문화</em>
+<ul class="list_sub">
+<li><a class="link_sub" data-tag_group_id="37" href="/group/37">문화 일반</a></li>
+<li><a class="link_sub" data-tag_group_id="33" href="/group/33">대중문화</a></li>
+<li><a class="link_sub" data-tag_group_id="12" href="/group/12">문화유산</a></li>
+<li><a class="link_sub" data-tag_group_id="20" href="/group/20">음악</a></li>
+<li><a class="link_sub" data-tag_group_id="21" href="/group/21">미술</a></li>
+<li><a class="link_sub" data-tag_group_id="22" href="/group/22">무용</a></li>
+<li><a class="link_sub" data-tag_group_id="23" href="/group/23">건축</a></li>
+</ul>
+</div>
+</div><!-- //gnb_sub -->
+</li>
+<li data-tiara-action-name="추천백과 보기">
+<span class="link_gnb link_gnb2"><span class="ir_wa">추천백과</span></span>
+<div class="gnb_sub">
+<ul class="list_sub">
+<li class="item_odd"><a class="link_sub" href="/book/842">e약은요</a></li>
+<li><a class="link_sub" href="/book/224">텃밭가꾸기</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/834">서울대학교치과병원 치의학백과</a></li>
+<li><a class="link_sub" href="/book/840">경제금융용어 700선</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/844">식품 안전이슈 20가지</a></li>
+<li><a class="link_sub" href="/book/825">지식재산권 용어 사전</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/773">뒤죽박죽 경제상식</a></li>
+<li><a class="link_sub" href="/book/327">생활법률 해법사전</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/791">한국독립운동 인명사전</a></li>
+<li><a class="link_sub" href="/book/829">세계문학전집</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/344">우리말 1000가지</a></li>
+<li><a class="link_sub" href="/book/170">과학향기</a></li>
+<li class="item_odd"><a class="link_sub" href="/series/14">세계문학사전 100</a></li>
+<li><a class="link_sub" href="/book/664">국가건강정보포털</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/535">스포츠백과</a></li>
+<li><a class="link_sub" href="/book/111">이야기세계사1</a></li>
+<li class="item_odd"><a class="link_sub" href="/book/234">임신출산 육아백과</a></li>
+<li><a class="link_sub" href="/book/624">한국민족문화대백과사전</a></li>
+</ul>
+<span class="bg_subgnb subgnb_bot"></span>
+</div><!-- //gnb_sub -->
+</li>
+</ul>
+<!--//gnc_dic100 -->
+</div>
+<div id="wrapMinidaum"></div> <!-- 2016-03-04 위치이동 -->
+<script type="text/javascript">
+        var minidaum_options = {
+            // logout 시 return url 변경 여부 flag : default: false - 다음탑으로 이동
+            enableLogoutRetun: false, // false - 다음탑으로 이동, true - 현재페이지 혹은 returnUrl 값으로 이동
+            returnUrl: '', // default - 현재페이지(window.location.href)
+
+            // 실시간 이슈 사용 여부, default: false
+            disableHotissue: true, // false일 경우 사용, true일 경우 미사용
+
+            // 로고 사용 여부, default: false
+            disableLogo: true, // false일 경우 사용, true일 경우 미사용
+
+            // 티아라 사용 여부, default: false
+            disableTracker: true, // false일 경우 사용, true일 경우 미사용
+
+            // 플래시에 의한 레이어 가림 현상 방지 사용 여부, default: false
+            enableShield: false // false일 경우 미사용, true일 경우 사용
+        }
+        // jQuery('.link_daumdic').show();
+    </script>
+<script async="" charset="utf-8" defer="" src="//go.daum.net/minidaum_pc.daum" type="text/javascript"></script>
+</div><!--//inner_head -->
+<script type="text/javascript">
+
+rudolph.Service.init();
+rudolph.template.RequestString = '&q=KEYWORD&cate=enc';
+
+window.suggestInstance = rudolph.Service.add("qTop", "box_searchbar", "https://suggest.dic.daum.net", "/encyclopedia/v1/search.json?", "suggestInstance.dataModel.forceLoadComplete", true);
+window.suggestInstance.setEncodeKeyword('utf_in_out').setForm(document.daumSearch);
+window.suggestInstance.setBeforeSubmitFunc(function(form){form.submit();});
+window.suggestInstance.setInputFocus('load');
+</script> </div><!-- // daumHead -->
+<hr class="hide"/>
+<a name="top"></a>
+<div class="cont_top" id="daumContent" role="main">
+<div id="cMain">
+<div class="wrap_top" id="mArticle">
+<span class="ico_comm2 ico_error"></span>
+<strong class="tit_error">원하시는 페이지를 찾을 수 없습니다.</strong>
+<p class="desc_error">올바르지 않은 주소를 입력하셨거나, 찾으시려는 페이지가 변경되었습니다.<br/>불편을 끼쳐드려 죄송합니다.</p>
+<a class="ico_btn link_error" href="/">백과사전 홈 가기</a>
+</div><!--// mArticle -->
+</div><!-- // cMain -->
+<div class="cl_b"></div>
+</div><!-- // daumContent -->
+<hr class="hide"/>
+<div class="footer_comm" id="daumFoot" role="contentinfo">
+<h2 class="screen_out">서비스 이용정보</h2>
+<a class="link_info" href="https://www.daum.net/doc/info.html" target="_blank">서비스 약관/정책</a> | <a class="link_info" href="https://cs.daum.net/redbell/top.html" target="_blank">권리침해신고</a> | <a class="link_info" href="https://cs.daum.net/faq/28/4349.html" target="_blank">사전 고객센터</a> | <a class="link_info" href="https://cs.daum.net/question/28.html" target="_blank">사전 문의하기</a>
+<small class="txt_copyright">Copyright ⓒ <a class="link_daum" href="https://kakaocorp.com" title="Kakao Corp. 바로가기">Kakao Corp.</a> All rights reserved.</small>
+<p class="desc_footer">위 내용에 대한 저작권 및 법적 책임은 자료제공사 또는 글쓴이에 있으며, Kakao의 입장과는 다를 수 있습니다.</p>
+</div>
+</div>
+</body>
+</html>

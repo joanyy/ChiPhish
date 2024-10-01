@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="ko" xml:lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="300" http-equiv="Refresh"/> <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/> <meta content="OIOvQN1jtzJojmSRvQWZiW9ZGQBm84io5ChyMsjTfek" name="google-site-verification"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>한눈에 보는 오늘 - 네이트 스포츠</title>
+<link href="//sports.news.nate.com/icon/favicon.ico" rel="shortcut icon"/>
+<link href="//nimg.nate.com/ui/uidev/pc/release/css/pcsnb.css?202310191054" rel="stylesheet" type="text/css"/>
+<link href="//nimg.nate.com/ui/uidev/pc/release/css/sports/common.css?202310191054" rel="stylesheet" type="text/css"/>
+<link href="//nimg.nate.com/ui/uidev/pc/release/css/sports/rightinc.css?202310191054" rel="stylesheet" type="text/css"/>
+<link href="//nimg.nate.com/ui/uidev/pc/release/css/sports/main.css?202310191054" rel="stylesheet" type="text/css"/> <link href="//nimg.nate.com/ui/uidev/pc/release/css/player.simple.css?202310191054" rel="stylesheet"/>
+<script src="//sports.news.nate.com/js/common.js?202310191054" type="text/javascript"></script>
+<script charset="euc-kr" src="//sports.news.nate.com/js/stat.js?202310191054" type="text/javascript"></script>
+<script src="//sports.news.nate.com/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="//news.nate.com/etc/mobileAgentJs" type="text/javascript"></script>
+<script src="//sports.news.nate.com/js/common_jq.js?202310191054" type="text/javascript"></script>
+<script src="//common.nate.com/textGNB/commonTextGNBV1" type="text/javascript"></script> <script src="//comm.news.nate.com/userJS" type="text/javascript"></script> <script src="//news.nate.com/js/player.simple.js?202310191054" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+		function loadEvent2(func){
+			if (document.addEventListener) {
+				document.addEventListener("DOMContentLoaded", func,false);  
+			} else { 
+				document.attachEvent("onreadystatechange", func, false);  
+			}
+		}
+
+		// 팝업 광고 masking value : 4
+		var bSpoAD = false;
+		if ( '' != '' && '') {	
+			bSpoAD = true;
+		}
+
+				function fnControlAd() {
+			try {
+				// 스포츠홈, 각섹션홈에 좌,우 날개광고
+				var sMid	= 's0000';
+				var g_sSect	= '';
+				var bAdBannerHome = 'Y';
+				var rightAd	= document.getElementById('ad_newsMarginCube_right');
+
+				var rightAd_ifrWidth = 120, rightAd_ifrHeight = 600;
+
+				if ( g_sSect == 'mlb') {	// mlb
+					rightAd_ifrWidth = 218, rightAd_ifrHeight = 420;
+					rightAd = document.getElementById('mlb_right_sideBanner');
+				}
+
+				rightAd.innerHTML = '<iframe src="//sports.news.nate.com/etc/adSpace?mode=right&mid=s0000" width='+rightAd_ifrWidth+' height='+rightAd_ifrHeight+' title="날개배너 광고" id="adBannerRight" name="adBannerRight" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" ></iframe>';
+
+			} catch(e) {}
+		}
+
+		document.addEventListener('DOMContentLoaded',function(){fnControlAd();},false);
+
+		
+		var agent = navigator.userAgent.toLowerCase();
+	    if ((navigator.appName === 'Netscape' && agent.indexOf('trident') !== -1) || (agent.indexOf("msie") !== -1)) {
+	        // ie일 경우
+	        var deleteHash = function(evt) {
+	            var isHash = document.title.split("#");
+	            if (isHash.length > 1) {
+	                document.title = isHash[0];  }
+	        };
+
+	        if (window.addEventListener) {
+	            window.addEventListener("load", deleteHash, false);
+	        } else {
+	            // ie하위버젼
+	            document.attachEvent('onpropertychange', deleteHash);
+	        }
+	    }
+
+	//]]>
+	</script>
+<script src="//sports.news.nate.com/js/cross-origin-message.min.js?v=202310191054" type="text/javascript"></script>
+<script type="text/javascript">
+//<!CDATA[
+	jQuery(document).ready(function() {
+		// CrossOrigin 초기 세팅
+		crsMsg.init({
+		   	path: '*.news.nate.com', // comm.news.nate.com 자식 정보 세팅 (* 하위 도메인 포함)
+			type: 'parent',
+			func: null
+		});
+	});
+
+	function callFnct (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+
+		if(target == 'sns_count') { // params 규격 {target: '실행구분', elementId: 'snsCmtCnt', dataJson: 'json 형태 입력 데이터'}
+		// 기사 상단의 댓글count
+			
+			var dataJson = (typeof parmas.dataJson === 'undefined') ? '' : parmas.dataJson;
+			var elementId = (typeof parmas.elementId === 'undefined') ? '' : parmas.elementId;
+
+			if(dataJson != '' && elementId != ''){
+				
+				var _element = document.querySelector(elementId);
+				if(_element){
+					_element.value = dataJson;
+				}
+			}
+		} else if (target == 'move_url') { // params 규격 {target: '실행구분', url: '이동 페이지 주소'}
+		// 페이지 이동
+		
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			
+			if(url != ''){
+				location.href=url;
+			}
+		} else if (target == 'move_login') { // params 규격 {target: '실행구분', url: '이동 페이지 주소', params: '로그인 파라미터'}
+		// 로그인 페이지 이동
+		
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			var params = (typeof parmas.params === 'undefined') ? '' : parmas.params;
+			
+			if(url != ''){
+				location.href=url+encodeURIComponent(document.location.href)+params;
+			}
+		} else if (target == 'youtube_resize_iframe') { // params 규격 {target: '실행구분', elementClass: 'dom.php에서 youtube를 iframe으로 감싼 클래스명', height: '높이값', idx: 'youtube iframe 순번'}
+		// 기사 내 youtube 플레이 셋팅
+		
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+			var idx = (typeof parmas.idx === 'undefined') ? '' : parseInt(parmas.idx);
+			
+			if(elementId != '' && height != ''){
+
+				var _elementClassAll = document.querySelectorAll(elementClass);
+				if(_elementClassAll){			
+					if(typeof _elementClassAll[idx] !== 'undefined'){
+						_elementClassAll[idx].style.height = height +'px';
+					}
+				}
+			}
+		} else if (target == 'move_scroll') { // params 규격 {target: '실행구분', x_pos: 0, y_pos: 0}
+		// 페이지 스크롤 이동
+		
+			var x_pos = (typeof parmas.x_pos === 'undefined') ? '' : parseInt(parmas.x_pos);
+			var y_pos = (typeof parmas.y_pos === 'undefined') ? '' : parseInt(parmas.y_pos);
+
+			if (!isNaN(x_pos) && !isNaN(y_pos)) {
+				window.scroll(x_pos, y_pos);
+			}
+		} else if (target == 'move_realname') { // params 규격 {target: '실행구분', check_url: '실명인증 url'}
+		// 실명 인증 이동
+			var check_url = (typeof parmas.check_url === 'undefined') ? '' : parmas.check_url;
+
+			if(check_url != ''){
+
+				var thisdomain = document.domain;
+				if ( document.domain == 'nate.com' ) {
+					thisdomain = document.location.href;
+				}
+				thisdomain = thisdomain.replace(/^https:\/\//, '');
+				thisdomain = thisdomain.replace(/\/.*/g, '');
+				
+				var e_url = 'https://' + thisdomain + '/etc/realNameBridge';
+				var r_url = document.location.href;
+				
+				var r_url = document.location.href;
+				check_url += '?e_url=' + encodeURIComponent(e_url);
+				check_url += '&r_url=' + encodeURIComponent(r_url);
+				
+				var check_win = OpenPopup(check_url, 475, 757, 'check_win');					
+			}			
+		}
+	}
+		
+	function callBackFnct (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+		var elementId = (typeof parmas.elementId === 'undefined') ? '' : parmas.elementId;
+		var iframeId = (typeof parmas.iframeId === 'undefined') ? '' : parmas.iframeId;
+		var callBackFncName = (typeof parmas.callBackFncName === 'undefined') ? '' : parmas.callBackFncName;
+			
+		if(target == 'get_value_ctgr_cd') {
+		// 기사 내 ctgr_cd 셋팅	
+			
+			jQuery(document).ready(function() {
+				if (typeof sCtgr_cd != 'undefined') {
+					crsMsg.fnct(callBackFncName, {target: 'get_value_ctgr_cd', value: sCtgr_cd}, iframeId);
+				}
+			});
+		} else if(target == 'get_element_value_p_url') {
+		// 기사 내 p_url 셋팅
+			
+			jQuery(document).ready(function() {
+				crsMsg.fnct(callBackFncName, {target: 'get_element_value_p_url', elementId: elementId, value: location.href}, iframeId);
+			});
+		}		
+	}
+	
+	// 뉴스 페이지의 광고 통합 처리 함수
+	// 넘어온 광고 target 코드값으로 분기 처리한다. height은 자식 iframe의 도큐먼트 높이 값
+	function callCrossOriginAd (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+		var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+
+		if(target == 'spo_premium_bnr' && height != '') {
+			// spo_premium_bnr 광고 리사이징
+			resizeIfr2({el: '#spo_premium_bnr', height: height});
+		} else if(target == 'ad02IFrame' && height != '') {
+			resizeIfr2({el: '#ad02IFrame', height: height});
+		}
+	}
+
+//]]>
+</script>
+<!-- SEO Meta Tag -->
+<meta content="" name="description"/>
+<!-- Open Graph Meta Tag -->
+<meta content="https://sports.news.nate.com/%0A" property="og:url"/>
+<meta content="네이트 뉴스" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://nimg.nate.com/ui/uidev/images/common/sns-og-fb-logo2.gif" property="og:image"/>
+<meta content="네이트 스포츠" property="og:site_name"/>
+<meta content="website" property="og:type"/>
+<meta content="ko_KR" property="og:locale"/>
+<!-- 네이트온 쪽지플러그인 Meta Tag-->
+<meta content="https://sports.news.nate.com/%0A" name="nate:url"/>
+<meta content="네이트 뉴스" name="nate:title"/>
+<meta content="" name="nate:description"/>
+<meta content="https://nimg.nate.com/ui/uidev/images/common/sns-og-fb-logo2.gif" name="nate:image"/>
+<meta content="네이트 스포츠" name="nate:site_name"/>
+<!-- Twitter Meta Tag -->
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- 네이트썰 Meta Tag -->
+<meta content="spo" name="ssul:category"/></head><body>
+<!-- Skip -->
+<div class="skip"><a href="#container">본문으로 바로가기</a></div>
+<!-- //Skip -->
+<div id="sports_main">
+<!-- HEADER -->
+<div class="sports" id="header" role="banner">
+<div class="svcWrap">
+<div class="gnbWrap">
+<h1> <a class="natebi" href="//www.nate.com/?f=news" onclick="ndrclick('RIQ05');">NATE</a>
+<a class="svcname" href="//sports.news.nate.com" onclick="ndrclick('RIQ11');">스포츠</a>
+</h1> <ul class="relsvc">
+<li class="svc0"><a href="//news.nate.com/" onclick="ndrclick('RIQ12');">뉴스</a></li>
+<li class="svc2"><a href="//news.nate.com/ent/section?mid=e0100" onclick="ndrclick('RIQ13');">연예</a></li>
+<li class="svc3"><a href="//pann.nate.com" onclick="ndrclick('RIQ14');">판</a></li>
+<li class="svc4"><a href="//news.nate.com/weather" onclick="ndrclick('RIQ15');">날씨</a></li>
+</ul>
+<noscript>
+<div id="noscript_gnb">
+<div>
+<a href="//www.nate.com/?f=news">네이트 메인으로</a> <span>|</span>
+<a href="//www.nate.com/sitemap/">사이트맵</a>
+</div>
+</div>
+</noscript>
+<!-- search -->
+<div data-set="search" id="searchWrap">
+<form accept-charset="utf-8" class="srchform" id="search" method="get" name="search" target="_top">
+<input name="ssn" type="hidden" value="036"/>
+<input name="asn" type="hidden" value="003600540"/>
+<fieldset>
+<legend>검색영역</legend>
+<input class="searchBox" id="input_search" name="q" tabl="1" title="검색어 입력" type="search" value=""/>
+<button class="searchBtn" id="acBtn" onclick="searchGo();return false;" type="submit"><span class="hide">검색</span></button>
+</fieldset>
+</form>
+</div> </div>
+<script type="text/javascript">
+		//<![CDATA[
+			try {
+				var NateGNB = new classNateGNB('container');
+			} catch(e) {}
+	
+			function searchGo() {
+				// 통계
+				ndrclick('RIC01');
+	
+				// 검색 submit
+				var searchFrm = document.search;
+				
+				searchFrm.action = '//news.nate.com/search';
+				searchFrm.submit();
+			}
+		//]]>
+	</script>
+</div> <div class="navWrap">
+<div class="snbArea" role="navigation">
+<div class="hide">스포츠 메뉴</div>
+<ul>
+<li class="on"><a aria-current="page" href="//sports.news.nate.com" onclick="ndrclick('RIY01');">홈</a></li>
+<li><a href="//sports.news.nate.com/baseball/" onclick="ndrclick('RIY02');">야구</a></li>
+<li><a href="//sports.news.nate.com/abrbaseball/" onclick="ndrclick('RIY03');">해외야구</a></li>
+<li><a href="//sports.news.nate.com/soccer/" onclick="ndrclick('RIY04');">축구</a></li>
+<li><a href="//sports.news.nate.com/abrsoccer/" onclick="ndrclick('RIY05');">해외축구</a></li>
+<li><a href="//sports.news.nate.com/basketvolley/" onclick="ndrclick('RIY06');">농구/배구</a></li>
+<li><a href="//sports.news.nate.com/general/" onclick="ndrclick('RIY07');">스포츠일반</a></li>
+<li><a href="//sports.news.nate.com/hissue/groupList?mid=s1001&amp;isq=10057" onclick="ndrclick('RIY08');">스포츠PUB</a></li>
+<li><a href="//sports.news.nate.com/photo" onclick="ndrclick('RIY11');">포토센터</a></li>
+</ul>
+</div>
+</div>
+<!-- 하위 뎁스가 있을경우 사용 -->
+<!-- 날개배너 -->
+<div class="spaceBanner">
+<div class="rightSpaceBanner">
+<div id="ad_newsMarginCube_right"></div>
+</div>
+</div>
+<!-- //날개배너 -->
+<script type="text/javascript">
+//<![CDATA[
+	function iPadNonDisplaySpaceBanner(){
+		var uAgent = navigator.userAgent.toLowerCase();
+		var mobilePhones = new Array('ipad');
+
+		for (var i=0; i<mobilePhones.length; i++) {
+			if (uAgent.indexOf(mobilePhones[i]) != -1) {
+				document.getElementById('rightSpaceBanner').style.display = 'none';
+			}
+		}
+	}
+
+	if (window.addEventListener) {
+		window.addEventListener("load", iPadNonDisplaySpaceBanner,false); 
+	} else if (window.attachEvent) {
+		window.attachEvent("onload", iPadNonDisplaySpaceBanner); 
+	}
+//]]>
+</script> </div>
+<!-- HEADER : E -->
+<div id="ad_sponsorBar">
+<!-- 프리미엄배너 -->
+<div id="adDiv">
+<iframe frameborder="0" height="0" id="spo_premium_bnr" marginheight="0" marginwidth="0" name="spo_premium_bnr" scrolling="no" src="//sports.news.nate.com/spoAD/premium?mid=s0000" title="스폰서바" width="970"></iframe>
+<div id="ad_sponsorObj"></div>
+<div id="ad_sponsorBar_extend"></div>
+</div>
+<!-- 프리미엄배너 -->
+</div>
+<!-- 스포츠 이슈 상단  -->
+<div id="container">
+<!-- apple ad. -->
+<!-- //apple ad. -->
+<div class="middlecntWrap">
+<div id="cntArea">
+<!-- Main Top -->
+<div class="topPhotoAreaWrap">
+<div class="topPhotoArea">
+<div class="blindTit">헤드라인 뉴스 및 관련기사</div>
+<div class="headlinePhoto">
+<div class="headline_vod">
+<a href="//sports.news.nate.com/view/20231029n00231" onclick="ndrclick('PSCP09');" target="_self"><img alt="" height="290" src="//news.nateimg.co.kr/etc/cms/2023/10/29/1698509196_659.jpg" width="516"/>
+<h2 class="title">황의조 잉글랜드 무대 첫 골! 선덜랜드에 1-3 역전패</h2>
+<span class="s_date">2023-10-29 01:01:05</span>
+</a>
+</div>
+<div class="headline_vod_list">
+<ul>
+<li><a href="//sports.news.nate.com/view/20231028n08142" onclick="ndrclick('PSCP09');">
+<img alt="" height="96" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698486659_128.jpg" width="172"/><h2 class="tit">SON, 맨시티 레전드까지 넘었다</h2>
+</a>
+</li>
+<li><a href="//sports.news.nate.com/view/20231028n10400" onclick="ndrclick('PSCP09');">
+<img alt="" height="96" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698494375_778.gif" width="172"/><h2 class="tit">류현진 서서히 드러나는 행선지</h2>
+</a>
+</li>
+<li><a href="//sports.news.nate.com/view/20231028n10613" onclick="ndrclick('PSCP09');">
+<img alt="" height="96" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698494560_256.gif" width="172"/><h2 class="tit">韓배드민턴 2개 대회 연속 무관</h2>
+</a>
+</li>
+</ul>
+</div>
+</div> </div>
+</div>
+<!-- //Main Top -->
+<div class="newsBox" id="mainNews"> <div class="secTitle">
+<div class="newsTit">종목별 주요뉴스</div>
+<ul class="sTitle newssTit">
+<li class="first-child bBall"><a class="select" href="#news_baseball" id="_news_baseball" onclick="getPage('//sports.news.nate.com/mainNews?ajx=1&amp;sect=baseball','mainNews')">야구</a></li>
+<li class="fg_bBall"><a href="#news_abrbaseball" id="_news_abrbaseball" onclick="getPage('//sports.news.nate.com/mainNews?ajx=1&amp;sect=abrbaseball','mainNews')">해외야구</a></li>
+<li class="sBall"><a href="#news_soccer" id="_news_soccer" onclick="getPage('//sports.news.nate.com/mainNews?ajx=1&amp;sect=soccer','mainNews')">축구</a></li>
+<li class="fg_sBall"><a href="#news_abrsoccer" id="_news_abrsoccer" onclick="getPage('//sports.news.nate.com/mainNews?ajx=1&amp;sect=abrsoccer','mainNews')">해외축구</a></li>
+<li class="vbBall"><a href="#news_basketvolley" id="_news_basketvolley" onclick="getPage('//sports.news.nate.com/mainNews?ajx=1&amp;sect=basketvolley','mainNews')">농구/배구</a></li>
+<li class="general"><a href="#news_general" id="_news_general" onclick="getPage('//sports.news.nate.com/mainNews?ajx=1&amp;sect=general','mainNews')">일반</a></li>
+</ul>
+</div>
+<div class="newsWrap">
+<div class="newsToplist">
+<div class="context">
+<a href="//sports.news.nate.com/view/20231028n07978">
+<h2 class="subj">김태형 눈도장 일찌감치 '쾅', 151㎞ 고속...</h2>
+<span class="parag">
+						[스타뉴스 | 김해=양정웅 기자] 롯데 우강훈이 경남 김해시 상동야구장에서 스타뉴스와 만나 인터뷰를 하고 있다. /사진=양정웅 기자우강훈. /사진=롯데 자이언츠해설위원 시절...					</span>
+</a>
+<div class="origin"><em>스타뉴스</em> 2023.10.28</div>
+</div>
+<ul>
+<li><h2><a href="//sports.news.nate.com/view/20231028n10919">"밥 먹다가도 투구폼 연습, 많이 힘들었을 것"…132승 레전드 매형 장원준의 은퇴, 뜨거운 박수 보냈다</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n10275">'PS 4연승' 잘나가는 NC의 불안요소, 'ERA 15.00' 태너의 가을야구 부진</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n09876">'코치 5명 유출' 이승엽호, 조웅천 투수코치 영입…'롯데→SSG' 거쳐 4년 만에 두산 복귀</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n09842">'이정후 관심' SF 사장도 인정했다, 김하성 떠난 멜빈, 'KBO 천재타자'와 인연 맺을까</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n07070">"현역 때도 못 나가봤는데…" 46세에 첫 올스타전, '역전의 명수'와 함께 첫 MVP까지 [고척 현장]</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n01551">골타박상→최후통첩→전력 외 판정…플럿코 리스크 모르는 LG, KS 로테이션은 이미 정했다</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n03580">4회 투런→6회 솔로포…후반기 대반전 보여준 한유섬은 폭발했다, 태너 만나는 SSG 유일한 희망인가 [준PO2]</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n05083">'유튜버 변신' 강정호의 PO 전망, "선발진 약한 NC, 페디 나올때 무조건 이겨야"</a></h2></li>
+<li><h2><a href="//sports.news.nate.com/view/20231028n02441">"쉬운 결정 아니었다" 10년 정든 한화 떠나 KIA로…새로운 도전 나선 이동걸 코치</a></h2></li>
+</ul>
+</div>
+<ul class="newsPhotolist">
+<li class="first-child">
+<a href="//sports.news.nate.com/view/20231028n10237">
+<span class="thumb"><img alt="&amp;quot;SON 8호골 넣고 가장 먼저 한 일&amp;quot; 英 매체도 감동…포스테코글루도 극찬한 경기력" class="img" src="//thumbnews.nateimg.co.kr/mnews280x180///news.nateimg.co.kr/orgImg/fb/2023/10/28/617124_608294_3623.jpg"/><span class="bg_border"></span></span>
+<h2 class="subj">"SON 8호골 넣고 가장 먼저 한...</h2>
+<span class="parag">[인터풋볼]신인섭기자= 손흥민은 자신의 득점을 도와...</span>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/view/20231028n08677">
+<span class="thumb"><img alt="'인싸' SON, 상대팀 의료진한테 허락 받아 물 먹고 심판에겐 권하고" class="img" src="//thumbnews.nateimg.co.kr/mnews280x180///news.nateimg.co.kr/orgImg/pt/2023/10/28/202310281634773320_653cc68ba8b84.jpg"/><span class="bg_border"></span></span>
+<h2 class="subj">'인싸' SON, 상대팀 의료진한...</h2>
+<span class="parag">[OSEN=이인환 기자] "상대 팀 물 훔쳐서 심판에게 ...</span>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/view/20231028n07001">
+<span class="thumb"><img alt="'포항측 오기? 심판 실수?' K리그 전북-포항전서 역대급 교체실수 사태 발생" class="img" src="//thumbnews.nateimg.co.kr/mnews280x180///news.nateimg.co.kr/orgImg/sc/2023/10/28/2023102901001902700277821.jpg"/><span class="bg_border"></span></span>
+<h2 class="subj">'포항측 오기? 심판 실수?' K리...</h2>
+<span class="parag">중계화면 캡쳐 사진제공=한국프로축구연맹 사진제공=...</span>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/view/20231028n05271">
+<span class="thumb"><img alt="성전환했는데 임신? &amp;quot;남현희, 성관계 착각한 듯…전청조, 시기상 수술 불가&amp;quot;" class="img" src="//thumbnews.nateimg.co.kr/mnews280x180///news.nateimg.co.kr/orgImg/sg/2023/10/28/20231028500764.jpg"/><span class="bg_border"></span></span>
+<h2 class="subj">성전환했는데 임신? "남현희, 성...</h2>
+<span class="parag">배상훈 프로파일러 “올해 교도소 출소…사기꾼들 전...</span>
+</a>
+</li>
+</ul>
+</div>
+<a class="more" href="/baseball" title="종목별 주요뉴스 야구더보기">+ 더보기</a>
+</div> <div class="sportsphotoBox" id="mainPhotos"> <div class="secTitle">
+<div class="photoTit"><a href="//sports.news.nate.com/photo?sect=all">포토센터</a></div>
+<ul class="sTitle newssTit">
+<li class="first-child total"><a class="select" href="#photo_all" id="_photo_all" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=all','mainPhotos')">전체</a></li>
+<li class="bBall"><a href="#photo_baseball" id="_photo_baseball" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=baseball','mainPhotos')">야구</a></li>
+<li class="fg_bBall"><a href="#photo_abrbaseball" id="_photo_abrbaseball" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=abrbaseball','mainPhotos')">해외야구</a></li>
+<li class="sBall"><a href="#photo_soccer" id="_photo_soccer" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=soccer','mainPhotos')">축구</a></li>
+<li class="fg_sBall"><a href="#photo_abrsoccer" id="_photo_abrsoccer" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=abrsoccer','mainPhotos')">해외축구</a></li>
+<li class="vbBall"><a href="#photo_basketvolley" id="_photo_basketvolley" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=basketvolley','mainPhotos')">농구/배구</a></li>
+<li class="general"><a href="#photo_general" id="_photo_general" onclick="getPage('//sports.news.nate.com/mainPhoto?ajx=1&amp;sect=general','mainPhotos')">일반</a></li>
+</ul>
+</div>
+<ul class="sportsphoto">
+<li class="first-child">
+<a href="//sports.news.nate.com/spo/photo?cid=1020980" onclick="ndrclick('PSCP10');">
+<img alt="" height="91" src="//news.nateimg.co.kr/etc/cms/2023/10/29/1698506090_093.jpg" width="123"/>
+<span class="bg_border"></span>
+<span class="slide">슬라이드 이미지</span>
+<h2>케인, 분데스 역사에 남을 중앙선 원더골 작렬 [해외축구 화제의 뉴스]</h2>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/spo/photo?cid=1020963" onclick="ndrclick('PSCP10');">
+<img alt="" height="91" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698495071_581.jpg" width="123"/>
+<span class="bg_border"></span>
+<span class="slide">슬라이드 이미지</span>
+<h2>캐러거가 극찬한 이유 있었네…손흥민, 지난 10년 누적 공격p TOP5 등극 [손흥민의 모든 것]</h2>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/spo/photo?cid=1020961" onclick="ndrclick('PSCP10');">
+<img alt="" height="91" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698493958_136.gif" width="123"/>
+<span class="bg_border"></span>
+<span class="slide">슬라이드 이미지</span>
+<h2>차준환, 올 시즌 처음 출전한 피겨 그랑프리 쇼트 2위[스포츠 화제의 뉴스 I 일반]</h2>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/spo/photo?cid=1020955" onclick="ndrclick('PSCP10');">
+<img alt="" height="91" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698488588_259.gif" width="123"/>
+<span class="bg_border"></span>
+<span class="slide">슬라이드 이미지</span>
+<h2>김정아, 꼴찌 탈출 시즌 첫승 기념 물구나무 서기[스포츠 생생 현장]</h2>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/spo/photo?cid=1020940" onclick="ndrclick('PSCP10');">
+<img alt="" height="91" src="//news.nateimg.co.kr/etc/cms/2023/10/28/1698486113_540.jpg" width="123"/>
+<span class="bg_border"></span>
+<span class="slide">슬라이드 이미지</span>
+<h2>손흥민 듀오는 내 자리 'JohnSon' 강력 어필…브레넌 존슨, SNS에 투샷 자랑 [손흥민의 모든 것]</h2>
+</a>
+</li>
+</ul>
+<a class="more" href="//sports.news.nate.com/photo?sect=all">포토센터 전체 더보기</a>
+</div> <div id="spoHissueList">
+<div class="sportsphotoBox">
+<!-- title -->
+<div class="secTitle">
+<div class="hotissue">핫이슈</div>
+<ul class="subject">
+<li class="on" id="8588"><a href="javascript:viewHissue(8588);" onclick="ndrclick('PSCP06')">KBO리그</a> |</li>
+<li id="8588"><a href="javascript:viewHissue(8655);" onclick="ndrclick('PSCP06')">한국 축구, 유럽을 누비다</a> |</li>
+<li id="8588"><a href="javascript:viewHissue(9298);" onclick="ndrclick('PSCP06')">MLB 핫이슈</a></li>
+</ul>
+</div>
+<!-- //title -->
+<ul class="news_issue">
+<li>
+<a href="//sports.news.nate.com/view/20231028n10919?mid=s0106" onclick="ndrclick('PSCP07')">
+<span class="thumb"><img alt='"밥 먹다가도 투구폼 연습, 많이 힘들었을 것"…132승 레전드 매형 장원준의 은퇴, 뜨거운 박수 보냈다' src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/su/2023/10/28/640258_940844_2318.jpg"/></span> <span class="parag"><h2>"밥 먹다가도 투구폼 연습, 많이 힘들었을 것"…132승 레전드 매형 장원준의 은퇴, 뜨거운 박수 보냈다 </h2>"밥 먹다가, 아기 보다가 말고 갑자기 일어나서 투구 폼 연습하고 그런 형을 보면서 너무 안쓰럽다가도 한편으로는 대단하고 존경스럽다고 느끼기도 했다." NC 다이노스 외야수 ...</span>
+<span class="origin"><em>스포티비뉴스</em><em class="bar">|</em><em class="date">2023.10.28</em></span>
+</a>
+</li>
+<li>
+<a href="//sports.news.nate.com/view/20231028n09842?mid=s0106" onclick="ndrclick('PSCP07')">
+<span class="thumb"><img alt="'이정후 관심' SF 사장도 인정했다, 김하성 떠난 멜빈, 'KBO 천재타자'와 인연 맺을까" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/tn/2023/10/28/2023102818050740303_1.jpg"/></span> <span class="parag"><h2>'이정후 관심' SF 사장도 인정했다, 김하성 떠난 멜빈, 'KBO 천재타자'와 인연 맺을까 </h2>이정후.이정후(25·키움 히어로즈)의 미국프로야구 메이저리그(MLB) 진출은 사실상 기정사실화되고 있다. 이미 시즌에 앞서 미국 진출을 선언했고 그를 지켜보기 위해 수 많은 ...</span>
+<span class="origin"><em>스타뉴스</em><em class="bar">|</em><em class="date">2023.10.28</em></span>
+</a>
+</li>
+</ul>
+<a class="more" href="//sports.news.nate.com/hissue/clstList?isq=8588&amp;mid=s0106" onclick="ndrclick('PSCP08')">전체 더보기</a>
+</div><script type="text/javascript">
+	//<!CDATA[
+		function viewHissue(hissueSq) {
+			var sCallURL = '/mainHissue?hissueSq=' + hissueSq;
+			jQuery("#spoHissueList").html();
+			jQuery.ajax({
+				type		: "POST",
+				url			: sCallURL,
+				cache		: false,
+				dataType	: "html",
+				charset		: "euc-kr",
+				success		: function(data) {
+					jQuery("#spoHissueList").html(data);
+				}
+			});
+		}
+		
+	//]]>
+</script> </div>
+</div>
+<!-- 우측모듈 -->
+<div id="sideArea">
+<div class="ranking_wrap real_ranking first-child">
+<h3><a href="//news.nate.com/rank/interest" onclick="ndrclick('RIV00');">실시간 급상승 관심뉴스</a></h3>
+<div id="rankingWA">
+<ul class="rg_on2" id="tab_int_on">
+<li>
+<a class="m1" href="//news.nate.com/rank/interest?sc=sisa" id="intTab1" onclick="ndrclick('RIV06');" onfocus="setRankingTab(3,1);" onmouseover="setRankingTab(3,1);">시사</a>
+<div id="intNews1" style="display:none;">
+<div id="sisa1">
+<ol>
+<li class="ranking1 bold" id="i11_1">
+<a href="//news.nate.com/view/20231028n10775" onclick="ndrclick('RIV02');" title="경주월드 놀이기구 멈춤 사고…22명 20분간 공중 고립">경주월드 놀이기구 멈춤 사고…22명 20분간 공중 고립</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking2" id="i11_2">
+<a href="//news.nate.com/view/20231028n02461" onclick="ndrclick('RIV02');" title="'I am 무주택자'라면 주목…Next week '큰 장' [분양캘린더]">'I am 무주택자'라면 주목…Next week '큰 장' </a> <em class="up"><i>상승</i>4</em> </li>
+<li class="ranking3" id="i11_3">
+<a href="//news.nate.com/view/20231028n11177" onclick="ndrclick('RIV02');" title="같은 핼러윈·다른 분위기…'숙연' 이태원 vs '북적' 홍대">같은 핼러윈·다른 분위기…'숙연' 이태원 vs '북적' 홍대</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking4" id="i11_4">
+<a href="//news.nate.com/view/20231028n09829" onclick="ndrclick('RIV02');" title="뉴욕 출신이라더니…전청조 단골 음식점이 '뉴욕', 사장 &quot;덕분에 전화 불난다&quot;">뉴욕 출신이라더니…전청조 단골 음식점이 '뉴욕', 사장 "덕분에 전화 불난다"</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking5" id="i11_5">
+<a href="//news.nate.com/view/20231028n11040" onclick="ndrclick('RIV02');" title="1091회 로또 1등 9명 '28.9억씩'…모두 자동선택 '잭팟'">1091회 로또 1등 9명 '28.9억씩'…모두 자동선택 '잭팟'</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking6" id="i11_6">
+<a href="//news.nate.com/view/20231028n09836" onclick="ndrclick('RIV02');" title="[단독] 하림 통닭서 벌레 추정물질 '한 움큼'…이마트 &quot;제품 소진돼&quot;"> 하림 통닭서 벌레 추정물질 '한 움큼'…이마트 "제품 소진돼"</a> <em class="up"><i>상승</i>6</em> </li>
+<li class="ranking7" id="i11_7">
+<a href="//news.nate.com/view/20231028n05257" onclick="ndrclick('RIV02');" title="전청조 사기무대 된 시그니엘…단기임대 많고 아파트 아닌 '오피스텔'">전청조 사기무대 된 시그니엘…단기임대 많고 아파트 아닌 '오피스텔'</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking8" id="i11_8">
+<a href="//news.nate.com/view/20231028n06458" onclick="ndrclick('RIV02');" title='"죽으면 썩을 몸, 한 번 줘라"…산악회 중년들의 저질 문화, 실화냐'>"죽으면 썩을 몸, 한 번 줘라"…산악회 중년들의 저질 문화, 실화냐</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking9" id="i11_9">
+<a href="//news.nate.com/view/20231028n03476" onclick="ndrclick('RIV02');" title="&quot;확진 18일 만에 숨져&quot;…베트남에서 '엠폭스' 첫 사망자 발생">"확진 18일 만에 숨져"…베트남에서 '엠폭스' 첫 사망자 발생</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking10" id="i11_10">
+<a href="//news.nate.com/view/20231028n07031" onclick="ndrclick('RIV02');" title="&quot;순식간에 400만원 뜯긴다&quot; '이 문자' 잘못 눌렀다간 끔찍한 일이">"순식간에 400만원 뜯긴다" '이 문자' 잘못 눌렀다간 끔찍한 일이</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking11" id="i11_11">
+<a href="//news.nate.com/view/20231028n03558" onclick="ndrclick('RIV02');" title="4인가족 놀이동산 즐기려면 5천만원 든다…부모 등골 휘는 '디즈니월드'">4인가족 놀이동산 즐기려면 5천만원 든다…부모 등골 휘는 '디즈니월드'</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking12" id="i11_12">
+<a href="//news.nate.com/view/20231028n01626" onclick="ndrclick('RIV02');" title="&quot;싸서 오는 거 아니에요&quot;…故송해 단골 '3000원 국밥집' 찾는 이유">"싸서 오는 거 아니에요"…故송해 단골 '3000원 국밥집' 찾는 이유</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking13" id="i11_13">
+<a href="//news.nate.com/view/20231028n02298" onclick="ndrclick('RIV02');" title="45년된 아파트 130억에 팝니다…평당 1억6천 찍은 '이 단지'">45년된 아파트 130억에 팝니다…평당 1억6천 찍은 '이 단지'</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking14" id="i11_14">
+<a href="//news.nate.com/view/20231028n02610" onclick="ndrclick('RIV02');" title="전청조, 과거 동성 결혼식 영상 공개…턱시도 입고 신부 옆 '활짝'">전청조, 과거 동성 결혼식 영상 공개…턱시도 입고 신부 옆 '활짝'</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking15" id="i11_15">
+<a href="//news.nate.com/view/20231028n09146" onclick="ndrclick('RIV02');" title="삼성 어쩌나…홍대 '애플스토어 6호점' 개점 정황 포착 [조아라의 IT's fun]">삼성 어쩌나…홍대 '애플스토어 6호점' 개점 정황 포착 </a> <em class="same"> <i>동일</i></em> </li>
+</ol>
+<div class="paging_right">
+<p class="rankdataMsg"><a href="//news.nate.com/rank/interest?sc=sisa" onclick="ndrclick('RNK22');">랭킹 TOP 100 전체보기<span class="arr"></span></a></p>
+<div class="paging_cont rankingRg">
+<a class="prev" href="javascript:DisplayPart(2,'sisa',2);" onclick="ndrclick('RIV05');">이전</a>
+<span><strong>1</strong>/2</span>
+<a class="next" href="javascript:DisplayPart(2,'sisa',2);" onclick="ndrclick('RIV05');">다음</a>
+</div>
+</div>
+</div>
+<div id="sisa2" style="display:none;">
+<ol>
+<li class="ranking16 bold" id="i12_16">
+<a href="//news.nate.com/view/20231028n10571" onclick="ndrclick('RIV03');" title='[인터뷰] 이태원 유족 "딸 사망신고 안해…그리울 땐 문자"'> 이태원 유족 "딸 사망신고 안해…그리울 땐 문자"</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking17" id="i12_17">
+<a href="//news.nate.com/view/20231028n06293" onclick="ndrclick('RIV03');" title="아파트 눈물의 땡처리…일본처럼 부동산 폭망 온다? [부동산 아토즈]">아파트 눈물의 땡처리…일본처럼 부동산 폭망 온다? </a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking18" id="i12_18">
+<a href="//news.nate.com/view/20231028n09437" onclick="ndrclick('RIV03');" title="아들에게 폭행당한 89세 아버지, 고소장 제출…재판결과 못보고 세상 떠나">아들에게 폭행당한 89세 아버지, 고소장 제출…재판결과 못보고 세상 떠나</a> <em class="up"><i>상승</i>4</em> </li>
+<li class="ranking19" id="i12_19">
+<a href="//news.nate.com/view/20231028n01883" onclick="ndrclick('RIV03');" title="女→男 성전환수술 기간만 3년…목소리도 바뀐다[알고보니]">女→男 성전환수술 기간만 3년…목소리도 바뀐다</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking20" id="i12_20">
+<a href="//news.nate.com/view/20231028n03702" onclick="ndrclick('RIV03');" title='"수업하고 있어 XX년" 담임에 욕설 퍼부은 고교생, 출석정지 받자 소송제기'>"수업하고 있어 XX년" 담임에 욕설 퍼부은 고교생, 출석정지 받자 소송제기</a> <em class="up"><i>상승</i>7</em> </li>
+<li class="ranking21" id="i12_21">
+<a href="//news.nate.com/view/20231028n03716" onclick="ndrclick('RIV03');" title="'1박에 200만 원' 최고급 관광 열차 '해랑' 12월에 다시 달린다">'1박에 200만 원' 최고급 관광 열차 '해랑' 12월에 다시 달린다</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking22" id="i12_22">
+<a href="//news.nate.com/view/20231028n10493" onclick="ndrclick('RIV03');" title="[현장] 159명 희생자 추모…다가온 '이태원 참사' 1주기"> 159명 희생자 추모…다가온 '이태원 참사' 1주기</a> <em class="up"><i>상승</i>2</em> </li>
+<li class="ranking23" id="i12_23">
+<a href="//news.nate.com/view/20231028n09942" onclick="ndrclick('RIV03');" title="전청조 사기 사건 한곳서 병합수사…출국금지 조치도(종합)">전청조 사기 사건 한곳서 병합수사…출국금지 조치도(종합)</a> <em class="down"><i>하락</i>4</em> </li>
+<li class="ranking24" id="i12_24">
+<a href="//news.nate.com/view/20231028n11270" onclick="ndrclick('RIV03');" title="홍대거리 오가는 시민들">홍대거리 오가는 시민들</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking25" id="i12_25">
+<a href="//news.nate.com/view/20231028n03092" onclick="ndrclick('RIV03');" title="&quot;여보, 그러게 왜 전기차 샀어&quot;…중고차 시세에 '피눈물' [배성수의 다다IT선]">"여보, 그러게 왜 전기차 샀어"…중고차 시세에 '피눈물' </a> <em class="up"><i>상승</i>25</em> </li>
+<li class="ranking26" id="i12_26">
+<a href="//news.nate.com/view/20231028n06161" onclick="ndrclick('RIV03');" title='"서울로 바래다주는길이 마지막일 줄은…" 아들 먼저 떠나 보낸 아빠'>"서울로 바래다주는길이 마지막일 줄은…" 아들 먼저 떠나 보낸 아빠</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking27" id="i12_27">
+<a href="//news.nate.com/view/20231028n02858" onclick="ndrclick('RIV03');" title="일본 '쑥' 미국 '뚝'···한국인 선호하는 해외 여행지 1위는 '이 나라'">일본 '쑥' 미국 '뚝'···한국인 선호하는 해외 여행지 1위는 '이 나라'</a> <em class="up"><i>상승</i>8</em> </li>
+<li class="ranking28" id="i12_28">
+<a href="//news.nate.com/view/20231028n08746" onclick="ndrclick('RIV03');" title="'히잡 실랑이' 끝 뇌사 상태 이란 10대 소녀 결국 사망">'히잡 실랑이' 끝 뇌사 상태 이란 10대 소녀 결국 사망</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking29" id="i12_29">
+<a href="//news.nate.com/view/20231028n08103" onclick="ndrclick('RIV03');" title="3ｍ 제한 터널 밀고 들어간 3.9ｍ 트럭…신호시설 줄줄이 파손">3ｍ 제한 터널 밀고 들어간 3.9ｍ 트럭…신호시설 줄줄이 파손</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking30" id="i12_30">
+<a href="//news.nate.com/view/20231028n04928" onclick="ndrclick('RIV03');" title="10·29 참사 기억해주세요">10·29 참사 기억해주세요</a> <em class="down"><i>하락</i>2</em> </li>
+</ol>
+<div class="paging_right">
+<p class="rankdataMsg"><a href="//news.nate.com/rank/interest?sc=sisa" onclick="ndrclick('RNK22');">랭킹 TOP 100 전체보기<span class="arr"></span></a></p>
+<div class="paging_cont rankingRg">
+<a class="prev" href="javascript:DisplayPart(2,'sisa',1);" onclick="ndrclick('RIV05');">이전</a>
+<span><strong>2</strong>/2</span>
+<a class="next" href="javascript:DisplayPart(2,'sisa',1);" onclick="ndrclick('RIV05');">다음</a>
+</div>
+</div>
+</div>
+<a class="more" href="//news.nate.com/rank/interest?sc=sisa" onclick="ndrclick('RIV01');" title="시사 실시간 급상승 뉴스 더보기">+ 더보기</a>
+</div>
+</li>
+<li>
+<a class="m2 on" href="//news.nate.com/rank/interest?sc=spo" id="intTab2" onclick="ndrclick('RIV11');" onfocus="setRankingTab(3,2);" onmouseover="setRankingTab(3,2);">스포츠</a>
+<div id="intNews2">
+<div id="sport1">
+<ol>
+<li class="ranking1 bold" id="i21_1">
+<a href="//sports.news.nate.com/view/20231029n00114" onclick="ndrclick('RIV07');" title="'10연속 풀타임' 김민재+'해트트릭' 케인…뮌헨, 다름슈타트전 8-0 대승→리그 '선두 탈환' [분데스 리뷰]">'10연속 풀타임' 김민재+'해트트릭' 케인…뮌헨, 다름슈타트전 8-0 대승→리그 '선두 탈환' </a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking2" id="i21_2">
+<a href="//sports.news.nate.com/view/20231029n00068" onclick="ndrclick('RIV07');" title="케인, 분데스 역사에 남을 중앙선 원더골 작렬[스한 스틸컷]">케인, 분데스 역사에 남을 중앙선 원더골 작렬</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking3" id="i21_3">
+<a href="//sports.news.nate.com/view/20231029n00231" onclick="ndrclick('RIV07');" title="[챔피언십 리뷰] 황의조 잉글랜드 무대 첫 골!…노리치, 선덜랜드에 1-3 역전패"> 황의조 잉글랜드 무대 첫 골!…노리치, 선덜랜드에 1-3 역전패</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking4" id="i21_4">
+<a href="//sports.news.nate.com/view/20231028n05271" onclick="ndrclick('RIV07');" title='성전환했는데 임신? "남현희, 성관계 착각한 듯…전청조, 시기상 수술 불가"'>성전환했는데 임신? "남현희, 성관계 착각한 듯…전청조, 시기상 수술 불가"</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking5" id="i21_5">
+<a href="//sports.news.nate.com/view/20231028n02681" onclick="ndrclick('RIV07');" title='마침내 입 연 남현희 "악마 같은 전청조, 벌받았으면"'>마침내 입 연 남현희 "악마 같은 전청조, 벌받았으면"</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking6" id="i21_6">
+<a href="//sports.news.nate.com/view/20231028n03015" onclick="ndrclick('RIV07');" title="김연아, 새댁의 귀여운 일상…남편 고우림 1인칭 시점">김연아, 새댁의 귀여운 일상…남편 고우림 1인칭 시점</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking7" id="i21_7">
+<a href="//sports.news.nate.com/view/20231028n08721" onclick="ndrclick('RIV07');" title="박기량 치어리더,'Timber 공연'-세로 직캠[O! SPORTS]">박기량 치어리더,'Timber 공연'-세로 직캠</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking8" id="i21_8">
+<a href="//sports.news.nate.com/view/20231028n04015" onclick="ndrclick('RIV07');" title='"남현희도 공범" 왜?…전청조가 선물한 이것들 때문'>"남현희도 공범" 왜?…전청조가 선물한 이것들 때문</a> <em class="up"><i>상승</i>3</em> </li>
+<li class="ranking9" id="i21_9">
+<a href="//sports.news.nate.com/view/20231028n11593" onclick="ndrclick('RIV07');" title='통 큰 이대호, "5년 전 퇴근길에 치킨 박스 던진 팬께 식사 대접하고 싶다" 왜?'>통 큰 이대호, "5년 전 퇴근길에 치킨 박스 던진 팬께 식사 대접하고 싶다" 왜?</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking10" id="i21_10">
+<a href="//sports.news.nate.com/view/20231028n00649" onclick="ndrclick('RIV07');" title='"속았다"던 남현희, 피해자 아닌 사기 공범으로 지목된 이유'>"속았다"던 남현희, 피해자 아닌 사기 공범으로 지목된 이유</a> <em class="up"><i>상승</i>5</em> </li>
+<li class="ranking11" id="i21_11">
+<a href="//sports.news.nate.com/view/20231028n10819" onclick="ndrclick('RIV07');" title="'이강인, 몇 달 일찍 합류했다면 PSG 라커룸 장악→팀에서 필수적인 선수'">'이강인, 몇 달 일찍 합류했다면 PSG 라커룸 장악→팀에서 필수적인 선수'</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking12" id="i21_12">
+<a href="//sports.news.nate.com/view/20231028n08142" onclick="ndrclick('RIV07');" title="'슈퍼SON은 월클입니다' 손흥민, 맨시티 레전드까지 넘었다…&quot;지난 10년간 EPL 누적 공격포인트 5위&quot;">'슈퍼SON은 월클입니다' 손흥민, 맨시티 레전드까지 넘었다…"지난 10년간 EPL 누적 공격포인트 5위"</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking13" id="i21_13">
+<a href="//sports.news.nate.com/view/20231028n10400" onclick="ndrclick('RIV07');" title='"그들이 돌아오지 않는다면" 류현진 서서히 드러나는 행선지…또 밀워키, 인내 끝에 골라간다'>"그들이 돌아오지 않는다면" 류현진 서서히 드러나는 행선지…또 밀워키, 인내 끝에 골라간다</a> <em class="down"><i>하락</i>4</em> </li>
+<li class="ranking14" id="i21_14">
+<a href="//sports.news.nate.com/view/20231028n10237" onclick="ndrclick('RIV07');" title='"SON 8호골 넣고 가장 먼저 한 일" 英 매체도 감동…포스테코글루도 극찬한 경기력'>"SON 8호골 넣고 가장 먼저 한 일" 英 매체도 감동…포스테코글루도 극찬한 경기력</a> <em class="up"><i>상승</i>13</em> </li>
+<li class="ranking15" id="i21_15">
+<a href="//sports.news.nate.com/view/20231028n08633" onclick="ndrclick('RIV07');" title="여행만족도 급락한 제주에 무슨 일이…부산은 첫 1위 '기염'[여행가중계]">여행만족도 급락한 제주에 무슨 일이…부산은 첫 1위 '기염'</a> <em class="up"><i>상승</i>20</em> </li>
+</ol>
+<div class="paging_right">
+<p class="rankdataMsg"><a href="//news.nate.com/rank/interest?sc=spo" onclick="ndrclick('RNK22');">랭킹 TOP 100 전체보기<span class="arr"></span></a></p>
+<div class="paging_cont rankingRg">
+<a class="prev" href="javascript:DisplayPart(2,'sport',2);" onclick="ndrclick('RIV10');">이전</a>
+<span><strong>1</strong>/2</span>
+<a class="next" href="javascript:DisplayPart(2,'sport',2);" onclick="ndrclick('RIV10');">다음</a>
+</div>
+</div>
+</div>
+<div id="sport2" style="display:none;">
+<ol>
+<li class="ranking16 bold" id="i22_16">
+<a href="//sports.news.nate.com/view/20231028n11216" onclick="ndrclick('RIV08');" title="김민재 힘들어 죽는데…뮌헨, 팔리냐에게 932억 이상 쓰지 않을 예정">김민재 힘들어 죽는데…뮌헨, 팔리냐에게 932억 이상 쓰지 않을 예정</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking17" id="i22_17">
+<a href="//sports.news.nate.com/view/20231028n09612" onclick="ndrclick('RIV08');" title="'포스테코글루 무패행진 비밀'들통났다…'NFL스타일 지도 덕분'→'감독은 실종' 코치들에게 훈련 일임→EPL에서는 생소한 스타일">'포스테코글루 무패행진 비밀'들통났다…'NFL스타일 지도 덕분'→'감독은 실종' 코치들에게 훈련 일임→EPL에서는 생소한 스타일</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking18" id="i22_18">
+<a href="//sports.news.nate.com/view/20231028n03641" onclick="ndrclick('RIV08');" title='남현희, "전청조가 파라다이스 물려준다고 아기 낳자고 했다"'>남현희, "전청조가 파라다이스 물려준다고 아기 낳자고 했다"</a> <em class="down"><i>하락</i>4</em> </li>
+<li class="ranking19" id="i22_19">
+<a href="//sports.news.nate.com/view/20231028n08354" onclick="ndrclick('RIV08');" title="'역겨운 행동, 레드카드 받아야 했다'→'분데스리가에선 잔디 훼손 청구서 보냈을 것'">'역겨운 행동, 레드카드 받아야 했다'→'분데스리가에선 잔디 훼손 청구서 보냈을 것'</a> <em class="up"><i>상승</i>4</em> </li>
+<li class="ranking20" id="i22_20">
+<a href="//sports.news.nate.com/view/20231029n00113" onclick="ndrclick('RIV08');" title="'케인 초장거리골+해트트릭, 노이어 10개월 만의 복귀전' 바이에른 뮌헨, 다름슈타트 8-0 대파…김민재 전경기 선발 출전→분데스리가 선두 등극">'케인 초장거리골+해트트릭, 노이어 10개월 만의 복귀전' 바이에른 뮌헨, 다름슈타트 8-0 대파…김민재 전경기 선발 출전→분데스리가 선두 등극</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking21" id="i22_21">
+<a href="//sports.news.nate.com/view/20231028n05493" onclick="ndrclick('RIV08');" title="'콘테가 틀렸다' 손흥민, 지난 시즌 30경기 8골 → 이번 시즌 11경기 8골…완벽 부활 성공">'콘테가 틀렸다' 손흥민, 지난 시즌 30경기 8골 → 이번 시즌 11경기 8골…완벽 부활 성공</a> <em class="up"><i>상승</i>10</em> </li>
+<li class="ranking22" id="i22_22">
+<a href="//sports.news.nate.com/view/20231028n01158" onclick="ndrclick('RIV08');" title="'손흥민 8호골-결승골 작렬' 토트넘, 팰리스 2-1 꺾고 8승 2무 PL 단독 1위 질주…10G 무패행진-손흥민 풀타임 활약">'손흥민 8호골-결승골 작렬' 토트넘, 팰리스 2-1 꺾고 8승 2무 PL 단독 1위 질주…10G 무패행진-손흥민 풀타임 활약</a> <em class="new"><i>new</i></em> </li>
+<li class="ranking23" id="i22_23">
+<a href="//sports.news.nate.com/view/20231028n11966" onclick="ndrclick('RIV08');" title="'10개월 만의 복귀전' 노이어, 킴미히 퇴장 빌미 제공→바이에른 뮌헨-다름슈타트 맞대결, 전반전에만 3명 퇴장 난장판">'10개월 만의 복귀전' 노이어, 킴미히 퇴장 빌미 제공→바이에른 뮌헨-다름슈타트 맞대결, 전반전에만 3명 퇴장 난장판</a> <em class="new"><i>new</i></em> </li>
+<li class="ranking24" id="i22_24">
+<a href="//sports.news.nate.com/view/20231028n10956" onclick="ndrclick('RIV08');" title='손흥민 감동 멘트 "지난 시즌 괴로웠을 때도…축구는 즐거웠다"'>손흥민 감동 멘트 "지난 시즌 괴로웠을 때도…축구는 즐거웠다"</a> <em class="down"><i>하락</i>2</em> </li>
+<li class="ranking25" id="i22_25">
+<a href="//sports.news.nate.com/view/20231028n06320" onclick="ndrclick('RIV08');" title='이강인 "사비우에게 영감 받았다" 브라질 반색…레전드도 "영광" 화답'>이강인 "사비우에게 영감 받았다" 브라질 반색…레전드도 "영광" 화답</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking26" id="i22_26">
+<a href="//sports.news.nate.com/view/20231028n08687" onclick="ndrclick('RIV08');" title="[뉴스와이드] 남현희, 피해자인가 전청조 공범인가"> 남현희, 피해자인가 전청조 공범인가</a> <em class="up"><i>상승</i>8</em> </li>
+<li class="ranking27" id="i22_27">
+<a href="//sports.news.nate.com/view/20231028n10767" onclick="ndrclick('RIV08');" title="아쉬웠던 착지…차준환 '쇼트 2위'">아쉬웠던 착지…차준환 '쇼트 2위'</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking28" id="i22_28">
+<a href="//sports.news.nate.com/view/20231028n09686" onclick="ndrclick('RIV08');" title="손흥민 듀오는 내 자리 'JohnSon' 강력 어필…브레넌 존슨, SNS에 투샷 자랑">손흥민 듀오는 내 자리 'JohnSon' 강력 어필…브레넌 존슨, SNS에 투샷 자랑</a> <em class="down"><i>하락</i>9</em> </li>
+<li class="ranking29" id="i22_29">
+<a href="//sports.news.nate.com/view/20231028n10100" onclick="ndrclick('RIV08');" title="'차-포가 빠지다니…'한숨→토트넘 추격 바쁜 아스널, 주전 FW-MF 부상으로 전력 이탈→아르테타 걱정태산">'차-포가 빠지다니…'한숨→토트넘 추격 바쁜 아스널, 주전 FW-MF 부상으로 전력 이탈→아르테타 걱정태산</a> <em class="down"><i>하락</i>5</em> </li>
+<li class="ranking30" id="i22_30">
+<a href="//sports.news.nate.com/view/20231028n11943" onclick="ndrclick('RIV08');" title="'드디어 터졌다!' 황의조, 시즌 1호골 폭발!…잉글랜드 무대 데뷔골 작렬">'드디어 터졌다!' 황의조, 시즌 1호골 폭발!…잉글랜드 무대 데뷔골 작렬</a> <em class="down"><i>하락</i>12</em> </li>
+</ol>
+<div class="paging_right">
+<p class="rankdataMsg"><a href="//news.nate.com/rank/interest?sc=spo" onclick="ndrclick('RNK22');">랭킹 TOP 100 전체보기<span class="arr"></span></a></p>
+<div class="paging_cont rankingRg">
+<a class="prev" href="javascript:DisplayPart(2,'sport',1);" onclick="ndrclick('RIV10');">이전</a>
+<span><strong>2</strong>/2</span>
+<a class="next" href="javascript:DisplayPart(2,'sport',1);" onclick="ndrclick('RIV10');">다음</a>
+</div>
+</div>
+</div>
+<a class="more" href="//news.nate.com/rank/interest?sc=spo" onclick="ndrclick('RIV01');" title="스포츠 실시간 급상승 뉴스 더보기">+ 더보기</a>
+</div>
+</li>
+<li>
+<a class="m3" href="//news.nate.com/rank/interest?sc=ent" id="intTab3" onclick="ndrclick('RIV16');" onfocus="setRankingTab(3,3);" onmouseover="setRankingTab(3,3);">연예</a>
+<div id="intNews3" style="display:none;">
+<div id="ent1">
+<ol>
+<li class="ranking1 bold" id="i31_1">
+<a href="//news.nate.com/view/20231029n00216" onclick="ndrclick('RIV12');" title="'김은희♥' 장항준 &quot;딸 윤서, 본인 영화 2편 찍어…'부국제'서 상영&quot; (전참시)[종합]">'김은희♥' 장항준 "딸 윤서, 본인 영화 2편 찍어…'부국제'서 상영" (전참시)</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking2" id="i31_2">
+<a href="//news.nate.com/view/20231028n09223" onclick="ndrclick('RIV12');" title="[MD포토] 이선균 차 안 '집으로 출발'"> 이선균 차 안 '집으로 출발'</a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking3" id="i31_3">
+<a href="//news.nate.com/view/20231028n12023" onclick="ndrclick('RIV12');" title='"첫째가 벌써 고교생" 정웅인 세 딸 폭풍성장 근황…"다 예쁘게 커"(전참시)'>"첫째가 벌써 고교생" 정웅인 세 딸 폭풍성장 근황…"다 예쁘게 커"(전참시)</a> <em class="up"><i>상승</i>2</em> </li>
+<li class="ranking4" id="i31_4">
+<a href="//news.nate.com/view/20231028n10946" onclick="ndrclick('RIV12');" title="인도 럭키 &quot;'오징어게임' 섭외 거절, 대박나 기분 안 좋아&quot;(아는 형님)">인도 럭키 "'오징어게임' 섭외 거절, 대박나 기분 안 좋아"(아는 형님)</a> <em class="same"> <i>동일</i></em> </li>
+<li class="ranking5" id="i31_5">
+<a href="//news.nate.com/view/20231028n09761" onclick="ndrclick('RIV12');" title="경찰 출석 이선균 마약 진술 거부…소변·모발 국과수 의뢰">경찰 출석 이선균 마약 진술 거부…소변·모발 국과수 의뢰</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking6" id="i31_6">
+<a href="//news.nate.com/view/20231028n11919" onclick="ndrclick('RIV12');" title="김영대 한강뷰 집 공개, 직접 꾸민 홈짐서 복근 내놓고 운동(전참시)">김영대 한강뷰 집 공개, 직접 꾸민 홈짐서 복근 내놓고 운동(전참시)</a> <em class="up"><i>상승</i>2</em> </li>
+<li class="ranking7" id="i31_7">
+<a href="//news.nate.com/view/20231028n11446" onclick="ndrclick('RIV12');" title="크리스 &quot;난 연예인 아니고 그냥 '외노자'…LA찜질방에서 날 알아보더라&quot;(아는형님)">크리스 "난 연예인 아니고 그냥 '외노자'…LA찜질방에서 날 알아보더라"(아는형님)</a> <em class="up"><i>상승</i>2</em> </li>
+<li class="ranking8" id="i31_8">
+<a href="//news.nate.com/view/20231028n11194" onclick="ndrclick('RIV12');" title="류쿠마가이, ♥다니엘헤니와 극비리 결혼 후 첫 근황 '눈길'">류쿠마가이, ♥다니엘헤니와 극비리 결혼 후 첫 근황 '눈길'</a> <em class="down"><i>하락</i>5</em> </li>
+<li class="ranking9" id="i31_9">
+<a href="//news.nate.com/view/20231028n11948" onclick="ndrclick('RIV12');" title="도경수, '콩콩팥팥'서 잡은 뱀=살모사…팬들 걱정에 &quot;막 잡으면 안되겠다&quot;[M+이슈]">도경수, '콩콩팥팥'서 잡은 뱀=살모사…팬들 걱정에 "막 잡으면 안되겠다"</a> <em class="up"><i>상승</i>2</em> </li>
+<li class="ranking10" id="i31_10">
+<a href="//news.nate.com/view/20231028n11934" onclick="ndrclick('RIV12');" title="BTS RM 맞아? '칼단발' 파격 헤어스타일에 팬들 폭소">BTS RM 맞아? '칼단발' 파격 헤어스타일에 팬들 폭소</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking11" id="i31_11">
+<a href="//news.nate.com/view/20231028n11555" onclick="ndrclick('RIV12');" title="박은빈, 가정폭력 父 피해 바다 추락→무인도 삶 시작 (무인도의 디바)[종합]">박은빈, 가정폭력 父 피해 바다 추락→무인도 삶 시작 (무인도의 디바)</a> <em class="up"><i>상승</i>2</em> </li>
+<li class="ranking12" id="i31_12">
+<a href="//news.nate.com/view/20231028n02300" onclick="ndrclick('RIV12');" title='"마약 안했다"는 지드래곤, 눈치보는 샤넬·BMW…위약금 규모 가늠 안돼 [SS초점]'>"마약 안했다"는 지드래곤, 눈치보는 샤넬·BMW…위약금 규모 가늠 안돼 </a> <em class="up"><i>상승</i>7</em> </li>
+<li class="ranking13" id="i31_13">
+<a href="//news.nate.com/view/20231028n10160" onclick="ndrclick('RIV12');" title="'마약 혐의' 이선균, 경찰 출석 1시간 만에 귀가→마약 간이 검사 '음성' [TD현장 종합]">'마약 혐의' 이선균, 경찰 출석 1시간 만에 귀가→마약 간이 검사 '음성' </a> <em class="down"><i>하락</i>1</em> </li>
+<li class="ranking14" id="i31_14">
+<a href="//news.nate.com/view/20231028n04603" onclick="ndrclick('RIV12');" title="송혜교, 넋놓고 보게 되는 여신…보석보다 빛나네">송혜교, 넋놓고 보게 되는 여신…보석보다 빛나네</a> <em class="up"><i>상승</i>4</em> </li>
+<li class="ranking15" id="i31_15">
+<a href="//news.nate.com/view/20231028n11720" onclick="ndrclick('RIV12');" title="[종합] '연인' 안은진 &quot;남궁민에 마음 줬다&quot; 지승현과 이혼"> '연인' 안은진 "남궁민에 마음 줬다" 지승현과 이혼</a> <em class="down"><i>하락</i>5</em> </li>
+</ol>
+<div class="paging_right">
+<p class="rankdataMsg"><a href="//news.nate.com/rank/interest?sc=ent" onclick="ndrclick('RNK22');">랭킹 TOP 100 전체보기<span class="arr"></span></a></p>
+<div class="paging_cont rankingRg">
+<a class="prev" href="javascript:DisplayPart(2,'ent',2);" onclick="ndrclick('RIV15');">이전</a>
+<span><strong>1</strong>/2</span>
+<a class="next" href="javascript:DisplayPart(2,'ent',2);" onclick="ndrclick('RIV15');">다음</a>
+</div>
+</div>
+</div>
+<div id="ent2" style="display:none;">
+<ol>
+<li class="ranking16 bold" id="i32_16">
+<a href="//news.nate.com/view/20231028n11757" onclick="ndrclick('RIV13');" title="엄기준, 민영기 아니었다…윤태영, 총 겨누며 &quot;누구야 너&quot; ('7인의 탈출')[종합]">엄기준, 민영기 아니었다…윤태영, 총 겨누며 "누구야 너" ('7인의 탈출')</a> <em class="up"><i>상승</i>4</em> </li>
+<li class="ranking17" id="i32_17">
+<a href="//news.nate.com/view/20231028n07920" onclick="ndrclick('RIV13');" title="'고개 숙인' 이선균, 시약 검사 '양성' 뜰까 &quot;가족들에게 미안···많은 분들께 사과드린다&quot; [SE★이슈]">'고개 숙인' 이선균, 시약 검사 '양성' 뜰까 "가족들에게 미안···많은 분들께 사과드린다" </a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking18" id="i32_18">
+<a href="//news.nate.com/view/20231028n12025" onclick="ndrclick('RIV13');" title="'강남순'이유미, 변우석 덫에 걸렸다…김정은 위험 감지[종합]">'강남순'이유미, 변우석 덫에 걸렸다…김정은 위험 감지</a> <em class="up"><i>상승</i>8</em> </li>
+<li class="ranking19" id="i32_19">
+<a href="//news.nate.com/view/20231028n00702" onclick="ndrclick('RIV13');" title="수지, 타고난 미모에 몸매까지…범접불가 톱 비주얼">수지, 타고난 미모에 몸매까지…범접불가 톱 비주얼</a> <em class="up"><i>상승</i>6</em> </li>
+<li class="ranking20" id="i32_20">
+<a href="//news.nate.com/view/20231028n11164" onclick="ndrclick('RIV13');" title='알베르토 "하와이안 피자 무식, 美 파인애플 김밥까지 만들까 걱정"(아형)'>알베르토 "하와이안 피자 무식, 美 파인애플 김밥까지 만들까 걱정"(아형)</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking21" id="i32_21">
+<a href="//news.nate.com/view/20231028n07694" onclick="ndrclick('RIV13');" title="'마약 혐의' 이선균 경찰 출석, 한숨 쉬며 &quot;가족에 미안해&quot; [SS영상]">'마약 혐의' 이선균 경찰 출석, 한숨 쉬며 "가족에 미안해" </a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking22" id="i32_22">
+<a href="//news.nate.com/view/20231028n09150" onclick="ndrclick('RIV13');" title="[MD포토] 이선균 '성실하게 조사에 임하고 귀가'"> 이선균 '성실하게 조사에 임하고 귀가'</a> <em class="down"><i>하락</i>7</em> </li>
+<li class="ranking23" id="i32_23">
+<a href="//news.nate.com/view/20231028n07745" onclick="ndrclick('RIV13');" title='[현장포토] "마약 투약 혐의"…이선균, 꾹 깨문 입술'> "마약 투약 혐의"…이선균, 꾹 깨문 입술</a> <em class="up"><i>상승</i>11</em> </li>
+<li class="ranking24" id="i32_24">
+<a href="//news.nate.com/view/20231028n09688" onclick="ndrclick('RIV13');" title="'뉴스룸' 거미 &quot;♥조정석, 내 공연 고정 게스트 협의중…딸은 아빠 많이 닮아&quot;(종합)">'뉴스룸' 거미 "♥조정석, 내 공연 고정 게스트 협의중…딸은 아빠 많이 닮아"(종합)</a> <em class="up"><i>상승</i>9</em> </li>
+<li class="ranking25" id="i32_25">
+<a href="//news.nate.com/view/20231028n09577" onclick="ndrclick('RIV13');" title="'논란無' 태양 &quot;민효린·子와 보내는 시간 행복, 산책으로 스트레스 해소&quot; ('보그 코리아')[종합]">'논란無' 태양 "민효린·子와 보내는 시간 행복, 산책으로 스트레스 해소" ('보그 코리아')</a> <em class="down"><i>하락</i>4</em> </li>
+<li class="ranking26" id="i32_26">
+<a href="//news.nate.com/view/20231028n11433" onclick="ndrclick('RIV13');" title='알베르토 "형제들 모두 국제결혼…♥아내, 한일전 질 수 없다고 배우처럼 꾸며" (아는형님)'>알베르토 "형제들 모두 국제결혼…♥아내, 한일전 질 수 없다고 배우처럼 꾸며" (아는형님)</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking27" id="i32_27">
+<a href="//news.nate.com/view/20231028n05114" onclick="ndrclick('RIV13');" title="&quot;손님 많아 강남 1등&quot;…'이선균 협박' 女마담 정체는">"손님 많아 강남 1등"…'이선균 협박' 女마담 정체는</a> <em class="down"><i>하락</i>3</em> </li>
+<li class="ranking28" id="i32_28">
+<a href="//news.nate.com/view/20231028n10858" onclick="ndrclick('RIV13');" title='유민 "한국서 회당 출연료 400만 원…사기당해 돈 다 없어져"(사유리TV)[종합]'>유민 "한국서 회당 출연료 400만 원…사기당해 돈 다 없어져"(사유리TV)</a> <em class="down"><i>하락</i>12</em> </li>
+<li class="ranking29" id="i32_29">
+<a href="//news.nate.com/view/20231028n11465" onclick="ndrclick('RIV13');" title="남궁민, 안은진 품었다 &quot;이젠 나랑 같이 있으면 안 될까?&quot; ('연인2')">남궁민, 안은진 품었다 "이젠 나랑 같이 있으면 안 될까?" ('연인2')</a> <em class="up"><i>상승</i>1</em> </li>
+<li class="ranking30" id="i32_30">
+<a href="//news.nate.com/view/20231028n07618" onclick="ndrclick('RIV13');" title="아이돌이 배우하려면, 특히 이준호와 윤계상을 살펴봐라[서병기 연예톡톡]">아이돌이 배우하려면, 특히 이준호와 윤계상을 살펴봐라</a> <em class="down"><i>하락</i>2</em> </li>
+</ol>
+<div class="paging_right">
+<p class="rankdataMsg"><a href="//news.nate.com/rank/interest?sc=ent" onclick="ndrclick('RNK22');">랭킹 TOP 100 전체보기<span class="arr"></span></a></p>
+<div class="paging_cont rankingRg">
+<a class="prev" href="javascript:DisplayPart(2,'ent',1);" onclick="ndrclick('RIV15');">이전</a>
+<span><strong>2</strong>/2</span>
+<a class="next" href="javascript:DisplayPart(2,'ent',1);" onclick="ndrclick('RIV15');">다음</a>
+</div>
+</div>
+</div>
+<a class="more" href="//news.nate.com/rank/interest?sc=ent" onclick="ndrclick('RIV01');" title="연예 실시간 급상승 뉴스 더보기">+ 더보기</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	
+	try { 
+					var sRankBoxingID = '';
+				
+    	var sRankTab = sRankBoxingID.substr(0,3);
+    	if ( sRankTab != undefined && sRankTab.substr(0,1) == 'i' ) {
+            if ( sRankBoxingID && sRankBoxingID != '' ) {
+            	for ( var nChkTab = 1; nChkTab <= 3; nChkTab++ ) {
+            		var sBoldEle01 = document.getElementById('i' + nChkTab + '1_1');
+            		var sBoldEle16 = document.getElementById('i' + nChkTab + '2_16');
+            		if ( sBoldEle01 && sBoldEle16 ) {
+            			sBoldEle01.className = 'ranking1';
+            			sBoldEle16.className = 'ranking16';
+            		}
+            	}
+            
+            	var sBoxingEle	= document.getElementById(sRankBoxingID);
+            	if ( sBoxingEle ) { sBoxingEle.className = sBoxingEle.className + ' selected'; }
+            }
+            
+            setTab(sRankTab);
+		}
+	} catch(e) {}
+
+	if ( isiPad() ) {
+		jQuery('#tab_int_on a').bind('click',function(event) {
+			var index = jQuery(this).prop('id').substr(-1);
+			if(index != '' && jQuery.inArray(index, array(1,2,3)) ) { 
+				setRankingTab(3,index);
+				event.preventDefault();
+			}
+		});
+	}
+//]]>
+</script>
+<!-- 배너 : S-->
+<div class="ads">
+<iframe frameborder="0" height="250" id="AdRectangleBanner" marginheight="0" marginwidth="0" name="AdRectangleBanner" scrolling="no" src="//sports.news.nate.com/Etc/AdRectangleBanner?bViewPage=&amp;g_bRightAD=1" title="배너" width="250"></iframe>
+</div><!-- 배너 : E--> <!-- Poll -->
+<div class="poll">
+<form action="//comm.sports.news.nate.com/poll/vote" method="post" name="frmPoll_r31152">
+<input id="poll_sq31152" name="poll_sq" type="hidden" value="31152"/>
+<h3><a href="//sports.news.nate.com/spopub/poll" onclick="ndrclick('RIV83');">스포츠 POLL</a></h3>
+<div class="wrap">
+<fieldset>
+<legend>투표하기</legend>
+<dl>
+<dt>'김태형 감독 선임' 롯데, 앞으로의 3년은?</dt>
+<dd><label for="rd-01"><input class="radio" id="rd-01" name="qs" type="radio" value="0"/> <span>우승과 함께 새 왕조 건설</span></label></dd>
+<dd><label for="rd-02"><input class="radio" id="rd-02" name="qs" type="radio" value="1"/> <span>3~5위 전력으로 가을야구 복귀</span></label></dd>
+<dd><label for="rd-03"><input class="radio" id="rd-03" name="qs" type="radio" value="2"/> <span>현재와 비슷한 성적 유지</span></label></dd>
+<dd><label for="rd-04"><input class="radio" id="rd-04" name="qs" type="radio" value="3"/> <span>최하위권 추락</span></label></dd>
+<dd><label for="rd-05"><input class="radio" id="rd-05" name="qs" type="radio" value="4"/> <span>기타 - 댓글로 의견을 남겨주세요</span></label></dd>
+</dl>
+<div class="btn"><a class="join" href="javascript:votePoll('frmPoll_r31152','N');" onclick="ndrclick('RIV85');" title="새창">투표</a><a class="view" href="//comm.sports.news.nate.com/spopub/pollView?poll_sq=31152" onclick="ndrclick('RIV84');">결과</a></div>
+</fieldset>
+</div>
+</form>
+</div><!-- //Poll --> </div>
+</div>
+<!-- Right module -->
+<!-- //Right module -->
+</div> </div> <!-- Footer -->
+<div id="sportsFooter">
+<div id="footer">
+<dl class="footer_list">
+<dt>네이트 공용 푸터 영역</dt>
+<dd>
+<a href="//www.nate.com/footer/legal/index.html">서비스 이용약관</a><span>|</span>
+<a href="//www.nate.com/footer/privacy/index.html"><strong>개인정보처리방침</strong></a><span>|</span>
+<a href="//www.nate.com/policy/youthpolicy.html">청소년보호정책</a><span>|</span>
+<a href="//adguide.nate.com">광고문의</a><span>|</span>
+<a href="//helpdesk.nate.com">고객센터</a><span>|</span>
+<a href="//news.nate.com/newssitemap">뉴스 전체서비스</a>
+</dd>
+</dl>
+<p class="copyright">Copyright © <a href="//www.skcomms.co.kr/" target="_blank"><strong><span class="sk">SK</span> Communications.</strong></a> All rights reserved.</p>
+</div>
+</div>
+<!-- //Footer -->
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function() {
+	evalDeferJavascript();
+});
+//]]>
+</script> <script type="text/javascript">
+    //<![CDATA[
+        var _ndr_br	= "";
+        var sRef1	= ""
+        var sRef2	= "";
+        var sNdrPath= "//stat.nate.com/stat/stat.tiff?cp_url=[sports_ndr.news.nate.com/index/";
+        draw_ndr(sNdrPath, _ndr_br, sRef1, sRef2);
+
+    //]]>
+    </script>
+<!-- interest targeting -->
+<img alt="" height="0" src="//tracking.cyad1.nate.com/target/setRetarget.php?category=KI6789H" style="border:0;display:none;" width="0"/>
+</body></html>

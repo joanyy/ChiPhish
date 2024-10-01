@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<head> <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/> <meta content="IE=edge" http-equiv="X-UA-Compatible"/> <meta content="noarchive" name="robots"/>
+<meta content="no" http-equiv="imagetoolbar"/> <title>전체 게시판 목록 - 에펨코리아</title> <script type="text/javascript"> </script>
+<link href="//image.fmkorea.com/touchicon/logo180.png" rel="apple-touch-icon"/>
+<link href="//image.fmkorea.com/touchicon/logo76.png" rel="apple-touch-icon" sizes="76x76"/>
+<link href="//image.fmkorea.com/touchicon/logo120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="//image.fmkorea.com/touchicon/logo152.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="//static.fmkorea.com/common/css/default.css?c=1693227843" media="all" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/common/css/button.css?c=1669826201" media="all" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/_outpage/boardlist.css?c=1669826199" media="all" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/layouts/fm2015/css/style.css?c=1693227845" media="" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/layouts/fm2015/css/board.autosearch.css?c=1693227845" media="" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/common/js/plugins/ui.autocomplete/ui.autocomplete.css?c=1693227843" media="all" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/modules/editor/styles/default/style.css?c=1669826222" media="all" rel="stylesheet" type="text/css"/>
+<link href="//static.fmkorea.com/addons/socket/jquery.notice.css?c=1669826201" media="all" rel="stylesheet" type="text/css"/>
+<link href="/css.php?91904" media="all" rel="stylesheet" type="text/css"/>
+<script src="//static.fmkorea.com/common/js/jquery.js?c=1693227829" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/x.js?c=1669826133" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/common.js?c=1696624633" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/js_app.js?c=1669826133" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/xml_handler.js?c=1697052829" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/xml_js_filter.js?c=1693227830" type="text/javascript"></script>
+<script src="//static.fmkorea.com/addons/autolink/script.js?c=1693697753" type="text/javascript"></script>
+<script src="//static.fmkorea.com/_outpage/masonry.pkgd.min.js?c=1669826104" type="text/javascript"></script>
+<script src="//static.fmkorea.com/layouts/fm2015/js/script.js?c=1693227838" type="text/javascript"></script>
+<script src="//static.fmkorea.com/layouts/fm2015/js/board.autocomplete.js?c=1698420652" type="text/javascript"></script>
+<!--[if IE 6|IE 7|IE 8]>
+	<script type="text/javascript" src="//static.fmkorea.com/layouts/fm2015/js/html5shiv.js?c=1669826137"></script>
+	<![endif]-->
+<script src="//static.fmkorea.com/modules/fmconfig/tpl/js/fmconfig.js?c=1693227841" type="text/javascript"></script>
+<script src="//static.fmkorea.com/addons/socket/jquery.websocket.js?c=1669826114" type="text/javascript"></script>
+<script type="text/javascript">//<![CDATA[
+		var current_url = "https://www.fmkorea.com/?mid=board";
+		var request_uri = "https://www.fmkorea.com/";
+		var current_mid = "board";
+		var waiting_message = "서버에 요청중입니다. 잠시만 기다려주세요.";
+		var ssl_actions = new Array();
+		var default_url = "https://www.fmkorea.com/";
+    	var is_mobile_variable = "false";
+    	var is_logged_variable = "false";
+		
+		var domain_regex = /^(?:https?:)?\/\/(?:m\.|www\.|m?f\d+\.|image[^\.]*\.|media[^\.]*\.|gif[^\.]*\.|getfile[^\.]*\.|files[^\.]*\.|)(?:test)?fmkorea\.(?:(?:co\.)?kr|com|net)(?:\/|$)/i;
+											var enforce_ssl = true;
+				var js_css_uri = "\/\/static.fmkorea.com\/";
+				var link_url = "https:\/\/link.fmkorea.org\/";
+						var write_php_config = ["procMemberSaveDocument","procEditorSaveDoc","procBoardInsertComment","procBoardDeleteComment","procBoardInsertDocument","procBoardDeleteDocument","procCommunicationSendMessage","procCommunicationDeleteMessage","procCommunicationDeleteMessages","dispDocumentPreview"];
+						var getfile_url2 = "\/\/getfile.fmkorea.com\/";
+				window.img_url2 = "//image.fmkorea.com/";
+
+		window.domain_url_delete = ["m.fmkorea.com","www.fmkorea.com","fmkorea.com"];
+	//]]></script>
+<script>window.FMK_T=3397033560;</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GFCL6FWBKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-GFCL6FWBKV");
+</script>
+<script>window.mykey="MDAwMA==";</script>
+<script async="" src="//static.fmkorea.com/modules/ispam/tpl/js/f_fm_p.min.js?c=1697052829"></script>
+<style type="text/css">
+#wrap { min-width:1050px; }
+.Wrapper { width:1050px; }
+.ce #sidebar { width:190px; }
+.ce #sidebar2 { width:0px; }
+.ece #sidebar2 { _margin-left:-0px; }
+.ec #content, .ce #content { width:860px; }
+.eec #content, .ece #content, .ece #content { width:860px; }
+</style></head>
+<body>
+<div class="ce center ko_"> <div id="wrap"> <header id="header"> <div class="Wrapper"> <div class="logo"> <span class="h1 mpReset"> <a href="/"> <img alt="에펨코리아 - 축구, 인터넷 방송, 게임, 풋볼매니저" class="iePngFix" height="59" src="https://image.fmkorea.com/logos/fmkorealogo_h1.png" width="363"/> </a> </span> <p class="mpReset about">에펨코리아 - 유머, 축구, 인터넷 방송, 게임, 풋볼매니저 종합 커뮤니티</p> <hr/>
+</div>
+<nav class="mpReset" id="gnb">
+<div class="ul1"> <ul class="ul1"> <li class="li1"> <a class="a1" href="/"><span>포텐터짐</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/best"><span>포텐 터짐 최신순</span></a> </li><li class="li2"> <a class="a2" href="/best2"><span>포텐 터짐 화제순</span></a> </li><li class="li2"> <a class="a2" href="/index.php?mid=humor&amp;sort_index=pop&amp;order_type=desc"><span>- 유머/이슈 인기글</span></a> </li><li class="li2"> <a class="a2" href="/index.php?mid=football_news&amp;sort_index=pop&amp;order_type=desc"><span>- 축구 소식 인기글</span></a> </li> </ul>
+</div> </li><li class="li1"> <a class="a1" href="/humor"><span>유머/정보</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/humor"><span>유머/움짤/이슈</span></a> </li><li class="li2"> <a class="a2" href="/politics"><span>정치/시사</span></a> </li><li class="li2"> <a class="a2" href="/mystery"><span>미스터리/공포</span></a> </li><li class="li2"> <a class="a2" href="/digital"><span>디지털/컴퓨터/폰</span></a> </li> </ul>
+</div> </li><li class="li1"> <a class="a1" href="/football_news"><span>스포츠</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/football_news"><span>축구 소식통</span></a> </li><li class="li2"> <a class="a2" href="/football_world"><span>해외축구</span></a> </li><li class="li2"> <a class="a2" href="/football_korean"><span>국내축구</span></a> </li><li class="li2"> <a class="a2" href="/baseball"><span>야구</span></a> </li><li class="li2"> <a class="a2" href="/basketball"><span>농구</span></a> </li><li class="li2"> <a class="a2" href="/other_sports"><span>기타스포츠</span></a> </li> </ul>
+</div> </li><li class="li1"> <a class="a1" href="/hotdeal"><span>쇼핑/투자</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/hotdeal"><span>핫딜</span></a> </li><li class="li2"> <a class="a2" href="/stock"><span>주식</span></a> </li><li class="li2"> <a class="a2" href="/coin"><span>가상화폐</span></a> </li><li class="li2"> <a class="a2" href="/realestate"><span>부동산</span></a> </li><li class="li2"> <a class="a2" href="/freedeal"><span>자유쇼핑</span></a> </li> </ul>
+</div> </li><li class="li1"> <a class="a1" href="/afreecatv"><span>일반</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/afreecatv"><span>아프리카TV</span></a> </li><li class="li2"> <a class="a2" href="/ib"><span>인터넷방송</span></a> </li><li class="li2"> <a class="a2" href="/starcraft"><span>스타크래프트</span></a> </li><li class="li2"> <a class="a2" href="/movietv"><span>영화/TV</span></a> </li><li class="li2"> <a class="a2" href="/hiphop"><span>힙합</span></a> </li><li class="li2"> <a class="a2" href="/vtuber"><span>버튜버</span></a> </li><li class="li2"> <a class="a2" href="/assapig"><span>운동/건강/아싸</span></a> </li><li class="li2"> <a class="a2" href="/mangawebtoon"><span>웹툰/웹소설/만화</span></a> </li><li class="li2"> <a class="a2" href="/personacon"><span>프로필/로고</span></a> </li> </ul>
+</div> </li><li class="li1 menu_ext_mid"> <a class="a1" href="/lol"><span>게임</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <span class="a2"><span>PC/기타</span></span> <div class="ul3"> <ul class="ul3"> <li class="li3 menu_ext_mid"> <a class="a3" href="/lol"><span>LoL</span></a> </li><li class="li3"> <a class="a3" href="/lostark"><span>로스트아크</span></a> </li><li class="li3"> <a class="a3" href="/other_game"><span>PC/콘솔</span></a> </li><li class="li3"> <a class="a3" href="/maple"><span>메이플</span></a> </li><li class="li3"> <a class="a3" href="/pokemon"><span>포켓몬</span></a> </li><li class="li3"> <a class="a3" href="/df"><span>던파</span></a> </li><li class="li3"> <a class="a3" href="/tft"><span>TFT</span></a> </li><li class="li3"> <a class="a3" href="/diablo"><span>디아블로</span></a> </li><li class="li3"> <a class="a3" href="/gersang"><span>거상</span></a> </li><li class="li3"> <a class="a3" href="/eternalreturn"><span>이터널 리턴</span></a> </li> </ul>
+</div> </li><li class="li2"> <span class="a2"><span>모바일</span></span> <div class="ul3"> <ul class="ul3"> <li class="li3"> <a class="a3" href="/genshin"><span>원신</span></a> </li><li class="li3"> <a class="a3" href="/baramy"><span>바람:연</span></a> </li><li class="li3"> <a class="a3" href="/starrail"><span>스타레일</span></a> </li><li class="li3"> <a class="a3" href="/uma"><span>우마무스메</span></a> </li><li class="li3"> <a class="a3" href="/mgame"><span>모바일게임</span></a> </li><li class="li3"> <a class="a3" href="/gf"><span>소녀전선</span></a> </li><li class="li3"> <a class="a3" href="/df_mobile"><span>던파 모바일</span></a> </li> </ul>
+</div> </li> </ul>
+</div> </li><li class="li1 menu_ext_mid"> <a class="a1" href="/fashion"><span>커뮤니티</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <span style="display:block; height:1px; margin:-8px 0 0;"></span> <div class="ul3"> <ul class="ul3"> <li class="li3 menu_ext_mid"> <a class="a3" href="/fashion"><span>패션</span></a> </li><li class="li3"> <a class="a3" href="/love"><span>연애상담</span></a> </li><li class="li3"> <a class="a3" href="/car"><span>자동차</span></a> </li><li class="li3"> <a class="a3" href="/free"><span>자유</span></a> </li><li class="li3"> <a class="a3" href="/job"><span>직장/알바/사업</span></a> </li><li class="li3"> <a class="a3" href="/study"><span>공부</span></a> </li> </ul>
+</div> </li><li class="li2"> <span style="display:block; height:1px; margin:-8px 0 0;"></span> <div class="ul3"> <ul class="ul3"> <li class="li3"> <a class="a3" href="/notice"><span>공지</span></a> </li><li class="li3"> <a class="a3" href="/suggest"><span>문의/신고</span></a> </li><li class="li3"> <a class="a3" href="/suggestaftv"><span>앞TV 문의/신고</span></a> </li><li class="li3"> <a class="a3" href="/suggest2"><span>건의 게시판</span></a> </li> </ul>
+</div> </li> </ul>
+</div> </li><li class="li1"> <a class="a1" href="/starfree"><span>갤러리</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/starfree"><span>연예인잡담</span></a> </li><li class="li2"> <a class="a2" href="/food"><span>음식/여행</span></a> </li><li class="li2"> <a class="a2" href="/subculture"><span>오덕양성소</span></a> </li><li class="li2"> <a class="a2" href="/girlgroup"><span>걸그룹</span></a> </li><li class="li2"> <a class="a2" href="/girlstar"><span>여자연예인</span></a> </li><li class="li2"> <a class="a2" href="/animal"><span>동물/식물</span></a> </li> </ul>
+</div> </li><li class="li1 menu_ext_mid"> <a class="a1" href="/fm24free"><span>풋볼매니저</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2 menu_ext_mid"> <a class="a2" href="/fm24free"><span>FM2024</span></a> <div class="ul3"> <ul class="ul3"> <li class="li3 menu_ext_mid"> <a class="a3" href="/fm24free"><span>에펨자유</span></a> </li><li class="li3"> <a class="a3" href="/6294079487"><span>[2024자료안내]</span></a> </li><li class="li3"> <a class="a3" href="/1598251840"><span>[통합][패치 자동설치]</span></a> </li><li class="li3"> <a class="a3" href="/fmfacepack"><span>[통합]그래픽 패치</span></a> </li><li class="li3"> <a class="a3" href="/fmm"><span>[통합]모바일/FMM/FMT</span></a> </li><li class="li3"> <a class="a3" href="/fm24data"><span>스킨/일반자료</span></a> </li><li class="li3"> <a class="a3" href="/fm24tactic"><span>전술자료실</span></a> </li><li class="li3"> <a class="a3" href="/fm24tqna"><span>전술토론</span></a> </li><li class="li3"> <a class="a3" href="/fm24players"><span>선수/스탭</span></a> </li><li class="li3"> <a class="a3" href="/fm24tips"><span>플레이팁</span></a> </li> </ul>
+</div> </li><li class="li2"> <a class="a2" href="/fm23free"><span>FM2023</span></a> <div class="ul3"> <ul class="ul3"> <li class="li3"> <a class="a3" href="/fm23free"><span>에펨자유</span></a> </li><li class="li3"> <a class="a3" href="/5129508876"><span>[2023자료안내]</span></a> </li><li class="li3"> <a class="a3" href="/fm23data"><span>스킨/일반자료</span></a> </li><li class="li3"> <a class="a3" href="/fm23tactic"><span>전술자료실</span></a> </li><li class="li3"> <a class="a3" href="/fm23tqna"><span>전술토론</span></a> </li><li class="li3"> <a class="a3" href="/fm23players"><span>선수/스탭</span></a> </li><li class="li3"> <a class="a3" href="/fm23tips"><span>플레이팁</span></a> </li> </ul>
+</div> </li> </ul>
+</div> </li><li class="li1"> <a class="a1" href="/fifa_series"><span>FC</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/fifa_series"><span>EA FC시리즈</span></a> </li><li class="li2"> <a class="a2" href="/fifa_online"><span>EA FC온라인</span></a> </li> </ul>
+</div> </li><li class="li1 menu_ext_mid"> <a class="a1" href="/newboard"><span>2군</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <span style="display:block; height:1px; margin:-8px 0 0;"></span> <div class="ul3"> <ul class="ul3"> <li class="li3 menu_ext_mid"> <a class="a3" href="/newboard"><span>2군, 구게시판 목록</span></a> </li> </ul>
+</div> </li> </ul>
+</div> </li> <li class="li1 li_bookmark"> <a class="a1" href="/index.php?act=dispMemberBookmark"><span>바로가기</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"> <a class="a2" href="/index.php?act=dispMemberBookmark"><span>설정하기</span></a> </li> </ul> </div> </li> <li class="li1 li_bookmark2"> <a class="a1" href="/board"><span>전체 게시판</span></a> <div class="ul2"> <ul class="ul2"> <li class="li2"><a class="a2" href="/board"><span>전체 게시판 목록</span></a></li> </ul> </div> </li> </ul>
+</div> <hr/>
+</nav>
+<script>if(typeof(fm2015navi)=='function') window.fm2015navi();</script>
+<div class="logged_info"> <span class="li2"><a class="a" href="/index.php?mid=board&amp;act=dispMemberSignUpForm">회원 가입</a></span> <span class="li2"><a class="a" href="/index.php?mid=board&amp;act=dispMemberFindAccount">비번 찾기</a></span> <span class="li2"><a class="a" href="/index.php?mid=board&amp;act=dispMemberResendAuthMail">인증 메일 재발송</a></span> <span class="li2"><a class="a on0" href="javascript:;" onclick="if(!confirm('다크 모드를 활성화할까요?')) return false;jQuery.cookie('night_mode','Y', {path:'/','expires':365});location.reload();return false;">다크OFF</a></span> <form action="https://www.fmkorea.com/" class="li2 mpReset" method="post" onsubmit="return GS_LOGIN_FILTER(this)"> <input name="module" type="hidden" value="member"/> <input name="act" type="hidden" value="procMemberLogin"/> <input name="redirect_url" type="hidden" value="/board"/> <input name="error_return_url" type="hidden" value="/index.php?mid=board&amp;act=dispMemberLoginForm&amp;landingcheck=5256c0cf1b0a9cdd9a5ca6c0512fbe3d&amp;landingpage=%2Fboard"/> <input class="iText" name="user_id" placeholder="아이디" type="text" value=""/> <input class="iText" name="password" placeholder="암호" type="password" value=""/> <span class="keep"> <input id="keepA" name="keep_signed" type="checkbox" value="Y"/> <label for="keepA">자동 로그인</label> <label class="title" for="keepA">	창을 닫아도 로그인이 유지됩니다.	</label> </span> <button type="submit">로그인</button> </form> </div>
+<span id="notify_point"></span>
+<div class="search mpReset board_autosearch_wrapper"> <form action="https://www.fmkorea.com/" method="get"> <input name="act" type="hidden" value="IS"> <input class="iText" id="IS_SEARCH" name="is_keyword" placeholder="게시판명 &amp; 통합검색" type="text" value=""/> <span class="submit"><input type="submit" value="검색"/></span> </input></form> <hr/>
+</div>
+<script>
+	jQuery(function($) {
+		$('#IS_SEARCH').on('focus click', function() {
+			loadBoardSearch();
+		});
+	});
+
+	function loadBoardSearch() {
+		if(typeof window.cBoardSearch == 'object') return;
+		if(window.is_start_load_board_search == true) return;
+		window.is_start_load_board_search = true;
+		jQuery.getJSON('/files/board_search_data.json?c=1698251337', function (data) {
+			window.cBoardSearch = new korean_fuzzy_search(data, {});
+			loadBoardAutoComplete(data);
+			window.is_start_load_board_search = false;
+		});
+	}
+</script> </div> </header> <div class="content_padding_true" id="container"> <div class="Wrapper"> <div class="fixed" id="banner3"><div class="banner3-fixed"> <script>
+var width = window.innerWidth || document.documentElement.clientWidth;if (width >= 1686) {
+	document.write("<div style=\"border:0;width:300px;height:600px;\">");
+} else if (width >= 1506) {
+	document.write("<div style=\"border:0;width:210px;height:600px;\">");
+} else if (width >= 1406) {
+	document.write("<div style=\"border:0;width:160px;height:600px;\">");
+} else if (width >= 1326) {
+	document.write("<div style=\"border:0;width:120px;height:600px;\">");
+} else {
+	document.write("<div style=\"border:0;width:120px;height:600px;\">");
+}
+</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2430764006993310"></script>
+<!-- left vertical responsive 20230219 -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-2430764006993310" data-ad-format="vertical" data-ad-slot="4228812019" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><script>document.write("</div>");</script> </div></div> <div id="sidebar"><div class="padding"> <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2430764006993310"></script>
+<!-- 190 x 600 right 20230219 -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-2430764006993310" data-ad-format="vertical" data-ad-slot="3589134875" data-full-width-responsive="true" style="display:inline-block;width:190px;height:600px"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> <div class="fm_hot_key"> <div class="title">단축키</div> <div class="more"><a href="/index.php?mid=board&amp;act=dispMemberBookmark">설정하기</a></div> <div class="ul"> <div class="li"><a href="javascript:;" onclick="jQuery('html, body').scrollTop(0);return false;"><span class="num">e</span> <span class="name">상단으로</span></a></div> <div class="li"><a href="javascript:;" onclick="jQuery('html, body').scrollTop( jQuery(document).height() );return false;"><span class="num">d</span> <span class="name">하단으로</span></a></div> <div class="li" style="clear:both;"><a href="/"><span class="num">1</span> <span class="name">포텐터짐</span></a></div> <div class="li"><a href="/humor"><span class="num">2</span> <span class="name">유머</span></a></div> <div class="li"><a href="/football_news"><span class="num">3</span> <span class="name">축구소식</span></a></div> </div> </div> </div></div><div id="content"><div class="content_dummy"> <script>layout_top_y();</script> <h1 class="browser_title">전체 게시판</h1>
+<ul class="bIntro">
+<li><span class="star"></span>을 클릭하시면 바로가기 메뉴에 등록됨<br/><span class="star bookmark"></span> 게시판들은 <a class="btn_pack" href="/index.php?mid=best&amp;sort_index=bookmark"><span>포텐+</span></a> <a class="btn_pack" href="/index.php?mid=best&amp;sort_index=bookmark&amp;filter=pop"><span>인기글+</span></a> 통해 모아 보기 가능</li>
+<!--// <li><a href="/index.php?mid=board&amp;act=dispMemberBookmark" class="button"><span>순서 설정</span></a> - 마이페이지의 바로가기 설정으로 이동하기</li>
+	<li><span class="button strong red"><button type="button" class="clear">초기화</button></span> - 바로가기 설정을 기본값으로 복구하기</li> -->
+</ul>
+<nav class="bd bList">
+<ul class="gn">
+<li>
+<span class="a"><a href="//">포텐터짐</a></span>
+<ul>
+<li> <a href="/best">포텐 터짐 최신순</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/best2">포텐 터짐 화제순</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/index.php?mid=humor&amp;sort_index=pop&amp;order_type=desc">- 유머/이슈 인기글</a> </li>
+<li> <a href="/index.php?mid=football_news&amp;sort_index=pop&amp;order_type=desc">- 축구 소식 인기글</a> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/humor">유머/정보</a></span>
+<ul>
+<li> <a href="/humor">유머/움짤/이슈</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/politics">정치/시사</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/mystery">미스터리/공포</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/digital">디지털/컴퓨터/폰</a><i class="star" title="바로가기 추가/제거"></i> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/football_news">스포츠</a></span>
+<ul>
+<li> <a href="/football_news">축구 소식통</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/football_world">해외축구</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/football_korean">국내축구</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/baseball">야구</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/basketball">농구</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/other_sports">기타스포츠</a><i class="star" title="바로가기 추가/제거"></i> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/hotdeal">쇼핑/투자</a></span>
+<ul>
+<li> <a href="/hotdeal">핫딜</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/stock">주식</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/coin">가상화폐</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/realestate">부동산</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/freedeal">자유쇼핑</a><i class="star" title="바로가기 추가/제거"></i> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/afreecatv">일반</a></span>
+<ul>
+<li> <a href="/afreecatv">아프리카TV</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/ib">인터넷방송</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/starcraft">스타크래프트</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/movietv">영화/TV</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/hiphop">힙합</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/vtuber">버튜버</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/assapig">운동/건강/아싸</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/mangawebtoon">웹툰/웹소설/만화</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/personacon">프로필/로고</a><i class="star" title="바로가기 추가/제거"></i> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/lol">게임</a></span>
+<ul>
+<li> <span class="a2">PC/기타</span>
+<ul> <li><a href="/lol">LoL</a><i class="star"></i></li>
+<li><a href="/lostark">로스트아크</a><i class="star"></i></li>
+<li><a href="/other_game">PC/콘솔</a><i class="star"></i></li>
+<li><a href="/maple">메이플</a><i class="star"></i></li>
+<li><a href="/pokemon">포켓몬</a><i class="star"></i></li>
+<li><a href="/df">던파</a><i class="star"></i></li>
+<li><a href="/tft">TFT</a><i class="star"></i></li>
+<li><a href="/diablo">디아블로</a><i class="star"></i></li>
+<li><a href="/gersang">거상</a><i class="star"></i></li>
+<li><a href="/eternalreturn">이터널 리턴</a><i class="star"></i></li>
+</ul> </li>
+<li> <span class="a2">모바일</span>
+<ul> <li><a href="/genshin">원신</a><i class="star"></i></li>
+<li><a href="/baramy">바람:연</a><i class="star"></i></li>
+<li><a href="/starrail">스타레일</a><i class="star"></i></li>
+<li><a href="/uma">우마무스메</a><i class="star"></i></li>
+<li><a href="/mgame">모바일게임</a><i class="star"></i></li>
+<li><a href="/gf">소녀전선</a><i class="star"></i></li>
+<li><a href="/df_mobile">던파 모바일</a><i class="star"></i></li>
+</ul> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/fashion">커뮤니티</a></span>
+<ul>
+<li> <span style="display:none;"> <a href="/hide">커뮤니티</a> </span> <ul> <li><a href="/fashion">패션</a><i class="star"></i></li>
+<li><a href="/love">연애상담</a><i class="star"></i></li>
+<li><a href="/car">자동차</a><i class="star"></i></li>
+<li><a href="/free">자유</a><i class="star"></i></li>
+<li><a href="/job">직장/알바/사업</a><i class="star"></i></li>
+<li><a href="/study">공부</a><i class="star"></i></li>
+</ul> </li>
+<li> <span style="visibility:hidden;"> <a href="/hide">에펨코리아</a> </span> <ul> <li><a href="/notice">공지</a><i class="star"></i></li>
+<li><a href="/suggest">문의/신고</a><i class="star"></i></li>
+<li><a href="/suggestaftv">앞TV 문의/신고</a><i class="star"></i></li>
+<li><a href="/suggest2">건의 게시판</a><i class="star"></i></li>
+</ul> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/starfree">갤러리</a></span>
+<ul>
+<li> <a href="/starfree">연예인잡담</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/food">음식/여행</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/subculture">오덕양성소</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/girlgroup">걸그룹</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/girlstar">여자연예인</a><i class="star" title="바로가기 추가/제거"></i> </li>
+<li> <a href="/animal">동물/식물</a><i class="star" title="바로가기 추가/제거"></i> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/fm24free">풋볼매니저</a></span>
+<ul>
+<li> <a href="/fm24free">FM2024</a> <ul> <li><a href="/fm24free">에펨자유</a><i class="star"></i></li>
+<li><a href="/6294079487">[2024자료안내]</a></li>
+<li><a href="/1598251840">[통합][패치 자동설치]</a></li>
+<li><a href="/fmfacepack">[통합]그래픽 패치</a><i class="star"></i></li>
+<li><a href="/fmm">[통합]모바일/FMM/FMT</a><i class="star"></i></li>
+<li><a href="/fm24data">스킨/일반자료</a><i class="star"></i></li>
+<li><a href="/fm24tactic">전술자료실</a><i class="star"></i></li>
+<li><a href="/fm24tqna">전술토론</a><i class="star"></i></li>
+<li><a href="/fm24players">선수/스탭</a><i class="star"></i></li>
+<li><a href="/fm24tips">플레이팁</a><i class="star"></i></li>
+</ul> </li>
+<li> <a href="/fm23free">FM2023</a> <ul> <li><a href="/fm23free">에펨자유</a><i class="star"></i></li>
+<li><a href="/5129508876">[2023자료안내]</a></li>
+<li><a href="/fm23data">스킨/일반자료</a><i class="star"></i></li>
+<li><a href="/fm23tactic">전술자료실</a><i class="star"></i></li>
+<li><a href="/fm23tqna">전술토론</a><i class="star"></i></li>
+<li><a href="/fm23players">선수/스탭</a><i class="star"></i></li>
+<li><a href="/fm23tips">플레이팁</a><i class="star"></i></li>
+</ul> </li>
+</ul>
+</li>
+<li>
+<span class="a"><a href="/newboard">2군</a></span>
+<ul>
+<li> <span style="display:none;"> <a href="/hide">일반</a> </span> <ul> <li><a href="/newboard">2군, 구게시판 목록</a><i class="star"></i></li>
+</ul> </li>
+</ul>
+</li>
+</ul>
+</nav>
+<!--// 바로가기 표시하기.. php에서 해야맞는데, html 마크업이라 js 통해 처리함 -->
+<script type="text/javascript">//<![CDATA[
+(function($){
+	
+
+	
+/*
+	var height_sum = 0;
+	var li = $(".bList > ul > li");
+	li.each(function(){
+		height_sum += $(this).outerHeight();
+		this.height_sum = height_sum;
+	});
+	// 가장 적절한 높이 배율을 뽑기
+	var height_min = height_sum;
+	var divide;
+	li.each(function(){
+		// 좌 = this.height_sum | 우 = height_sum - this.height_sum
+		var height = this.height_sum - (height_sum - this.height_sum);
+		if( height_min > height && height >= 0 )
+		{
+			 height_min = height;
+			 devide = this;
+		}
+	});
+	var prevAll = $(devide).prevAll();
+	prevAll.push( devide );
+	prevAll.addClass("static");
+	var top = 0;
+	$(devide).nextAll().each(function(){
+		$(this).addClass("right");
+		$(this).css({ "top": top });
+		top += $(this).outerHeight();
+	});
+*/
+	$('.bList ul.gn').masonry({gutter:10});
+	
+})(jQuery);
+//]]></script> <hr/>
+</div></div>
+</div> </div> <footer id="footer"> <div class="Wrapper"> <div class="sta mpReset">
+<ul class="ul"> </ul> <hr/>
+</div><div class="copyright"> <address> <span style="width:100%">	Copyright © www.fmkorea.com All rights reserved.	</span> </address> <div style="float:right;"> <span>동시 접속자: 78,052명</span> </div> <div id="about-us"><script type="text/javascript">jQuery(function($){
+		setTimeout(function(){
+			$('#about-us').html( "\uc5d0\ud3a8\ucf54\ub9ac\uc544 \uc6b4\uc601\ud300: help@fmkorea.com | <a href=\"\/policy\" style=\"font-weight:normal;\">\uc774\uc6a9\uc57d\uad00<\/a> | <a href=\"\/privacy\" style=\"font-weight:bold;\">\uac1c\uc778\uc815\ubcf4\ucc98\ub9ac\ubc29\uce68<\/a> | <a href=\"\/youth_protect\" style=\"font-weight:normal;\">\uccad\uc18c\ub144\ubcf4\ud638\uc815\ucc45 | <a href=\"\/suggest\" style=\"font-weight:normal;\">\ubb38\uc758\/\uc2e0\uace0<\/a> | <a href=\"\/delete_request\" style=\"font-weight:normal;\">\uac8c\uc2dc\uae00 \uc911\ub2e8 \uc694\uccad<\/a>" );
+		},10);
+	});</script></div>
+</div> </div> </footer> </div>
+</div>
+<script>//<![CDATA[
+window.fm_notify_init = function()
+{
+	try
+	{
+		ws.close();
+	}
+	catch (e){}
+
+	jQuery.livealert_exclude = false;
+	window.ws = new WebSocket('wss://livealert.fmkorea.com:443/');
+	ws.onopen = function()
+	{
+		ws.send('Z@3787cd0c7757eef8cbe7729b94256f85@ANON');
+ws.send('C@6ec28cc9ff976e4c032365fc367edf2a@board');
+		ws_onmessage();
+	}
+}
+jQuery(fm_notify_init);
+//]]></script> <script>jQuery(function($) { window.oFmconfigModule.load('board_search', 'number_of_recommend_board_list', '5');
+ })</script> <div id="waitingforserverresponse"></div>
+<script src="//static.fmkorea.com/common/js/plugins/korean_fuzzy_search/korean_fuzzy_search.js?c=1698420652" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/plugins/korean_fuzzy_search/fuse.js?c=1693227828" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/plugins/korean_fuzzy_search/hangul.js?c=1693227828" type="text/javascript"></script>
+<script src="//static.fmkorea.com/common/js/plugins/ui.autocomplete/ui.autocomplete.js?c=1693227829" type="text/javascript"></script>
+</body>
