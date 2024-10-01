@@ -1,4 +1,4 @@
-This repository describes the implementation of "Beyond the West: Revealing and Bridging the Gap between Western and Chinese Phishing Website Detection" currently under review.
+This repository describes the implementation of our paper "Beyond the West: Revealing and Bridging the Gap between Western and Chinese Phishing Website Detection", which is accepted by Computers & Security.
 
 # **Organization**
 
