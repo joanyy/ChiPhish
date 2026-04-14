@@ -17,9 +17,9 @@ We explain the documents in the order of the list above, i.e., ```data```, ```pr
 This folder includes 5 subfolders corresponding to 5 datasets:
 - _JP_. This folder includes 100 Japanese websites: phishing websites collected from openphish, phishtank and [phishIntention](https://github.com/lindsey98/PhishIntention); benign websites are most common Japanese websites according to [similarweb](https://www.similarweb.com/).
 - _KR_. This folder includes 100 Korean websites, collected from the same source with _JP_.
-- _EngPhish_. This English-only data corpus is extracted from the latest public dataset [LNU-Phish](https://lnu-phish.github.io/). This folder includes raw data of webpages, which will be deleted later to avoid potential copyright violations. However, we will maintain the preprocessed version of each webpage. 
+- _EngPhish_. This English-only data corpus is extracted from the latest public dataset [LNU-Phish](https://lnu-phish.github.io/); an example is provided in the subfolder 'engphish'. We also provide the preprocessed data. 
 - _WstPhish_. We extracted a subset from [Zenodo](https://dl.acm.org/doi/abs/10.1145/3465481.3470112) by cosidering the most common European phonologic languages; an example is provided in the subfolder 'wstphish'. 
-- _ChiPhish_. We collected a dataset for Chinese-based PWD, **which we will publicly release** upon publication. We collected Chinese benign webpages from the top60 Chinese websites listed on 'chinaz.com'; this repository includes a snippet of our full dataset. We provide the top30's homepage information (the source of benign webpages) in subfolder 'ch_benign_homepage_top30'. The preliminary information about our dataset is described in 'chphish_20samples' containing 10 benign samples and 10 phish samples. The brands distribution of ChiPhish dataset is shown below:
+- _ChiPhish_. We collected a ChiPhish dataset. Due to space limitations, the full dataset is available on [Zenodo](https://zenodo.org/records/19558545), and we provide 10 benign and 10 phish samples in subfolder 'chphish_20samples' for a quick preview. The Chinese benign webpages were collected from the top60 Chinese websites listed on 'chinaz.com'. We provide the top30's homepage information (the source of benign webpages) in subfolder 'ch_benign_homepage_top30'. The distribution of ChiPhish benign samples is shown below:
 
 | Category | #Benign | Example | 
 |:---------:|:-----:|:------:| 
@@ -70,3 +70,18 @@ This folder contains 5 files and 1 folder:
 1. Get the data and install the requirements. We recommend creating an virtual environment by Anaconda, and execute ```pip install -r requirements.txt```.
 2. Extracting features by the script of *preprocessing/extractor.ipynb*
 3. PWD performance. Input features to the *.ipynb* scripts of ```custom_pwd``` or ```production_pwd``` or ```spacephish_pwd``` to get the corresponding result on each dataset.  
+
+# Citations
+```bibtex
+@article{yuan2025beyond,
+  title={Beyond the west: Revealing and bridging the gap between Western and Chinese phishing website detection},
+  author={Ying Yuan and Giovanni Apruzzese and Mauro Conti},
+  journal={Computers \& Security},
+  volume={148},
+  pages={104115},
+  year={2025},
+  publisher={Elsevier}
+}
+```
+
+If you have any questions, please raise a Github issue or email ying[dot]yuan[at]ore.se, giovannia[at]ru.is.
